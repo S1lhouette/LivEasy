@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link  rel="stylesheet" type="text/css" href="../css/editAccount.css">
+    <script type="text/javascript" src="../js/editAccount.js"></script>
+</head>
+
+<body id="background">
+    <div id = "head">
+      <text id="logout"> Log out</text>
+      <img id="logoSmall" src="../images/logo.png" alt="logo">
+      <text id="title"> LivEasy </text>
+      <button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button>
+      <button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button>
+      <button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button>
+    </div>
+
+     <div id="body">
+      <text id="subTitile"> My Account </text>
+      <div class="text">First Name<br>
+        <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')">
+        <span class="hint" id="firstNameHint"></span>
+      </div>
+      <from>
+      <div class="text">Last Name<br>
+        <input class="textInput" id="lastName" type="text" name="lastName" onkeyup="checkNull('lastName')">
+        <span class="hint" id="lastNameHint"></span>
+      </div>
+
+      <div class="text">Email<br>
+        <input class="textInput" id="email" type="text" name="email"  onkeyup="isEmail()">
+        <span class="hint" id="emailHint"></span>
+      </div>
+
+      <div class="text">Password<br>
+          <input class="textInput"  id="psw1" type="password" name="password" >
+      </div>
+
+      <div class="text" >Confirm Password<br>
+          <input class="textInput" id="psw2" type="password" name="confirmPassword" onkeyup="verifyPsw()">
+          <span class="hint" id="pswHint"></span>
+      </div>
+
+      <div class="text">Flat Number<br>
+        <input class="textInput" id="flatNum" type="text" name="flatNum" onkeyup="isFlatNum()">
+        <span class="hint" id="flatHint"></span>
+      </div>
+
+      <div class="text">Room Number<br>
+        <input class="textInput"  id="roomNum" type="text" name="roomNum" onkeyup="isRoomNum()">
+        <span class="hint" id="roomHint"></span>
+      </div>
+
+      <input type="submit" id="saveBtn" name="Save" value="Save">
+    </from>
+      <button id="deleteBtn" name="Sign in" onclick="deleteConfirm()">Delete Account</button>
+    </div>
+</body>
+
+
+</html>

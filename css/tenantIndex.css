@@ -1,0 +1,244 @@
+html{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#background{
+    height: 100%;
+    width: 100%;
+    background:url('../images/studentBkg.png') no-repeat;
+    background-size: cover;
+}
+
+#head{
+    height: 30%;
+    width: 100%;
+    font-size: 0px;
+}
+
+#logoSmall{
+    height: 90px;
+    position: relative;
+    left: 5%;
+    float:left;
+}
+
+#title{
+    color:#fff;
+    height: 100px;
+    width: 200px;
+    position: relative;
+    left: 6%;
+    margin-top: 10px;
+    font-size: 50px;
+    font-family: "Arial Black";
+}
+#webName{
+    text-decoration: none;
+}
+#logout{
+    margin-left: 90%;
+    color: white;
+    font-family: "Arial Black";
+    font-size: 15px;
+}
+
+#body{
+    margin-top: 3%;
+    height:75%;
+    width: 100%;
+}
+
+.navigation{
+    position: relative;
+    background-color: #fecb2f;
+    color: white;
+    font-family: "Arial Black";
+    font-size: medium;
+    height: 40px;
+    width: 12%;
+    left: 40%;
+    top: 15%;
+    border-radius: 5px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navigation:hover{
+    background-color: #ffbe1e;
+}
+
+.verticalBtn{
+    background-color: #797979;
+    color: white;
+    font-family: "Arial Black";
+    font-size: small;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    margin-left:3%;
+}
+
+.verticalBtn:hover{
+    background-color: #4b4b4b;
+}
+
+#left{
+    float: left;
+    width: 6%;
+    margin-left:7%;
+    margin-top: 3%;
+}
+#mid{
+    float: left;
+    width: 48%;
+    height: 500px;
+    margin-top: 3%;
+    font-weight: bolder;
+    font-family: Arial;
+}
+#c1{
+    margin-left:0.5%;
+    width: 100%;
+    height: 85%;
+    background-color: rgba(255,255,255,0.4);
+}
+#c3{
+    width: 100%;
+    height: 85%;
+    margin-left:0.5%;
+    background-color: rgba(255,255,255,0.4);
+}
+#msgTable{
+    margin-left: 0.5%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0);
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 1%;
+}
+
+.msg{
+    width: 90%;
+    height: 30%;
+    color: black;
+}
+.userName{
+    width: 20%;
+    height: 30%;
+    color: black
+}
+#msgInput{
+    margin-left: 0.5%;
+    resize: none;
+    background-color: rgba(255,255,255,0.4);
+    font-size: large;
+    font-family: Arial;
+    width: 98%;
+
+}
+#msgInput::placeholder{
+    font-family: "Arial Bold";
+    font-size: large;
+    color: white;
+}
+#submitBtn{
+    background-color: black;
+    color: white;
+    font-size: large;
+    border-radius: 5px;
+    border: none;
+    margin-top: 2%;
+    margin-left: 21%;
+    width: 12%;
+    height: 9%;
+}
+.foot{
+    font-size: large;
+    font-family: "Arial Black";
+    font-weight: bold;
+    color: white;
+}
+
+#dropList{
+    font-size: medium;
+    font-weight: normal;
+
+}
+#checkBox{
+    margin-left: 15%;
+    color: white;
+
+}
+#myTable{
+    margin-left: 0.5%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0);
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 1%;
+}
+
+.msg{
+    width: 80%;
+    height: 30%;
+    color: black;
+}
+.delete{
+    width: 10%;
+    height: 30%;
+    color: black
+}
+.deleteBtn{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+
+}
+
+#right{
+    margin-top: 5%;
+    float: right;
+    width: 35%;
+    color: white;
+    font-family: Arial;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.smallerFont{
+    font-size: large;
+    font-weight: bolder;
+    margin-left: 3%;
+}
+
+.links{
+    color: white;
+}
+
+#welcome{
+    font-style: italic;
+    font-size: xx-large;
+}
+
+#mid div{
+    display: none;
+}
+
+#mid .show{
+    display: block;
+}
+
+.selected{
+    background-color: black;
+}
+.selected:hover{
+    background-color: black;
+}

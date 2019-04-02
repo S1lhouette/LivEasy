@@ -1,0 +1,152 @@
+html{
+    width: 100%;
+    overflow-x: hidden;
+}
+#background{
+    height: 100%;
+    width: 100%;
+    background:url('../images/studentBkg.png') no-repeat;
+    background-size: cover;
+
+}
+
+#head{
+    height: 30%;
+    width: 100%;
+    font-size: 0px;
+}
+
+#logoSmall{
+    height: 90px;
+    position: relative;
+    left: 5%;
+    float:left;
+}
+
+#title{
+    color:#fff;
+    height: 100px;
+    width: 200px;
+    position: relative;
+    left: 6%;
+    margin-top: 10px;
+    font-size: 50px;
+    font-family: "Arial Black";
+}
+#webName{
+    text-decoration: none;
+}
+#logout{
+    margin-left: 90%;
+    color: white;
+    font-family: "Arial Black";
+    font-size: 15px;
+}
+
+#body{
+  height: 70%;
+  width: 100%;
+}
+
+.navigation{
+    position: relative;
+    background-color: #fecb2f;
+    color: white;
+    font-family: "Arial Black";
+    font-size: medium;
+    height: 40px;
+    width: 12%;
+    left: 40%;
+    top: 15%;
+    border-radius: 5px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navigation:hover{
+    background-color: #ffbe1e;
+}
+
+#subTitile{
+    color:#fff;
+    width: 20%;
+    position: relative;
+    left: 5%;
+    font-size: 30px;
+    font-family: "Arial Black";
+    font-style: italic;
+}
+
+.text{
+  margin-top: 0.5%;
+    position: relative;
+    left: 5%;
+    font-family: "Arial Black";
+    font-size: 18px;
+    color: #fff;
+    width: auto;
+    width: 100%;
+}
+
+.textInput{
+    position: relative;
+    font-size: 15px;
+    width: 30%;
+}
+
+.dropList{
+    position: relative;
+    font-size: 15px;
+    width: 45%;
+}
+
+.hint{
+    position:relative;
+    font-size: 15px;
+    margin-left: 5%;
+    font-family: "Arial Bold";
+    width:35%;
+}
+
+
+#saveBtn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#saveBtn{
+    position: relative;
+    background-color:  #fecb2f;
+    color: white;
+    font-family: "Arial Rounded MT Bold";
+    font-size: large;
+    height: 10%;
+    width: 8%;
+    border-radius: 10px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    margin-left: 40%;
+}
+
+#deleteBtn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+#deleteBtn{
+    position: relative;
+    background-color:#ff3030;
+    color: white;
+    font-family: "Arial Rounded MT Bold";
+    font-size: large;
+    height: 10%;
+    width: 12%;
+    border-radius: 10px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    margin-left: 5%;
+}

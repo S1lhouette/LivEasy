@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"content="initial-scale=1, maximum-scale= 1, minimum-scale=1, user-scalable=no">
+<title>改变字体大小做自适应界面</title>
+<style type="text/css">
+body, button, input, select, textarea {
+    font-family: Helvetica;
+    font-size: 12px;
+    border: 0;
+    outline: 0;
+}
+body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+ul, li {
+    list-style: none;
+}
+.mymenu {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #e81b75;
+    -moz-box-shadow: 0 0.25rem 0.25rem #c6c5c5;
+    -webkit-box-shadow: 0 0.25rem 0.25rem #c6c5c5;
+    box-shadow: 0 0.25rem 0.25rem #c6c5c5;
+}
+.mymenu li {
+    float: left;
+    box-sizing: border-box;
+    width: 25%;
+    text-align: center;
+    background-color: #f55097;
+    border-right: 1px solid #f5b9c6;
+}
+.mymenu li a {
+    display: inline-block;
+    width: 100%;
+    height: 1.607143rem;
+    line-height: 1.607143rem;
+    font-size: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+    <ul class="mymenu">
+        <li><a href="javascript:;">新年快乐</a></li>
+        <li><a href="javascript:;">万事如意</a></li>
+        <li><a href="javascript:;">猪猪猪猪</a></li>
+        <li><a href="javascript:;">一帆风顺</a></li>
+    </ul>
+    <script>
+    window.onload=function() {
+        function fixRem() {
+            var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
+            // windowWidth = windowWidth > 750 ? 750 : windowWidth;
+            var rootSize = 28 * (windowWidth / 375);
+            var htmlNode = document.getElementsByTagName("html")[0];
+            htmlNode.style.fontSize = rootSize + 'px';
+        }
+        fixRem();
+        window.addEventListener('resize', fixRem, false);
+    }
+    </script>
+</body>
+</html>
