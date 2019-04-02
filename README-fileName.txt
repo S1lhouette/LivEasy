@@ -1,0 +1,16 @@
+1.0 login
+1.1 signIn
+2.0 tenantIndex
+2.1 addMsg
+2.2 checkMsg
+2.3 recommend
+3.0 maintenance
+4.0 timetable
+5.0 finance
+5.1 addNewTrans
+5.2 leaderFin
+5.3 topup
+6.0 editAccount
+6.1 deleteAccount
+7.0 landlordIndex
+7.1 landlordAddMsg

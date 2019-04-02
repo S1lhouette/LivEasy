@@ -1,0 +1,100 @@
+html{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#background{
+    height: 100%;
+    width: 100%;
+    background:url('../images/loginBkg.png') no-repeat;
+    background-size: cover;
+}
+#head{
+  height: 30%;
+  width: 100%;
+  font-size: 0px;
+}
+
+#logoSmall{
+    height: 90px;
+    position: relative;
+    left: 5%;
+    float:left;
+}
+
+#title{
+    color:#fff;
+    height: 100px;
+    width: 200px;
+    position: relative;
+    left: 6%;
+    margin-top: 10px;
+    font-size: 50px;
+    font-family: "Arial Black";
+}
+
+.text{
+    margin-top: 2%;
+    position: relative;
+    left: 5%;
+    font-family: "Arial Black";
+    font-size: 18px;
+    color: #fff;
+    width: auto;
+}
+
+.textInput{
+    position: relative;
+    font-size: 15px;
+    width: 45%;
+}
+
+.dropList{
+    position: relative;
+    font-size: 15px;
+    width: 45%;
+}
+
+.hint{
+    position:relative;
+    font-size: 15px;
+    margin-left: 5%;
+    font-family: "Arial Bold";
+    width:35%;
+}
+
+#left{
+    position: absolute;
+    float:left;
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 50%;
+}
+#right{
+    position: absolute;
+    float:left;
+    margin-top: 5%;
+    margin-left:50%;
+    width: 50%;
+}
+
+#registerBtn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#registerBtn{
+    position: relative;
+    background-color: #fecb2f;
+    color: white;
+    font-family: "Arial Rounded MT Bold";
+    font-size: large;
+    height: 50%;
+    width: 8%;
+    border-radius: 15px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    margin-top: 30%;
+    margin-left: 50%;
+}

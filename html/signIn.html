@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <meta name="viewport"content="initial-scale=1, maximum-scale= 1, minimum-scale=1, user-scalable=no"> -->
+    <link  rel="stylesheet" type="text/css" href="../css/signIn.css">
+    <script type="text/javascript" src="../js/signIn.js"></script>
+
+</head>
+
+<body id="background">
+  <div  id="head">
+    <img id="logoSmall" src="../images/logo.png" alt="logo">
+    <text id="title"> LivEasy </text>
+  </div>
+<form>
+  <div id="left">
+    <div class="text">First Name<br>
+      <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')">
+      <span class="hint" id="firstNameHint"></span>
+    </div>
+
+    <div class="text">Last Name<br>
+      <input class="textInput" id="lastName" type="text" name="lastName" onkeyup="checkNull('lastName')">
+      <span class="hint" id="lastNameHint"></span>
+    </div>
+
+    <div class="text">Email<br>
+      <input class="textInput" id="email" type="text" name="email"  onkeyup="isEmail()">
+      <span class="hint" id="emailHint"></span>
+    </div>
+
+    <div class="text">Gender<br>
+      <select class="dropList">
+        <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+      </select>
+    </div>
+
+    <div class="text">Password<br>
+        <input class="textInput"  id="psw1" type="password" name="password" >
+    </div>
+
+    <div class="text" >Confirm Password<br>
+        <input class="textInput" id="psw2" type="password" name="confirmPassword" onkeyup="verifyPsw()">
+        <span class="hint" id="pswHint"></span>
+    </div>
+</div>
+
+<div id="right">
+    <div class="text">Flat Number<br>
+      <input class="textInput" id="flatNum" type="text" name="flatNum" onkeyup="isFlatNum()">
+      <span class="hint" id="flatHint"></span>
+    </div>
+
+    <div class="text">Room Number<br>
+      <input class="textInput"  id="roomNum" type="text" name="roomNum" onkeyup="isRoomNum()">
+      <span class="hint" id="roomHint"></span>
+    </div>
+
+    <div class="text">University<br>
+      <select class="dropList">
+        <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+        <option value="0">University of Liverpool</option>
+        <option value="1">Liverpool John Moores University</option>
+        <option value="2">Liverpool City College</option>
+        <option value="3">The City of Liverpool College</option>
+        <option value="4">Liverpool School of Tropical Medicine</option>>
+      </select>
+    </div>
+
+    <div class="text">Major<br>
+      <select class="dropList">
+        <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+        <option value="0">Art</option>
+        <option value="1">Biological</option>
+        <option value="2">Business</option>
+        <option value="3">Chemistry</option>
+        <option value="4">Computer Science</option>
+        <option value="5">Dentistry</option>>
+        <option value="6">Electrical and Electronic Engineering</option>
+        <option value="7">English Literature</option>
+        <option value="8">History</option>
+        <option value="9">Industrial Design</option>
+        <option value="10">Law</option>
+        <option value="11">Mathematics</option>
+        <option value="12">Ocean Sciences</option>
+        <option value="13">Physics</option>
+        <option value="14">Sociology</option>
+        <option value="15">Urban Planning</option>
+        <option value="16">Veterinary Science</option>
+        <option value="17">Zoology</option>
+      </select>
+    </div>
+  </div>
+  <input type="submit" id="registerBtn" name="Sign in" value="Register">
+</form>
+
+</body>
+
+</html>
