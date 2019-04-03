@@ -1,0 +1,182 @@
+html{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+#background{
+    height: 100%;
+    width: 100%;
+    background:url('../images/landlordBkg.png') no-repeat;
+    background-size: cover;
+}
+
+#head{
+  height: 20%;
+  width: 100%;
+  font-size: 0px;
+}
+
+#body{
+  height:70%;
+  width:100%;
+}
+
+#logoSmall{
+    height: 5rem;
+    position: relative;
+    left: 5rem;
+    float:left;
+}
+
+#title{
+    color:#fff;
+    height: 5rem;
+    width: 10rem;
+    position: relative;
+    left: 6rem;
+    margin-top: 10px;
+    font-size: 50px;
+    font-family: "Arial Black";
+}
+
+#left{
+  float: left;
+  position: relative;
+  left:8rem;
+  height: 25rem;
+  width: 40rem;
+  margin:1rem;
+}
+
+#right{
+  float:left;
+  position: relative;
+  left:8rem;
+  height:25rem;
+  width: 40rem;
+  margin: 0;
+  margin:1rem;
+}
+
+.subTitile{
+  color: white;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+#billboard{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(256,256,256,0);
+    padding: 0.5rem;;
+    margin-top: 1rem;
+}
+
+.msg{
+    width: 90%;
+    height: 10%;
+    font-size: 1.0rem;
+    color: black;
+}
+
+.delete{
+  height: 1.5rem;
+  position: relative;
+  right:30%;
+  float:right;
+}
+
+table{
+  width: 100%;
+  height: auto;
+}
+
+#add{
+  height: 2.5rem;
+  left:31rem;
+  top:22rem;
+}
+#reportInfo{
+    background-color: rgba(255,255,255,0.6);
+    height: 50%;
+    width: 90%;
+    padding: 0.5rem;;
+    margin-top: 1rem;
+}
+#alarm{
+    position: absolute;
+    height:5rem;
+    top:25rem;
+    left:35rem;
+}
+.facility{
+    width: 25%;
+}
+.notes{
+  width: 35%;
+}
+.room{
+  width: 20%;
+}
+.done{
+  width:5%;
+}
+
+#submitBtn{
+  height:2rem;
+  width: 5rem;
+  background-color: black;
+  color: white;
+  font-size: 0.8rem;
+  font-family:  "Arial Rounded MT Bold";
+  border-radius: 15px;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: none;
+  left:-0.8rem;
+  top:22.2rem;
+}
+
+#textField{
+  height: 60%;
+  width: 90%;
+  background-color: rgba(256,256,256,0);
+  margin-top: 1rem;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.float{
+  position:absolute;
+  z-index: 10;
+}
+
+#msgInput{
+  height: 100%;
+  width: 100%;
+  background-color: rgba(256,256,256,0);
+  padding: 0.5rem;;
+  margin-top: 1rem;
+  font-family: "Arial Bold";
+  font-size: 0.8rem;
+
+}
+#msgInput::placeholder{
+    font-family: "Arial Bold";
+    font-size: 0.8rem;
+    color: black;
+}
+
+#content{
+    background-color: rgba(255,255,255,0.6);
+    height: 80%;
+    width: 80%;
+}
