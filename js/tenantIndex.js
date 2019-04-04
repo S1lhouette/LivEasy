@@ -21,7 +21,7 @@ function changeTab2() {
     var tab2 = document.getElementById("addMsg");
     var tab3 = document.getElementById("myMsg");
     var c1 = document.getElementById("c1");
-    var c2 = document.getElementById("c2");
+    var c2 = document.getElementById( "c2");
     var c3 = document.getElementById("c3");
     tab1.className = "verticalBtn";
     tab2.className = "verticalBtn selected";
@@ -49,7 +49,7 @@ function checkNull() {
     var msg = document.getElementById("msgInput").value;
     var Message = msg.replace(/(^\s*)|(\s*$)/g, '');
     if (Message === '' || Message === undefined || Message == null) {
-        alert("Message can't be empty");
+        alert("Message can not be empty");
     }
 }
 
