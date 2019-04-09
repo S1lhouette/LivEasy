@@ -14,52 +14,52 @@
   </div>
 <form>
   <div id="left">
-    <div class="text">First Name<br>
-      <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')">
+    <div class="text">First Name<br/>
+      <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')"/>
       <span class="hint" id="firstNameHint"></span>
     </div>
 
-    <div class="text">Last Name<br>
-      <input class="textInput" id="lastName" type="text" name="lastName" onkeyup="checkNull('lastName')">
+    <div class="text">Last Name<br/>
+      <input class="textInput" id="lastName" type="text" name="lastName" onkeyup="checkNull('lastName')"/>
       <span class="hint" id="lastNameHint"></span>
     </div>
 
-    <div class="text">Email<br>
-      <input class="textInput" id="email" type="text" name="email"  onkeyup="isEmail()">
+    <div class="text">Email<br/>
+      <input class="textInput" id="email" type="text" name="email"  onkeyup="isEmail()"/>
       <span class="hint" id="emailHint"></span>
     </div>
 
-    <div class="text">Gender<br>
-      <select class="dropList">
+    <div class="text">Gender<br/>
+      <select class="dropList" name= "gender">
         <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
         <option value="0">Male</option>
         <option value="1">Female</option>
       </select>
     </div>
 
-    <div class="text">Password<br>
-        <input class="textInput"  id="psw1" type="password" name="password" >
+    <div class="text">Password<br/>
+        <input class="textInput"  id="psw1" type="password" name="password" />
     </div>
 
-    <div class="text" >Confirm Password<br>
-        <input class="textInput" id="psw2" type="password" name="confirmPassword" onkeyup="verifyPsw()">
+    <div class="text" >Confirm Password<br/>
+        <input class="textInput" id="psw2" type="password" name="confirmPassword" onkeyup="verifyPsw()"/>
         <span class="hint" id="pswHint"></span>
     </div>
 </div>
 
 <div id="right">
-    <div class="text">Flat Number<br>
-      <input class="textInput" id="flatNum" type="text" name="flatNum" onkeyup="isFlatNum()">
+    <div class="text">Flat Number<br/>
+      <input class="textInput" id="flatNum" type="text" name="flatNum" onkeyup="isFlatNum()"/>
       <span class="hint" id="flatHint"></span>
     </div>
 
-    <div class="text">Room Number<br>
-      <input class="textInput"  id="roomNum" type="text" name="roomNum" onkeyup="isRoomNum()">
+    <div class="text">Room Number<br/>
+      <input class="textInput"  id="roomNum" type="text" name="roomNum" onkeyup="isRoomNum()"/>
       <span class="hint" id="roomHint"></span>
     </div>
 
-    <div class="text">University<br>
-      <select class="dropList">
+    <div class="text">University<br/>
+      <select class="dropList" name="university">
         <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
         <option value="0">University of Liverpool</option>
         <option value="1">Liverpool John Moores University</option>
@@ -69,8 +69,8 @@
       </select>
     </div>
 
-    <div class="text">Major<br>
-      <select class="dropList">
+    <div class="text">Major<br/>
+      <select class="dropList" name="major">
         <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
         <option value="0">Art</option>
         <option value="1">Biological</option>
@@ -93,7 +93,7 @@
       </select>
     </div>
   </div>
-  <input type="submit" id="registerBtn" name="Sign in" value="Register">
+  <input type="submit" id="registerBtn" name="Sign in" value="Register"/>
 </form>
 
 </body>
