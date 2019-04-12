@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id = "head">
+        <text id="logout"> Log out</text>
+        <link  rel="stylesheet" type="text/css" href="../css/timetable.css">
+        <script type="text/javascript" src="../js/timetable.js"></script>
+        <a href="tenantIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+        <a href="tenantIndex.html" id="webName"><text id="title"> LivEasy </text></a>
+        <a href="maintenance.htm"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
+        <a href="timetable.html"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
+        <a><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
+    </div>
+</head>
+<body id="background" onload="load()">
+    <div id="left">
+        <div class='calendar' id='calendar'></div>
+        <script type='text/javascript' src="../js/calendar.js"></script>
+    </div>
+    <div id="right">
+        <div id="showEvent">
+            <div id="selectedDay"></div>
+            <div id="theDayEvents" style="overflow: scroll;overflow-x: hidden">
+                <form>
+                    <table border="0" id="eventsTable">
+                        <tr><td class="events">Event A</td><td class="time">time</td><td class="user">User A</td></tr>
+                        <tr><td class="msg">Event B</td><td class="userName">time</td><td class="user">User B</td></tr>
+                        <tr><td class="msg">Event C</td><td class="userName">time</td><td class="user">User C</td></tr>
+                        <tr><td class="events">Event A</td><td class="time">time</td><td class="user">User A</td></tr>
+                        <tr><td class="msg">Event B</td><td class="userName">time</td><td class="user">User B</td></tr>
+                        <tr><td class="msg">Event C</td><td class="userName">time</td><td class="user">User C</td></tr>
+                        <tr><td class="events">Event A</td><td class="time">time</td><td class="user">User A</td></tr>
+                        <tr><td class="msg">Event B</td><td class="userName">time</td><td class="user">User B</td></tr>
+                        <tr><td class="msg">Event C</td><td class="userName">time</td><td class="user">User C</td></tr>
+                        <tr><td class="events">Event A</td><td class="time">time</td><td class="user">User A</td></tr>
+                        <tr><td class="msg">Event B</td><td class="userName">time</td><td class="user">User B</td></tr>
+                        <tr><td class="msg">Event C</td><td class="userName">time</td><td class="user">User C</td></tr>
+
+
+
+
+                    </table>
+                </form>
+                </div>
+        </div>
+        <div id="inputArea">
+            <text class="EandT">Event</text>
+            <br>
+            <input id="eventInput" type="text" name="event">
+            <p></p>
+            <text class="EandT">Time</text>
+            <br>
+            <select class="dropList" id="timeList" name="time">
+                <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+                <option value="0">00:00 - 01:00</option>
+                <option value="1">01:00 - 02:00</option>
+                <option value="2">02:00 - 03:00</option>
+                <option value="3">03:00 - 04:00</option>
+                <option value="4">04:00 - 05:00</option>
+                <option value="5">05:00 - 06:00</option>
+                <option value="6">06:00 - 07:00</option>
+                <option value="7">07:00 - 08:00</option>
+                <option value="8">08:00 - 09:00</option>
+                <option value="9">09:00 - 10:00</option>
+                <option value="10">10:00 - 11:00</option>
+                <option value="11">11:00 - 12:00</option>
+                <option value="12">12:00 - 13:00</option>
+                <option value="13">13:00 - 14:00</option>
+                <option value="14">14:00 - 15:00</option>
+                <option value="15">15:00 - 16:00</option>
+                <option value="16">16:00 - 17:00</option>
+                <option value="17">17:00 - 18:00</option>
+                <option value="18">18:00 - 19:00</option>
+                <option value="19">19:00 - 20:00</option>
+                <option value="20">20:00 - 21:00</option>
+                <option value="21">21:00 - 22:00</option>
+                <option value="22">22:00 - 23:00</option>
+                <option value="23">23:00 - 24:00</option>
+            </select>
+            <br>
+            <input type="submit" value="Add" id="idBtn" onclick="checkNull()">
+        </div>
+    </div>
+</body>
+</html>
