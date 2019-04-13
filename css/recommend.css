@@ -38,7 +38,8 @@ html{
     text-decoration: none;
 }
 #logout{
-    margin-left: 90%;
+    float: right;
+    margin-right: 5%;
     color: white;
     font-family: "Arial Black";
     font-size: 15px;
