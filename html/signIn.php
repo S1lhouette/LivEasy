@@ -151,12 +151,13 @@ if(isset($_POST['submit'])){
       </select>
     </div>
   </div>
-  <input type="submit" id="registerBtn" name="submit" value="Register"/>
   <?php
 if($label!=""){
   echo "<label>".$label."</label>";
 }
   ?>
+  <input type="submit" id="registerBtn" name="submit" value="Register"/>
+
 </form>
 
 </body>
