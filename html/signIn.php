@@ -26,7 +26,8 @@ if(isset($_POST['submit'])){
     }
 
     if($flag=="true"){
-      $stmt=$pdo->query("insert into usertable values(default,\"{$_POST['username']}\",\"{$_POST['password']}\",\"{$_POST['name']}\",\"{$_POST['gender']}\",
+      $name=$_POST['firstName']." ".$_POST['lastName'];
+      $stmt=$pdo->query("insert into usertable values(default,\"{$_POST['password']}\",\"{$name}\",\"{$_POST['gender']}\",
       \"{$_POST['university']}\",\"{$_POST['major']}\",{$_POST['flatNum']},\"{$_POST['roomNum']}\",0,\"{$_POST['email']}\",0)");
 
       echo "<script>alert('The application has been sent to the landlord. Please wait for his activating of your account.')</script>";
@@ -67,11 +68,6 @@ if(isset($_POST['submit'])){
   </div>
 <form action="signIn.php" name="signInForm" method="post">
   <div id="left">
-    <div class="text">Username<br/>
-      <input class="textInput" id="username" type="text" name="username" onkeyup="checkNull('username')"/>
-      <span class="hint" id="usernameHint"></span>
-    </div>
-
     <div class="text">First Name<br/>
       <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')"/>
       <span class="hint" id="firstNameHint"></span>
