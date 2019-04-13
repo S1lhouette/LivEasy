@@ -13,11 +13,15 @@ session_start();
         $pdo=new PDO($dsn,$db_username,$db_password,$opt);
         $stmt=$pdo->query("select * from usertable where userName=\"{$_POST['username']}\" and password=\"{$_POST['password']}\"");
         $row=$stmt->fetch(PDO::FETCH_BOTH);
-        if($row["userID"]==1){
+        $userId=$row["userID"];
+        if($userId==1){
+          $_SESSION ['user']= $_POST ['username'];
+          $_SESSION['userID']=$userId;
           header();
         }else{
           if(!empty($row[0])){//loging successfully
             //echo $username,' 欢迎你！进入 <a href="my.php">用户中心</a><br />';
+            $_SESSION ['user']= $_REQUEST ['username'];
             header ("location:tenantIndex.html");
      //echo '点击此处 <a href="login.php?action=logout">注销</a> 登录！<br />';
           }else{
@@ -59,4 +63,3 @@ $error="";
 
 </body>
 </html>
-

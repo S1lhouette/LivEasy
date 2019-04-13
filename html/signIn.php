@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
       echo "<script>alert('The application has been sent to the landlord. Please wait for his activating of your account.')</script>";
       header("location:login.php");
     }else{
-      $label="This email has been used or the owner of the room has registered. Please change the information";
+      $label="This email has been used or the owner of the room has registered.";
     }
 
     $pdo=NULL;
@@ -150,13 +150,20 @@ if(isset($_POST['submit'])){
         <option value="Zoology">Zoology</option>
       </select>
     </div>
+      <input type="submit" id="registerBtn" name="submit" value="Register"/>
+      <div id="hintDiv">
+      <!-- <span id='phpHint'></span> -->
+      <?php
+  if($label!="") {
+    echo "<span id='phpHint'>".$label."</span>";
+  }
+    ?>
+      </div>
+
+
+
   </div>
-  <?php
-if($label!=""){
-  echo "<label>".$label."</label>";
-}
-  ?>
-  <input type="submit" id="registerBtn" name="submit" value="Register"/>
+
 
 </form>
 
