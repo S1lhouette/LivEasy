@@ -17,7 +17,7 @@ session_start();
         if($userId==1){
           $_SESSION ['user']= $_POST ['email'];
           $_SESSION['userID']=$userId;
-          header()
+          header();
         }else{
           if(!empty($row[0])){//loging successfully
             //echo $username,' 欢迎你！进入 <a href="my.php">用户中心</a><br />';
