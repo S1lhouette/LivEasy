@@ -7,7 +7,7 @@
 <body id="background" >
 <img id="logo" src="../images/logo.png" alt="logo">
 <form id="form">
-    <p id="username">Username
+    <p id="username">User
         <input id="usernameInput" type="text" name="username"  />
     </p>
     <p id="password">Password
