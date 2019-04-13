@@ -54,12 +54,13 @@ session_start();
     <a href="./signUp.php"><input type="button" id="signInBtn" name="Sign in" value="Sign in"></input>Sign in</a>
 
 </form>
-<?php
-if($error!=""){
-echo"<label>".$error."</label>";//the size of the text here needs to be fixed
-$error="";
-}
- ?>
-
+<div id = "hint">
+  <?php
+  if($error!=""){
+  echo"<span id='phpHint'>".$error."</span>";//the size of the text here needs to be fixed
+  $error="";
+  }
+   ?>
+</div>
 </body>
 </html>
