@@ -44,8 +44,8 @@ session_start();
 <body id="background" >
 <img id="logo" src="../images/logo.png" alt="logo">
 <form id="form" action="login.php" method="post">
-    <p id="username">Username
-        <input id="usernameInput" type="text" name="username"  >
+    <p id="username">Email
+        <input id="emailInput" type="text" name="email"  >
     </p>
     <p id="password">Password
         <input id="passwordInput" type="password" name="password" >
