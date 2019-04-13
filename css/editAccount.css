@@ -43,8 +43,7 @@ body{
     text-decoration: none;
 }
 #logout{
-    float: right;
-    margin-right: 5%;
+    margin-left: 85%;
     color: white;
     font-family: "Arial Black";
     font-size: 15px;
