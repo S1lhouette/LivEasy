@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
   try {
     //Connect to the database and search for the current capacity of each course
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-    $stmt=$pdo->query("insert into usertable values(default,\"{$_POST['userName']}\",\"{$_POST['password']}\",\"{$_POST['name']}\",\"{$_POST['gender']}\",
+    $stmt=$pdo->query("insert into usertable values(default,\"{$_POST['username']}\",\"{$_POST['password']}\",\"{$_POST['name']}\",\"{$_POST['gender']}\",
     \"{$_POST['university']}\",\"{$_POST['major']}\",{$_POST['flatNum']},\"{$_POST['roomNum']}\",0,\"{$_POST['email']}\")");
 
     $pdo=NULL;
@@ -37,71 +37,80 @@ if(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html>
 <head>
-    <link  rel="stylesheet" type="text/css" href="signUp.css">
-    <script type="text/javascript" src="signUp.js"></script>
-    <img id="logoSmall" src="logo.png" alt="logo">
-    <text id="title"> LivEasy </text>
-</head>
-<body id="background">
+    <!-- <meta name="viewport"content="initial-scale=1, maximum-scale= 1, minimum-scale=1, user-scalable=no"> -->
+    <link  rel="stylesheet" type="text/css" href="../css/signIn.css">
+    <script type="text/javascript" src="../js/signIn.js"></script>
 
-<form action="signUp.php" method="post" name="registerForm">
+</head>
+
+<body id="background">
+  <div  id="head">
+    <img id="logoSmall" src="../images/logo.png" alt="logo">
+    <text id="title"> LivEasy </text>
+  </div>
+<form action="signIn.php" name="signInForm" method="post">
   <div id="left">
-    <div class="text">Name<br>
-      <input class="textInput" id="firstName" type="text" name="name" onkeyup="checkNull('firstName')">
+    <div class="text">Username<br/>
+      <input class="textInput" id="username" type="text" name="username" onkeyup="checkNull('username')"/>
+      <span class="hint" id="usernameHint"></span>
+    </div>
+
+    <div class="text">First Name<br/>
+      <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')"/>
       <span class="hint" id="firstNameHint"></span>
     </div>
 
-    <div class="text">User name<br>
-      <input class="textInput" id="lastName" type="text" name="userName" onkeyup="checkNull('lastName')">
+    <div class="text">Last Name<br/>
+      <input class="textInput" id="lastName" type="text" name="lastName" onkeyup="checkNull('lastName')"/>
       <span class="hint" id="lastNameHint"></span>
     </div>
 
-    <div class="text">Email<br>
-      <input class="textInput" id="email" type="text" name="email"  onkeyup="isEmail()">
+    <div class="text">Email<br/>
+      <input class="textInput" id="email" type="text" name="email"  onkeyup="isEmail()"/>
       <span class="hint" id="emailHint"></span>
     </div>
 
-    <div class="text">Gender<br>
-      <select class="dropList" name="gender">
+    <div class="text">Gender<br/>
+      <select class="dropList" name= "gender">
         <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
+        <option value="0">Male</option>
+        <option value="1">Female</option>
       </select>
     </div>
 
-    <div class="text">Password<br>
-        <input class="textInput"  id="psw1" type="password" name="password" >
+    <div class="text">Password<br/>
+        <input class="textInput"  id="psw1" type="password" name="password" />
     </div>
 
-    <div class="text" >Confirm Password<br>
-        <input class="textInput" id="psw2" type="password" name="confirmPassword" onkeyup="verifyPsw()">
+    <div class="text" >Confirm Password<br/>
+        <input class="textInput" id="psw2" type="password" name="confirmPassword" onkeyup="verifyPsw()"/>
         <span class="hint" id="pswHint"></span>
     </div>
 </div>
 
 <div id="right">
-    <div class="text">Flat Number<br>
-      <input class="textInput" id="flatNum" type="text" name="flatNum" onkeyup="isFlatNum()">
+    <div class="text">Flat Number<br/>
+      <input class="textInput" id="flatNum" type="text" name="flatNum" onkeyup="isFlatNum()"/>
       <span class="hint" id="flatHint"></span>
     </div>
 
-    <div class="text">Room Number<br>
-      <input class="textInput"  id="roomNum" type="text" name="roomNum" onkeyup="isRoomNum()">
+    <div class="text">Room Number<br/>
+      <input class="textInput"  id="roomNum" type="text" name="roomNum" onkeyup="isRoomNum()"/>
       <span class="hint" id="roomHint"></span>
     </div>
 
-    <div class="text">University<br>
+    <div class="text">University<br/>
       <select class="dropList" name="university">
         <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
         <option value="University of Liverpool">University of Liverpool</option>
         <option value="Liverpool John Moores University">Liverpool John Moores University</option>
         <option value="Liverpool City College">Liverpool City College</option>
         <option value="The City of Liverpool College">The City of Liverpool College</option>
-        <option value="Liverpool School of Tropical Medicine">Liverpool School of Tropical Medicine</option>>
+        <option value="Liverpool School of Tropical Medicine">Liverpool School of Tropical Medicine</option>
       </select>
     </div>
 
-    <div class="text">Major<br>
+    <div class="text">Major<br/>
       <select class="dropList" name="major">
         <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
         <option value="Art">Art</option>
@@ -125,10 +134,8 @@ if(isset($_POST['submit'])){
       </select>
     </div>
   </div>
-  <input id="registerBtn" type="submit" name="submit" value="Register"/>
+  <input type="submit" id="registerBtn" name="submit" value="Register"/>
 </form>
-
-
 
 </body>
 
