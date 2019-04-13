@@ -193,3 +193,12 @@ table{
     height: 80%;
     width: 80%;
 }
+
+#userInfoBtn{
+    margin-top: 5%;
+    color: white;
+    font-size: 1rem;
+    font-family: "Arial Bold";
+    font-weight: bolder;
+
+}

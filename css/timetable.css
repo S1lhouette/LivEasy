@@ -230,6 +230,17 @@ html{
     width: 20%;
     height: 50%;
 }
+.viewBtn{
+    background-color:rgba(254,203,47,1);
+    color: white;
+    font-size: large;
+    border-radius: 5px;
+    border: none;
+    margin-top: 5%;
+    margin-left: 3%;
+    width: 20%;
+    height: 50%;
+}
 #theDayEvents{
     margin-top: 2%;
     color: rgba(254,203,47,1);
@@ -238,10 +249,31 @@ html{
     background-color: rgba(255,255,255,0.4);
 }
 
-#eventsTable{
+.eventsTable{
     height: 100%;
     width: 100%;
 }
 .user{
     padding-left: 20%;
 }
+
+#theDayEvents form{
+    display: none;
+}
+
+#theDayEvents .show{
+    display: block;
+}
+
+.deleteBtn{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+
+}
+
+.btnArea{
+    padding-left: 25%;
+}
+
