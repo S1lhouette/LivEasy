@@ -73,8 +73,8 @@ if(isset($_POST['submit'])){
     <div class="text">Gender<br/>
       <select class="dropList" name= "gender">
         <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
-        <option value="0">Male</option>
-        <option value="1">Female</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
       </select>
     </div>
 
