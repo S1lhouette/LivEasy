@@ -51,7 +51,7 @@ session_start();
         <input id="passwordInput" type="password" name="password" >
     </p>
     <input type="submit" id="loginBtn" onclick="checkNull()" value="Log in" name="submit"></input>
-    <a href="./signUp.php"><input type="button" id="signInBtn" name="Sign in" value="Sign in"></input>Sign in</a>
+    <a href="./signIn.php"><input type="button" id="signInBtn" name="Sign in" value="Sign in"></input>Sign in</a>
 
 </form>
 <div id = "hint">
