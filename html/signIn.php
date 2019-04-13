@@ -1,4 +1,6 @@
 <?php
+  error_reporting(0);
+
   $db_hostname = "localhost";
   $db_database = "comp208";
   $db_username = "root";
@@ -12,15 +14,30 @@
   );
 
 if(isset($_POST['submit'])){
+  $label="";
   try {
-    //Connect to the database and search for the current capacity of each course
+    $flag="true";
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-    $stmt=$pdo->query("insert into usertable values(default,\"{$_POST['username']}\",\"{$_POST['password']}\",\"{$_POST['name']}\",\"{$_POST['gender']}\",
-    \"{$_POST['university']}\",\"{$_POST['major']}\",{$_POST['flatNum']},\"{$_POST['roomNum']}\",0,\"{$_POST['email']}\")");
+    $stmt=$pdo->query("select * from usertable");
+    while($row=$stmt->fetch()){
+      if($row['email']==$_POST['email']||($row['flatNum']==$_POST['flatNum']&&$row['roomNum']==$_POST['roomNum'])){
+        $flag="false";
+      }
+    }
+
+    if($flag=="true"){
+      $stmt=$pdo->query("insert into usertable values(default,\"{$_POST['username']}\",\"{$_POST['password']}\",\"{$_POST['name']}\",\"{$_POST['gender']}\",
+      \"{$_POST['university']}\",\"{$_POST['major']}\",{$_POST['flatNum']},\"{$_POST['roomNum']}\",0,\"{$_POST['email']}\",0)");
+
+      echo "<script>alert('The application has been sent to the landlord. Please wait for his activating of your account.')</script>";
+      header("location:login.php");
+    }else{
+      $label="This email has been used or the owner of the room has registered. Please change the information";
+    }
 
     $pdo=NULL;
 
-    header("location:login.php");
+
   } catch (PDOException $e) {
     exit("PDO Error: ".$e->getMessage()."<br>");
   }
@@ -135,6 +152,11 @@ if(isset($_POST['submit'])){
     </div>
   </div>
   <input type="submit" id="registerBtn" name="submit" value="Register"/>
+  <?php
+if($label!=""){
+  echo "<label>".$label."</label>";
+}
+  ?>
 </form>
 
 </body>
