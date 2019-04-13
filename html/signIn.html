@@ -14,6 +14,11 @@
   </div>
 <form>
   <div id="left">
+    <div class="text">Username<br/>
+      <input class="textInput" id="username" type="text" name="firstName" onkeyup="checkNull('username')"/>
+      <span class="hint" id="usernameHint"></span>
+    </div>
+
     <div class="text">First Name<br/>
       <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')"/>
       <span class="hint" id="firstNameHint"></span>
