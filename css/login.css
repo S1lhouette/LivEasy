@@ -3,6 +3,12 @@ html{
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+#table{
+    height: 100%;
+    width:100%;
+}
+
 #background{
     height: 100%;
     width: 100%;
@@ -19,7 +25,7 @@ html{
     margin-top: 10%;
 }
 
-#username{
+#email{
     color: #fecb2f;
     position: relative;
     left: 4.8rem;
@@ -32,9 +38,10 @@ html{
     margin-right: 0;
     border: 0;
 }
-#usernameInput{
+#emailInput{
     height: 0.2rem;
     width: 2.3rem;
+    margin-left: 4.15rem;
 }
 #password{
     color: #fecb2f;
@@ -52,6 +59,7 @@ html{
   left:1.5%;
   height: 0.20rem;
   width: 2.3rem;
+  margin-left: 4rem;
 }
 
 #loginBtn{

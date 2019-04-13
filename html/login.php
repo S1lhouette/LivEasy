@@ -44,12 +44,16 @@ session_start();
 <body id="background" >
 <img id="logo" src="../images/logo.png" alt="logo">
 <form id="form" action="login.php" method="post">
-    <p id="username">Email
-        <input id="emailInput" type="text" name="email"  >
-    </p>
-    <p id="password">Password
-        <input id="passwordInput" type="password" name="password" >
-    </p>
+  <table id="table">
+    <tr>
+    <td><p id="email">Email</p></td>
+    <td><input id="emailInput" type="text" name="email"  ></td>
+    </tr>
+    <tr>
+    <td><p id="password">Password</p></td>
+    <td><input id="passwordInput" type="password" name="password" ></td>
+    </tr>
+  </table>
     <input type="submit" id="loginBtn" onclick="checkNull()" value="Log in" name="submit"></input>
     <a href="./signIn.php"><input type="button" id="signInBtn" name="Sign in" value="Sign in"></input>Sign in</a>
 
