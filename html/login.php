@@ -47,11 +47,11 @@ session_start();
 <form id="form" action="login.php" method="post">
   <table id="table">
     <tr>
-    <td><p id="email">Email</p></td>
+    <td id="email">Email</td>
     <td><input id="emailInput" type="text" name="email"  ></td>
     </tr>
     <tr>
-    <td><p id="password">Password</p></td>
+    <td id="password">Password</td>
     <td><input id="passwordInput" type="password" name="password" ></td>
     </tr>
   </table>

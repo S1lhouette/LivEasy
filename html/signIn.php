@@ -55,7 +55,6 @@ if(isset($_POST['submit'])){
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <meta name="viewport"content="initial-scale=1, maximum-scale= 1, minimum-scale=1, user-scalable=no"> -->
     <link  rel="stylesheet" type="text/css" href="../css/signIn.css">
     <script type="text/javascript" src="../js/signIn.js"></script>
 
@@ -66,7 +65,7 @@ if(isset($_POST['submit'])){
     <img id="logoSmall" src="../images/logo.png" alt="logo">
     <text id="title"> LivEasy </text>
   </div>
-<form action="signIn.php" name="signInForm" method="post">
+<form action="signIn.php" name="signInForm" method="post" onsubmit="return myCheck()">
   <div id="left">
     <div class="text">First Name<br/>
       <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')"/>
@@ -91,8 +90,9 @@ if(isset($_POST['submit'])){
       </select>
     </div>
 
-    <div class="text">Password<br/>
-        <input class="textInput"  id="psw1" type="password" name="password" />
+    <div class="text" >Password<br/>
+          <input class="textInput" id="psw1" type="password" name="password" onkeyup="checkPsw()"/>
+        <div class="hint" id="firstPswHint"></div>
     </div>
 
     <div class="text" >Confirm Password<br/>
@@ -146,7 +146,7 @@ if(isset($_POST['submit'])){
         <option value="Zoology">Zoology</option>
       </select>
     </div>
-      <input type="submit" id="registerBtn" name="submit" value="Register"/>
+      <input type="submit" id="registerBtn" name="submit" value="Register" onsubmit="return albeBtn()"/>
       <div id="hintDiv">
       <!-- <span id='phpHint'></span> -->
       <?php

@@ -5,8 +5,10 @@ html{
 }
 
 #table{
+    margin-left: 35%;
     height: 100%;
-    width:100%;
+    width:50%;
+    padding-bottom: 1%;
 }
 
 #background{
@@ -28,38 +30,26 @@ html{
 #email{
     color: #fecb2f;
     position: relative;
-    left: 4.8rem;
-    top: 16%;
-    width: 35%;
-    height: 20%;
     font-family: "Arial Rounded MT Bold";
     font-size: 0.20rem;
-    margin: 0;
-    margin-right: 0;
-    border: 0;
+    width: 20%;
 }
 #emailInput{
+    position: relative;
     height: 0.2rem;
     width: 2.3rem;
-    margin-left: 4.15rem;
 }
 #password{
     color: #fecb2f;
     position: relative;
-    left: 4.8rem;
-    right: 35%;
-    top: 17%;
-    width: 35%;
-    height: 20%;
     font-family: "Arial Rounded MT Bold";
     font-size: 0.20rem;
+    width: 20%;
 }
 #passwordInput{
   position: relative;
-  left:1.5%;
   height: 0.20rem;
   width: 2.3rem;
-  margin-left: 4rem;
 }
 
 #loginBtn{

@@ -1,14 +1,28 @@
+function checkPsw() {
+    var inputPsw = document.getElementById("psw1").value;
+    var reg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}:";'<>?,.\/]).{8,16}$/;
+    var flag = reg.test(inputPsw);
+    if(flag == false){
+        document.getElementById("firstPswHint").innerHTML = "<font color='red'>Password must contain numbers, letters, special symbols and the length between 8-16</font>";
+        document.getElementById("registerBtn").disabled = true;
+
+    }else{
+        document.getElementById("firstPswHint").innerHTML = "";
+        document.getElementById("registerBtn").disabled = false;
+
+    }
+    }
+
 
     function verifyPsw() {
     var x = document.getElementById('psw1').value;
     var y = document.getElementById('psw2').value;
     if(x==y) {
       document.getElementById("pswHint").innerHTML="";
-      document.getElementById("registerBtn").disabled = false;
     }
     else {
       document.getElementById("pswHint").innerHTML="<font color='red'>Inconsistent Password</font>";
-      document.getElementById("registerBtn").disabled = true;
+      cnt++;
     }
   }
 
@@ -21,6 +35,7 @@
   		}
       else{
         document.getElementById("emailHint").innerHTML = "";
+        cnt++;
       }
   	}
 
@@ -33,6 +48,7 @@
   		}
       else{
         document.getElementById("flatHint").innerHTML = "";
+        cnt++;
       }
   	}
 
@@ -45,6 +61,7 @@
   		}
       else {
         document.getElementById("roomHint").innerHTML = "";
+        cnt++;
       }
   	}
 
@@ -56,17 +73,35 @@
         }
         else{
               document.getElementById("firstNameHint").innerHTML = "";
+              cnt++;
         }
     }
 
-    window.onload=function() {
-        function fixRem() {
-            var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
-            // windowWidth = windowWidth > 750 ? 750 : windowWidth;
-            var rootSize = 28 * (windowWidth / 375);
-            var htmlNode = document.getElementsByTagName("html")[0];
-            htmlNode.style.fontSize = rootSize + 'px';
+    function ableBtn(){
+       for(var i=0;i<document.signInForm.elements.length-1;i++)
+       {
+        if(document.signInForm.elements[i].value=="")
+        {
+          alert("The current form cannot have empty entries");
+          document.signInForm.elements[i].focus();
+          return false;
         }
-        fixRem();
-        window.addEventListener('resize', fixRem, false);
+       }
+       return true;
+     }
     }
+
+    function myCheck()
+        {
+            for(var i=0;i<document.signInForm.elements.length-1;i++)
+            {
+                if(document.signInForm.elements[i].value=="")
+                {
+                    alert("All input boxes cannot be empty");
+                    document.signInForm.elements[i].focus();
+                    return false;
+                }
+            }
+            return true;
+
+        }
