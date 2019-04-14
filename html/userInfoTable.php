@@ -77,9 +77,9 @@ if(isset($_POST['activate'])){
                     echo "<td>".$row['roomNum']."</td>";
                     echo "<td><input type='hidden' name='index' value='".$row['userID']."'/></td>";
                     if($row['activated']==0){
-                      echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'><input type='submit' name='activate' value='Activate' class='actBtn'></td>";
+                      echo "<td class='btnArea'><input type='submit' name='activate' value='Activate' class='actBtn'/><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td>";
                     }else{
-                      echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'></td>";
+                      echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td>";
                     }
                     echo "</tr>";
                     echo "</form>";
