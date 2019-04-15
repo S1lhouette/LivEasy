@@ -257,7 +257,7 @@ html{
     padding-left: 20%;
 }
 
-#theDayEvents form{
+#theDayEvents div{
     display: none;
 }
 

@@ -21,22 +21,25 @@
         <div id="showEvent">
             <div id="selectedDay"></div>
             <div id="theDayEvents" style="overflow: scroll;overflow-x: hidden">
-                <form class="show" id="c1">
-                    <table border="0" class="eventsTable">
-                        <tr><td class="events">Event A</td><td class="time">time</td><td class="user">User A</td></tr>
-                        <tr><td class="events">Event B</td><td class="time">time</td><td class="user">User B</td></tr>
-                        <tr><td class="events">Event C</td><td class="time">time</td><td class="user">User C</td></tr>
-                    </table>
-                </form>
+                <div class="show" id="c1">
+                    <form>
+                        <table border="0" class="eventsTable">
+                            <tr><td class="events">Event A</td><td class="time">time</td><td class="user">User A</td></tr>
+                            <tr><td class="events">Event B</td><td class="time">time</td><td class="user">User B</td></tr>
+                            <tr><td class="events">Event C</td><td class="time">time</td><td class="user">User C</td></tr>
+                        </table>
+                    </form>
+                </div>
 
-                <form id="c2">
+
+                <div id="c2">
                     <table border="0" class="eventsTable">
-                    <tr><td class="events">Event A</td><td class="time">time</td><td class="btnArea"><button class="deleteBtn" onclick="confirmDelete()">Delete</button></td></tr>
-                    <tr><td class="events">Event B</td><td class="time">time</td><td class="btnArea"><button class="deleteBtn" onclick="confirmDelete()">Delete</button></td></tr>
-                    <tr><td class="events">Event C</td><td class="time">time</td><td class="btnArea"><button class="deleteBtn" onclick="confirmDelete()">Delete</button></td></tr>
-                    <tr><td class="events">Event A</td><td class="time">time</td><td class="btnArea"><button class="deleteBtn" onclick="confirmDelete()">Delete</button></td></tr>
+                    <form><tr><td class="events">Event A</td><td class="time">time</td><td class="btnArea"><input type="submit" class="deleteBtn" onclick="confirmDelete()" value="Delete"></td></tr></form>
+                        <form><tr><td class="events">Event B</td><td class="time">time</td><td class="btnArea"><input type="submit" class="deleteBtn" onclick="confirmDelete()" value="Delete"></td></tr></form>
+                        <form><tr><td class="events">Event C</td><td class="time">time</td><td class="btnArea"><input type="submit" class="deleteBtn" onclick="confirmDelete()" value="Delete"></td></tr></form>
+                        <form><tr><td class="events">Event A</td><td class="time">time</td><td class="btnArea"><input type="submit" class="deleteBtn" onclick="confirmDelete()" value="Delete"></td></tr></form>
                     </table>
-                </form>
+                </div>
 
                 </div>
         </div>
