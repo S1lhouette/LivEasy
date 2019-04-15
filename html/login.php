@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
 session_start();
+include('connect.php');
 
 
     if ( isset ($_POST ['submit'])) {
@@ -9,13 +10,12 @@ session_start();
         $psw = $_POST["password"];
       if(($user == "")||($psw == "")){
       }else{
-        include('connect.php');
         $pdo=new PDO($dsn,$db_username,$db_password,$opt);
         $stmt=$pdo->query("select * from usertable where email=\"{$_POST['email']}\" and password=\"{$_POST['password']}\"");
         $row=$stmt->fetch(PDO::FETCH_BOTH);
         $userId=$row["userID"];
         if($userId==1){
-          $_SESSION ['user']= $_POST ['email'];
+          $_SESSION ['user']= $user;
           $_SESSION['userID']=$userId;
           header();
         }else{
@@ -23,7 +23,8 @@ session_start();
             //echo $username,' 欢迎你！进入 <a href="my.php">用户中心</a><br />';
             $_SESSION ['user']= $user;
             $_SESSION['userID']=$userId;
-            header ("location:tenantIndex.html");
+            $_SESSION['userFullname']=$row['name'];
+            header ("location:tenantIndex.php");
      //echo '点击此处 <a href="login.php?action=logout">注销</a> 登录！<br />';
           }else{
             $error = " Email or Password is Wrong . Try Again ";
@@ -47,11 +48,11 @@ session_start();
 <form id="form" action="login.php" method="post">
   <table id="table">
     <tr>
-    <td id="email">Email</td>
+    <td><p id="email">Email</p></td>
     <td><input id="emailInput" type="text" name="email"  ></td>
     </tr>
     <tr>
-    <td id="password">Password</td>
+    <td><p id="password">Password</p></td>
     <td><input id="passwordInput" type="password" name="password" ></td>
     </tr>
   </table>
