@@ -24,6 +24,13 @@ include('connect.php');
             $_SESSION ['user']= $user;
             $_SESSION['userID']=$userId;
             $_SESSION['userFullname']=$row['name'];
+            $_SESSION['gender']=$row['gender'];
+            $_SESSION['university']=$row['university'];
+            $_SESSION['major']=$row['major'];
+            $_SESSION['flatNum']=$row['flatNum'];
+            $_SESSION['roomNum']=$row['roomNum'];
+            $_SESSION['balance']=$row['balance'];
+            $_SESSION['activated']=$row['activated'];
             header ("location:tenantIndex.php");
      //echo '点击此处 <a href="login.php?action=logout">注销</a> 登录！<br />';
           }else{
