@@ -33,7 +33,7 @@ echo"$datetime";
          <script type="text/javascript" src="../js/tenantIndex.js"></script>
          <a href="tenantIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
          <a href="tenantIndex.html" id="webName"><text id="title"> LivEasy </text></a>
-         <a href="maintenance.htm"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
+         <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
          <a href="timetable.html"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
          <a><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
      </div>
