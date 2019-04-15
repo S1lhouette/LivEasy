@@ -84,9 +84,14 @@ html{
     font-family: "Arial Bold";
     font-size: medium;
     font-weight: bolder;
-    height: 100%;
+    height: 200%;
     width: 100%;
 }
+.tds{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 .deleteBtn{
     background-color: black;
     color: white;
@@ -108,6 +113,7 @@ html{
 }
 
 .tableTitle{
+
     color: white;
     font-size: x-large;
     font-family: "Arial Bold";
@@ -126,3 +132,4 @@ html{
     opacity: 0.2;
     cursor: not-allowed;
 }
+

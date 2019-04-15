@@ -56,7 +56,7 @@ if(isset($_POST['activate'])){
     Users Information
 </div>
     <div id="tableDIV" style="overflow: scroll;overflow-x: hidden">
-
+        <div>
             <table border="0" id="myEventsTable">
               <tr class="tableTitle">
                 <td>Name</td>
@@ -91,6 +91,7 @@ if(isset($_POST['activate'])){
               }
               ?>
             </table>
+           </div>
     </div>
 </body>
 </html>
