@@ -11,6 +11,6 @@ $opt = array(
   PDO::ATTR_EMULATE_PREPARES => false
 );
   //Connect to the database and search for the current capacity of each course
-$pdo=new PDO($dsn,$db_username,$db_password,$opt);
-// $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
 ?>
