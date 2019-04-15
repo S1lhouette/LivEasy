@@ -71,7 +71,8 @@ if(isset($_POST['finish'])){
 </head>
 <body id="background">
     <div id="body">
-		<div class="maintenanceTable" style="overflow:scroll; overflow-x:hidden;">
+		<div class="maintenanceTable" style="overflow: scroll;overflow-x: hidden">
+      <div>
 			<table id = "maintTable" >
 				<thead>
 					<tr>
@@ -86,13 +87,20 @@ if(isset($_POST['finish'])){
           $msg="select * from reporttable where userID=".$_SESSION['userID'];
           $stmt=$pdo->query($msg);
           while($row=$stmt->fetch()){
-            echo "<form action='maintenance.php' method='post' name='maintenanceForm'>";
-            echo "<tr class='cell'>";
-            echo "<td class='facilityName'>".$row['content']."</td>";
-            echo "<td class='note'>".$row['availableTime']."</td>";
-            echo "<td><input type='hidden' name='reportID' value='".$row['reportID']."'/></td>";
-            echo "<td class='finish'><input type='submit' name='finish' value='Finish'/></td>";
-            echo "</form>";
+            if($row['confirmResult']=='0'||$row['confirmState']!='11'){
+              echo "<form action='maintenance.php' method='post' name='maintenanceForm'>";
+              echo "<tr class='cell'>";
+              echo "<td class='facilityName'>".$row['content']."</td>";
+              echo "<td class='note'>".$row['availableTime']."</td>";
+              echo "<td><input type='hidden' name='reportID' value='".$row['reportID']."'/></td>";
+              if($row['confirmState']=='00'||$row['confirmState']=='10'){
+                echo "<td class='finish'><input type='submit' name='finish' value='Finish' class='btn finishBtn'/></td>";
+              }else{
+                echo "<td>waiting for landlord's confirmation</td>";
+              }
+              echo "</tr>";
+              echo "</form>";
+            }
           }
           $pdo=NULL;
 
@@ -102,6 +110,7 @@ if(isset($_POST['finish'])){
         }
         ?>
 			</table>
+    </div>
 		</div>
 
 		  <div class="text">
