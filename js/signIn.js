@@ -3,7 +3,8 @@ function checkPsw() {
     var reg = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}:";'<>?,.\/]).{8,16}$/;
     var flag = reg.test(inputPsw);
     if(flag == false){
-        document.getElementById("firstPswHint").innerHTML = "<font color='red'>Password must contain numbers, letters, special symbols and the length between 8-16</font>";
+      // Password must contain numbers, letters, special symbols and the length between 8-16
+        document.getElementById("firstPswHint").innerHTML = "<font color='red'>Invalid Password</font>";
         document.getElementById("registerBtn").disabled = true;
 
     }else{
@@ -89,19 +90,16 @@ function checkPsw() {
        }
        return true;
      }
-    }
 
-    function myCheck()
-        {
-            for(var i=0;i<document.signInForm.elements.length-1;i++)
-            {
-                if(document.signInForm.elements[i].value=="")
-                {
-                    alert("All input boxes cannot be empty");
-                    document.signInForm.elements[i].focus();
-                    return false;
-                }
-            }
-            return true;
 
-        }
+    // window.onload=function() {
+    //     function fixRem() {
+    //         var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
+    //         // windowWidth = windowWidth > 750 ? 750 : windowWidth;
+    //         var rootSize = 28 * (windowWidth / 375);
+    //         var htmlNode = document.getElementsByTagName("html")[0];
+    //         htmlNode.style.fontSize = rootSize + 'px';
+    //     }
+    //     fixRem();
+    //     window.addEventListener('resize', fixRem, false);
+    // }

@@ -1,6 +1,17 @@
 <?php
-error_reporting(0);
-include('connect.php');
+  error_reporting(0);
+
+  $db_hostname = "localhost";
+  $db_database = "comp208";
+  $db_username = "root";
+  $db_password = "";
+  $db_charset = "utf8mb4";
+  $dsn = "mysql:host=$db_hostname;dbname=$db_database;charset=$db_charset";
+  $opt = array(
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false
+  );
 
 if(isset($_POST['submit'])){
   $label="";
@@ -41,15 +52,17 @@ if(isset($_POST['submit'])){
 
 
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <link  rel="stylesheet" type="text/css" href="../css/signIn.css">
-    <script type="text/javascript" src="../js/signIn.js"></script>
+
 
 </head>
 
 <body id="background">
+  <script type="text/javascript" src="../js/signIn.js"></script>
   <div  id="head">
     <img id="logoSmall" src="../images/logo.png" alt="logo">
     <text id="title"> LivEasy </text>
@@ -57,47 +70,47 @@ if(isset($_POST['submit'])){
 <form action="signIn.php" name="signInForm" method="post" onsubmit="return myCheck()">
   <div id="left">
     <div class="text">First Name<br/>
-      <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')"/>
+      <input class="textInput" id="firstName" type="text" name="firstName" placeholder="please enter your firstname" onkeyup="checkNull('firstName')"/>
       <span class="hint" id="firstNameHint"></span>
     </div>
 
     <div class="text">Last Name<br/>
-      <input class="textInput" id="lastName" type="text" name="lastName" onkeyup="checkNull('lastName')"/>
+      <input class="textInput" id="lastName" type="text" name="lastName" placeholder="please enter your lastname" onkeyup="checkNull('lastName')"/>
       <span class="hint" id="lastNameHint"></span>
     </div>
 
     <div class="text">Email<br/>
-      <input class="textInput" id="email" type="text" name="email"  onkeyup="isEmail()"/>
+      <input class="textInput" id="email" type="text" name="email" placeholder="email in format 'xxx@xxx' "  onkeyup="isEmail()"/>
       <span class="hint" id="emailHint"></span>
     </div>
 
     <div class="text">Gender<br/>
       <select class="dropList" name= "gender">
-        <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+        <option selected="selected" disabled="disabled" placeholder="please choose your gender"  style='display: none' value=''></option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
       </select>
     </div>
 
     <div class="text" >Password<br/>
-          <input class="textInput" id="psw1" type="password" name="password" onkeyup="checkPsw()"/>
-        <div class="hint" id="firstPswHint"></div>
+          <input class="textInput" id="psw1" type="password" name="password" placeholder="alphanum and special symbol, length 8-16" onkeyup="checkPsw()"/>
+        <span class="hint" id="firstPswHint"></span>
     </div>
 
     <div class="text" >Confirm Password<br/>
-        <input class="textInput" id="psw2" type="password" name="confirmPassword" onkeyup="verifyPsw()"/>
+        <input class="textInput" id="psw2" type="password" name="confirmPassword" placeholder="please enter your password again" onkeyup="verifyPsw()"/>
         <span class="hint" id="pswHint"></span>
     </div>
 </div>
 
 <div id="right">
     <div class="text">Flat Number<br/>
-      <input class="textInput" id="flatNum" type="text" name="flatNum" onkeyup="isFlatNum()"/>
+      <input class="textInput" id="flatNum" type="text" name="flatNum" placeholder="should be an integer" onkeyup="isFlatNum()"/>
       <span class="hint" id="flatHint"></span>
     </div>
 
     <div class="text">Room Number<br/>
-      <input class="textInput"  id="roomNum" type="text" name="roomNum" onkeyup="isRoomNum()"/>
+      <input class="textInput"  id="roomNum" type="text" name="roomNum"  placeholder="should be a letter" onkeyup="isRoomNum()"/>
       <span class="hint" id="roomHint"></span>
     </div>
 
