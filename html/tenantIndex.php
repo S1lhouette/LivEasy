@@ -6,17 +6,19 @@ $useremail=$_SESSION['user'];
 //$userId=$_SESSION['userID'];
 $userFullname=$_SESSION['userFullname'];
 $anouomus=false;
-$datetime= date('Y-m-d H:i:s');
-echo"$datetime";
 
-//echo "adding";
-    if ( isset ($_POST ['submit'])) {//there is something wrong with the submit button;
+if ( isset ($_POST ['submit'])) {
       if(isset($_POST['Anonymous'])){
         $anouomus=true;
       }
-  echo"adding msg";
   $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-//  $stmt1=$pdo->query("select * from usertable where userId=\"{$userID}\"");
+  $stmt=$pdo->query("insert into messagetable values(default,\"{$_SESSION['userID']}\",\"{$_POST['content']}\",default,\"{$_POST['type']}\")");
+  $row=$stmt->fetch(PDO::FETCH_BOTH);
+  $pdo=NULL;
+}
+
+if(isset($_POST['delete'])){
+  $pdo=new PDO($dsn,$db_username,$db_password,$opt);
   $stmt=$pdo->query("insert into messagetable values(default,\"{$_SESSION['userID']}\",\"{$_POST['content']}\",default,\"{$_POST['type']}\")");
   $row=$stmt->fetch(PDO::FETCH_BOTH);
   $pdo=NULL;
@@ -33,7 +35,7 @@ echo"$datetime";
          <script type="text/javascript" src="../js/tenantIndex.js"></script>
          <a href="tenantIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
          <a href="tenantIndex.html" id="webName"><text id="title"> LivEasy </text></a>
-         <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
+         <a href="maintenance.htm"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
          <a href="timetable.html"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
          <a><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
      </div>
@@ -51,13 +53,13 @@ echo"$datetime";
      <div class="show" id="c1" style="overflow:scroll; overflow-x:hidden;">
          <form>
              <table border="0" id="msgTable">
-                 <tr>
-                     <!-- <th class="msg">Message</th>
-                     <th class="userName">User Name</th> -->
-                 </tr>
-                 <tr><td class="msg"><?php $pdo=new PDO($dsn,$db_username,$db_password,$opt);?></td><td class="userName"></td></tr>
-                 <tr><td class="msg">Some text</td><td class="userName"></td></tr>
-                 <tr><td class="msg">Some text</td><td class="userName"></td></tr>
+               <?php
+                $pdo=new PDO($dsn,$db_username,$db_password,$opt);
+                foreach ($pdo->query("select * from messagetable natural join usertable where usertable.flatNum=\"{$_SESSION['flatNum']}\" order by messagetable.date desc")as $row) {
+                  echo "<tr><td>".$row['content']."</td><td>".$row['name']."</td></tr>";
+                }
+                $pdo=NULL;
+                ?>
 
              </table>
          </form>
@@ -90,10 +92,13 @@ echo"$datetime";
                      <td class="msg">Message</td>
                      <td class="userName"></td>
                  </tr>
-                 <tr><td class="msg">Some text</td><td class="delete"><button class="deleteBtn" onclick="confirmDelete()">Delete</button></td></tr>
-                 <tr><td class="msg">Some text</td><td class="delete"><button class="deleteBtn" onclick="confirmDelete()">Delete</button></td></tr>
-                 <tr><td class="msg">Some text</td><td class="delete"><button class="deleteBtn" onclick="confirmDelete()">Delete</button></td></tr>
-
+                <?php
+                 $pdo=new PDO($dsn,$db_username,$db_password,$opt);
+                 foreach ($pdo->query("select * from messagetable where messagetable.userID=\"{$_SESSION['userID']}\" order by messagetable.date desc") as $row) {
+                   echo "<tr><td>".$row['content']."</td><td class='delete'><input type='delete' id='deleteBtn' onclick='checkNull()' value='Delete' name='delete'></input></td></tr>";
+                 }
+                 $pdo=NULL;
+                 ?>
              </table>
          </form>
      </div>
@@ -101,9 +106,9 @@ echo"$datetime";
 
  <div id="right">
      <p id="welcome"><?php echo"<span id='phpHint'>"."Welcome home,$userFullname"."</span>"?></p>
-     <p class="smallerFont">Email: Email Address
+     <p class="smallerFont"><br><?php echo"<span id='phpHint'>"."Email:$useremail"."</span>"?></p>
      <br>
-     Flat: 5  <br> Room:A</p>
+     <?php $flatNum=$_SESSION['flatNum'];echo"<span id='phpHint'>"."Flat:$flatNum"."</span>"?> <br> Room:A</p>
      <p class="smallerFont">
          <a href="recommend.html" class="links">Find a flat to play?</a>
          <br>
