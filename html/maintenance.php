@@ -30,7 +30,12 @@ if(isset($_POST['finish'])){
     }else{
       $newConfirmState=$row['confirmState'];
     }
-    $msg="update reporttable set confirmState='".$newConfirmState."' where reportID=".$_POST['reportID'];
+    if($newConfirmState=='11'){
+      $msg="update reporttable set confirmState='".$newConfirmState."', confirmResult='1' where reportID=".$_POST['reportID'];
+    }else{
+      $msg="update reporttable set confirmState='".$newConfirmState."' where reportID=".$_POST['reportID'];
+    }
+
     $stmt=$pdo->query($msg);
 
 
