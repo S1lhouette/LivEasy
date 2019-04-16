@@ -27,6 +27,15 @@ function confirmLogout() {
     }
 }
 
+function confirmConfirmBtn() {
+    var r = confirm("Are you sure to confirm this transaction?");
+    if(r == true){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 // function updateConfirmTable(date, price, rcptLocation) {
 // 	var table = document.getElementById("confirmTable");
 // 	var row = table.insertRow();

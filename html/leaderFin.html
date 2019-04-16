@@ -17,7 +17,7 @@
 <div id="left">
     <div class = "subtitles"> Accounting <br> </div>
     <div id = "transactionDiv" style="overflow: scroll; overflow-x: hidden; border-style: none">
-        <form>
+        <form name="leaderFinForm">
             <table id = "accountingTable">
                 <thead>
                 <tr>
@@ -68,14 +68,14 @@
     <div id = "confirmDiv" style="overflow: scroll; overflow-x: hidden;">
         <div id = "confForm">
             <table id = "confirmTable" >
-              <form>
-                <tr class="cell">
-                  <td class="date">2019-01-05</td>
-                  <td class="cost">&#163;58</td>
-                  <td class="viewReceipt"><a href="receipt.jpg" class="links">View receipt</a></td>
-                  <td class = "confirmBtn"><input type="submit" style="behavior:url(#default#savehistory)"  class="btn confirmBtn" name="Confirm transaction" onclick="setDisable(this)" value="Confirm"></td>
-                </tr>
-              </form>
+              <form name= "leaderConfirmRow" onsubmit="return confirmConfirmBtn()">
+        				<tr class="cell">
+        					<td class="date">2019-01-05</td>
+        					<td class="cost">&#163;58</td>
+        					<td class="viewReceipt"><a href="receipt.jpg" class="links">View receipt</a></td>
+        					<td class = "confirmBtn"><input type="submit" class="btn confirmBtn" name="Confirm transaction" value="Confirm"></td>
+        				</tr>
+        			</form>
             </table>
         </div>
         <br>
