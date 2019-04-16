@@ -86,6 +86,21 @@ function checkPsw() {
        return true;
      }
 
+function myCheck()
+{
+    for(var i=0;i<document.signInForm.elements.length-1;i++)
+    {
+        if(document.signInForm.elements[i].value=="")
+        {
+            alert("All input boxes cannot be empty");
+            document.signInForm.elements[i].focus();
+            return false;
+        }
+    }
+    return true;
+
+}
+
 
     // window.onload=function() {
     //     function fixRem() {
