@@ -1,5 +1,6 @@
 <?php
 //session_start ();
+error_reporting(0);
 include("Validaccess.php");
 include('connect.php');
 $useremail=$_SESSION['user'];
@@ -8,19 +9,20 @@ $userFullname=$_SESSION['userFullname'];
 $anouomus=false;
 
 if ( isset ($_POST ['submit'])) {
+    $pdo=new PDO($dsn,$db_username,$db_password,$opt);
       if(isset($_POST['Anonymous'])){
-        $anouomus=true;
+          $stmt=$pdo->query("insert into messagetable values(default,\"{$_SESSION['userID']}\",\"{$_POST['content']}\",default,\"{$_POST['type']}\",1)");
       }
-  $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-  $stmt=$pdo->query("insert into messagetable values(default,\"{$_SESSION['userID']}\",\"{$_POST['content']}\",default,\"{$_POST['type']}\")");
+else{
+    $stmt=$pdo->query("insert into messagetable values(default,\"{$_SESSION['userID']}\",\"{$_POST['content']}\",default,\"{$_POST['type']}\",0)");
+}
   $row=$stmt->fetch(PDO::FETCH_BOTH);
   $pdo=NULL;
 }
 
 if(isset($_POST['delete'])){
   $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-  $stmt=$pdo->query("insert into messagetable values(default,\"{$_SESSION['userID']}\",\"{$_POST['content']}\",default,\"{$_POST['type']}\")");
-  $row=$stmt->fetch(PDO::FETCH_BOTH);
+  $stmt=$pdo->query("delete from messagetable where messagetable.msgID={$_POST['msgID']}");
   $pdo=NULL;
 }
 
@@ -51,18 +53,20 @@ if(isset($_POST['delete'])){
 
  <div id="mid">
      <div class="show" id="c1" style="overflow:scroll; overflow-x:hidden;">
-         <form>
-             <table border="0" id="msgTable">
                <?php
                 $pdo=new PDO($dsn,$db_username,$db_password,$opt);
                 foreach ($pdo->query("select * from messagetable natural join usertable where usertable.flatNum=\"{$_SESSION['flatNum']}\" order by messagetable.date desc")as $row) {
-                  echo "<tr><td>".$row['content']."</td><td>".$row['name']."</td></tr>";
+                  echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
+                  echo "<table border='0' id='msgTable'>";
+                  if($row['anonymous']==1){
+                    echo "<tr><td>".$row['content']."</td></tr>";
+                  }else if($row['anonymous']==0){
+                    echo "<tr><td>".$row['content']."</td><td>".$row['name']."</td></tr>";
+                  }
                 }
                 $pdo=NULL;
+                 echo "</table></form>";
                 ?>
-
-             </table>
-         </form>
      </div>
      <div id="c2">
          <form action="tenantIndex.php" method="post">
@@ -86,21 +90,17 @@ if(isset($_POST['delete'])){
      </div>
 
      <div id="c3" style="overflow:scroll; overflow-x:hidden;">
-         <form>
-             <table border="0" id="myTable">
-                 <tr>
-                     <td class="msg">Message</td>
-                     <td class="userName"></td>
-                 </tr>
                 <?php
                  $pdo=new PDO($dsn,$db_username,$db_password,$opt);
                  foreach ($pdo->query("select * from messagetable where messagetable.userID=\"{$_SESSION['userID']}\" order by messagetable.date desc") as $row) {
-                   echo "<tr><td>".$row['content']."</td><td class='delete'><input type='delete' id='deleteBtn' onclick='checkNull()' value='Delete' name='delete'></input></td></tr>";
+                   $msgID=$row['msgID'];
+                   echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
+                   echo "<table border='0' id='msgTable'>";
+                   echo "<tr><td>".$row['content']."</td><td><input type='hidden' name='msgID' value='".$row['msgID']."'/></td><td class='delete'><input type='submit' name='delete' value='Delete' class='btn finishBtn'/></td></tr>";
+                   echo "</table></form>";
                  }
                  $pdo=NULL;
                  ?>
-             </table>
-         </form>
      </div>
  </div>
 
