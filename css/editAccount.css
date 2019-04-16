@@ -107,7 +107,7 @@ body{
 .dropList{
     position: relative;
     font-size: 15px;
-    width: 45%;
+    width: 50%;
 }
 
 .hint{
@@ -136,7 +136,7 @@ body{
     border-right-style: none;
     border-left-style: none;
     border-bottom-style: none;
-    margin-left: 40%;
+    margin-left: 5%;
     /*margin-top: 10%;*/
 }
 

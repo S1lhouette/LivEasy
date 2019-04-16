@@ -78,3 +78,18 @@
         fixRem();
         window.addEventListener('resize', fixRem, false);
     }
+
+    function myCheck()
+    {
+        for(var i=0;i<document.editForm.elements.length-1;i++)
+        {
+            if(document.editForm.elements[i].value=="")
+            {
+                alert("All input boxes cannot be empty");
+                document.editForm.elements[i].focus();
+                return false;
+            }
+        }
+        return true;
+
+    }
