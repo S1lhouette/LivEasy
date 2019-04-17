@@ -1,7 +1,7 @@
 html{
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 #background{
@@ -22,8 +22,10 @@ html{
   width:100%;
 }
 
-#logout {
-    margin-left:85%;
+#logout{
+  background-color: rgba(152,152,152,0);
+    border-style: none;
+    margin-left: 85%;
     color: white;
     font-family: "Arial Black";
     font-size: 15px;
@@ -76,8 +78,8 @@ html{
     height: 100%;
     width: 100%;
     background-color: rgba(256,256,256,0);
-    padding: 0.5rem;;
-    margin-top: 1rem;
+    padding: 0rem;;
+    margin-top: 0rem;
 }
 
 .msg{
@@ -87,12 +89,12 @@ html{
     color: black;
 }
 
-.delete{
+/* .delete{
   height: 1.5rem;
   position: relative;
   right:30%;
   float:right;
-}
+} */
 
 table{
   width: 100%;
@@ -101,8 +103,8 @@ table{
 
 #add{
   height: 2.5rem;
-  left:31rem;
-  top:22rem;
+  left:34.5rem;
+  top:21rem;
 }
 #reportInfo{
     background-color: rgba(255,255,255,0.6);
@@ -119,21 +121,25 @@ table{
 }
 .facility{
     width: 25%;
+    text-align: center;
 }
 .notes{
   width: 35%;
+  text-align: center;
 }
 .room{
   width: 20%;
+  text-align: center;
 }
 .done{
   width:5%;
+  text-align: center;
 }
 
 #submitBtn{
   height:2rem;
   width: 5rem;
-  background-color: black;
+  background-color: rgb(28,95,110);
   color: white;
   font-size: 0.8rem;
   font-family:  "Arial Rounded MT Bold";
@@ -143,7 +149,7 @@ table{
   border-left-style: none;
   border-bottom-style: none;
   left:-0.8rem;
-  top:22.2rem;
+  top:21.2rem;
 }
 
 #textField{
@@ -185,13 +191,13 @@ table{
 #msgInput::placeholder{
     font-family: "Arial Bold";
     font-size: 0.8rem;
-    color: black;
+    color: rgb(104,104,104);
 }
 
 #content{
     background-color: rgba(255,255,255,0.6);
     height: 80%;
-    width: 80%;
+    width: 90%;
 }
 
 #userInfoBtn{
@@ -200,5 +206,48 @@ table{
     font-size: 1rem;
     font-family: "Arial Bold";
     font-weight: bolder;
+
+}
+
+#msgTable{
+  padding: 0.5rem;
+  height: 100%;
+  width: 100%;
+}
+
+#msgTable tr{
+  margin-top: 0.2rem;
+}
+
+#msgTable .index{
+  height:100%;
+  width: 3%;
+}
+
+#msgTable .msg{
+  height:100%;
+  width: 75%;
+}
+
+#msgTable .date{
+  height:100%;
+  width: 10%;
+}
+
+#msgTable .deleteBtn{
+  height:100%;
+  width: 15%;
+}
+
+.btn{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.waitingConf{
+  color: rgb(104,104,104);
+  font-size: 0.8rem;
 
 }

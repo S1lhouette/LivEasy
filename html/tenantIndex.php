@@ -35,11 +35,11 @@ if(isset($_POST['delete'])){
          <text id="logout"> Log out</text>
          <link  rel="stylesheet" type="text/css" href="../css/tenantIndex.css">
          <script type="text/javascript" src="../js/tenantIndex.js"></script>
-         <a href="tenantIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
-         <a href="tenantIndex.html" id="webName"><text id="title"> LivEasy </text></a>
-         <a href="maintenance.htm"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
-         <a href="timetable.html"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
-         <a><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
+         <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+         <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
+         <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
+         <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
+         <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
      </div>
  </head>
  <body id="background" onload="load()">
@@ -59,9 +59,9 @@ if(isset($_POST['delete'])){
                   echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
                   echo "<table border='0' id='msgTable'>";
                   if($row['anonymous']==1){
-                    echo "<tr><td>".$row['content']."</td></tr>";
+                    echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'></td></tr>";
                   }else if($row['anonymous']==0){
-                    echo "<tr><td>".$row['content']."</td><td>".$row['name']."</td></tr>";
+                    echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>".$row['name']."</td></tr>";
                   }
                 }
                 $pdo=NULL;

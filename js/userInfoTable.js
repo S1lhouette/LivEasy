@@ -1,5 +1,5 @@
 function confirmDelete() {
-    var window = confirm("Do you want to delete this event?");
+    var window = confirm("Do you want to delete this user?");
     if (window == true){
         return true;
     } else{

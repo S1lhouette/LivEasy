@@ -9,6 +9,9 @@ html{
     height: 100%;
     width:50%;
     padding-bottom: 1%;
+    border-collapse:separate;
+    border-spacing:0rem 0.2rem;
+
 }
 
 #background{
@@ -27,24 +30,35 @@ html{
     margin-top: 10%;
 }
 
+.labelTD{
+  height:100%;
+  width: 25%;
+}
+
+.inputTD{
+  height:100%;
+  width: 75%;
+}
+
 #email{
     color: #fecb2f;
     position: relative;
     font-family: "Arial Rounded MT Bold";
     font-size: 0.20rem;
-    width: 20%;
+    width: 100%;
 }
 #emailInput{
     position: relative;
     height: 0.2rem;
     width: 2.3rem;
 }
+
 #password{
     color: #fecb2f;
     position: relative;
     font-family: "Arial Rounded MT Bold";
     font-size: 0.20rem;
-    width: 20%;
+    width: 100%;
 }
 #passwordInput{
   position: relative;

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+        [v-cloak] {
+                    display: none !important;
+        }
+</style>
+<head>
+    <div id = "head">
+        <text id="logout"> Log out</text>
+        <link  rel="stylesheet" type="text/css" href="../css/recommend.css">
+        <script type="text/javascript" src="../js/addMsg.js"></script>
+        <a href="tenantIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+        <a href="tenantIndex.html" id="webName"><text id="title"> LivEasy </text></a>
+        <a href="maintenance.htm"><input type="button" class="navigation" id="myMaintenance" name="myMaintenance" value="My Maintenance"></a>
+        <a href="timetable.html"><input type="button" class="navigation" id="mySchedule" name="mySchedule" value="My Schedule"></a>
+        <a><input type="button" class="navigation" id="myAccounting" name="myAccounting" value="My Accounting"></a>
+    </div>
+</head>
+<body id="background">
+<div id="flatDiv">
+    <label class="flats">Flat 31</label>
+    <input type="button" class="inviteBtn" value="Invite">
+    <br>
+    <div class="reason">Your have same majors</div>
+    <label class="flats">Flat 29</label>
+    <input type="button" class="inviteBtn" value="Invite">
+    <br>
+    <div class="reason">You are in the same university</div>
+    <label class="flats">Flat 56</label>
+    <input type="button" class="inviteBtn" value="Invite">
+    <br>
+    <div class="reason">Male/female ratio is matched</div>
+</div>
+
+
+
+<script>
+    window.onload=function() {
+        function fixRem() {
+            var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
+            // windowWidth = windowWidth > 750 ? 750 : windowWidth;
+            var rootSize = 28 * (windowWidth / 375);
+            var htmlNode = document.getElementsByTagName("html")[0];
+            htmlNode.style.fontSize = rootSize + 'px';
+        }
+        fixRem();
+        window.addEventListener('resize', fixRem, false);
+    }
+</script>
+</body>
+</html>

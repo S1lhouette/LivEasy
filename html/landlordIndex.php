@@ -63,7 +63,7 @@ if(isset($_POST['finishBtn'])){
 </head>
 <body id="background">
   <div  id="head">
-    <text id="logout"> Log out</text>
+    <input type="submit" id="logout" value="Log out" onclick="return confirmLogout()">
     <img id="logoSmall" src="../images/logo.png" alt="logo">
     <text id="title"> LivEasy </text>
   </div>
@@ -71,9 +71,10 @@ if(isset($_POST['finishBtn'])){
     <div id="left">
         <text id="billboardTitle" class="subTitile" onclick="viewBillboard()">Billboard</text>
 
-        <div id="content">
-          <div id="billboard" class="show">
-            <table id="msgTable">
+        <div id="content"   style="overflow:hidden">
+          <div id="billboard" class="show" style="overflow-y:scroll">
+          <div>
+            <table id="msgTable" >
                 <?php
                 try {
                   $index=1;
@@ -83,12 +84,12 @@ if(isset($_POST['finishBtn'])){
                     //var_dump($row);
                     echo "<form action='landlordIndex.php' method='post' name='showMsgForm'>";
                     echo "<tr>";
-                    echo "<td>".$index.".</td>";
+                    echo "<td class='index'>".$index.".</td>";
                     echo "<td class='msg'>".$row['content']."</td>";
                     $time=strtotime($row['date']);
-                    echo "<td>".date('m',$time)."-".date('d',$time)."</td>";
+                    echo "<td class='date'>".date('m',$time)."-".date('d',$time)."</td>";
                     echo "<td><input type='hidden' name='msgID' value='".$row['msgID']."'/></td>";
-                    echo "<td><input type='submit' class='delete' name='deleteBtn' value='Delete' onclick='sub(document.showMsgForm)'/></td>";
+                    echo "<td class='deleteBtn'><input type='submit' class='btn' name='deleteBtn' value='Delete' onclick='sub(document.showMsgForm)'/></td>";
                     echo "</tr>";
                     echo "</form>";
                     $index++;
@@ -99,6 +100,7 @@ if(isset($_POST['finishBtn'])){
                 }
                 ?>
             </table>
+          </div>
           </div>
 
         <div id="textField" class="hide">
@@ -111,14 +113,14 @@ if(isset($_POST['finishBtn'])){
 
 
       <img id="add" class="float" src="../images/plus.png" alt="" onclick="addMsg()">
-        <a href="userInfoTable.php"><p id="userInfoBtn">View all tenants' information</p></a>
+        <a style="text-decoration:none" href="userInfoTable.php"><p id="userInfoBtn">View all tenants' information</p></a>
     </div>
 
     <div id="right">
       <text id="reportTitle" class="subTitile">Report Infomation</text>
-      <div id="reportInfo">
+      <div id="reportInfo" style="overflow:hidden;overflow-y:scroll;">
         <table>
-          <th class="facility">Facility</th><th class="notes">Note</th><th class="room">Flat/Room</th><th class="done">Done</th>
+          <th class="facility">Facility</th><th class="notes">Note</th><th class="room">Flat/Room</th><th></th><th class="done">Done</th>
           <?php
           try {
             $pdo=new PDO($dsn,$db_username,$db_password,$opt);
@@ -131,7 +133,7 @@ if(isset($_POST['finishBtn'])){
                 echo "<td class='notes'>".$row['availableTime']."</td>";
                 echo "<td class='room'>".$row['flatNum']."/".$row['roomNum']."</td>";
                 echo "<td><input type='hidden' name='reportID' value='".$row['reportID']."'/></td>";
-                echo "<td><input type='submit' name='finishBtn' value='Finish'/></td>";
+                echo "<td><input class='btn' type='submit' name='finishBtn' value='Finish'/></td>";
                 echo "</tr>";
                 echo "</form>";
               }else if($row['confirmState']=='10'){
@@ -141,7 +143,7 @@ if(isset($_POST['finishBtn'])){
                 echo "<td class='notes'>".$row['availableTime']."</td>";
                 echo "<td class='room'>".$row['flatNum']."/".$row['roomNum']."</td>";
                 echo "<td><input type='hidden' name='reportID' value='".$row['reportID']."'/></td>";
-                echo "<td>Waiting for tenant's confirmation</td>";
+                echo "<td class='waitingConf'>Waiting for tenant's confirmation</td>";
                 echo "</tr>";
                 echo "</form>";
               }
@@ -154,7 +156,6 @@ if(isset($_POST['finishBtn'])){
           ?>
         </table>
       </div>
-      <img id="alarm" src="../images/exclamation.png" alt="">
     </div>
 
   </div>
