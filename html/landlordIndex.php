@@ -30,7 +30,19 @@ if(isset($_POST['deleteBtn'])){
 if(isset($_POST['finishBtn'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-    $stmt=$pdo->query("delete from reporttable where reportID=".$_POST['reportID']);
+    $stmt=$pdo->query("select * from reporttable where reportID=".$_POST['reportID']);
+    $row=$stmt->fetch();
+    if($row['confirmState']=='01'){
+      $newConfirmState='11';
+      $newConfirmResult='1';
+    }else if($row['confirmState']=='00'){
+      $newConfirmState='10';
+      $newConfirmResult=$row['confirmResult'];
+    }else{
+      $newConfirmState=$row['confirmState'];
+      $newConfirmResult=$row['confirmResult'];
+    }
+    $stmt=$pdo->query("update reporttable set confirmState=".$newConfirmState.", confirmResult=".$newConfirmResult." where reportID=".$_POST['reportID']);
 
     $pdo=NULL;
   } catch (PDOException $e) {
