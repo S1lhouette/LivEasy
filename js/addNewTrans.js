@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 var checkFile = false;
 var checkMoney = false;
 var checkBox = false;
@@ -143,6 +144,8 @@ function confirmLogout() {
     }
 }
 =======
+=======
+>>>>>>> master
 var checkFile = false;
 var checkMoney = false;
 var checkBox = false;
@@ -299,4 +302,7 @@ window.onload=function() {
     fixRem();
     window.addEventListener('resize', fixRem, false);
 }
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master

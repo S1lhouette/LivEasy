@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 function load() {
     var background = document.getElementById("background");
     background.style.display = 'block';
@@ -59,6 +60,8 @@ function confirmConfirmBtn() {
 // 	document.getElementById("bal").innerHTML = "Balance: " + balance;;
 // }
 =======
+=======
+>>>>>>> master
 function load() {
     var background = document.getElementById("background");
     background.style.display = 'block';
@@ -129,5 +132,9 @@ window.onload=function() {
     }
     fixRem();
     window.addEventListener('resize', fixRem, false);
+<<<<<<< HEAD
+}
+>>>>>>> master
+=======
 }
 >>>>>>> master
