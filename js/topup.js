@@ -41,18 +41,13 @@ function myCheck() {
 }
 
 function confirmLogout() {
-<<<<<<< HEAD
     var r = confirm("Do you log out LivEasy?")
-=======
-    var r = confirm("Do you really want to log out LivEasy?")
->>>>>>> master
     if(r==true){
         return true;
     }else{
         return false;
     }
 }
-<<<<<<< HEAD
 
 window.onload=function() {
     function fixRem() {
@@ -66,5 +61,3 @@ window.onload=function() {
     fixRem();
     window.addEventListener('resize', fixRem, false);
 }
-=======
->>>>>>> master

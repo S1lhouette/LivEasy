@@ -1,5 +1,5 @@
 function confirmDelete() {
-    var window = confirm("Do you want to delete this user?");
+    var window = confirm("Do you want to delete this event?");
     if (window == true){
         return true;
     } else{
@@ -10,7 +10,6 @@ function confirmDelete() {
 function setDisable(obj){
     obj.disabled = true;
 }
-<<<<<<< HEAD
 
 window.onload=function() {
     function fixRem() {
@@ -24,5 +23,3 @@ window.onload=function() {
     fixRem();
     window.addEventListener('resize', fixRem, false);
 }
-=======
->>>>>>> master

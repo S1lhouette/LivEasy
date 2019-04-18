@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id = "head">
+        <input type="submit" id="logout" value="Log out" onclick="return confirmLogout()">
+        <link  rel="stylesheet" type="text/css" href="../css/finance.css">
+        <script type="text/javascript" src="../js/finance.js"></script>
+        <a href="tenantIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+        <a href="tenantIndex.html" id="webName"><text id="title"> LivEasy </text></a>
+        <a href="maintenance.htm"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
+        <a href="timetable.html"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
+        <a href = "finance.html"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
+    </div>
+</head>
+<body id="background">
+<div id="left">
+    <div class = "subtitles"> Accounting <br> </div>
+    <div id = "transactionDiv" style="overflow: scroll; overflow-x: hidden; border-style: none">
+        <form>
+            <table id = "accountingTable">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Payer</th>
+                    <th>Cost</th>
+                </tr>
+                </thead>
+                <tr class="cell">
+                    <td class="date">2019-01-05</td>
+                    <td class="payer">Mike</td>
+                    <td class="cost">&#163;58</td>
+                </tr>
+                <tr class="cell">
+                    <td class="date">2018-03-08</td>
+                    <td class="payer">Logan</td>
+                    <td class="cost">&#163;103</td>
+                </tr>
+                <tr class="cell">
+                    <td class="date">2019-01-05</td>
+                    <td class="payer">Mike</td>
+                    <td class="cost">&#163;58</td>
+                </tr>
+                <tr class="cell">
+                    <td class="date">2018-03-08</td>
+                    <td class="payer">Logan</td>
+                    <td class="cost">&#163;103</td>
+                </tr>
+
+
+            </table>
+        </form>
+        <br>
+    </div>
+
+    <div class = "text" id = "bal">
+        Balance: 0
+    </div>
+
+    <div class = "text">
+        <a href = "addNewTrans.html" class = "links"><br><br>Add a new transaction</a><br>
+        <a href = "topup.html" class = "links"> Top-up</a>
+    </div>
+
+</div>
+<div id="right">
+    <div class = "subtitles"> Confirm list <br> </div>
+    <div id = "confirmDiv" style="overflow: scroll; overflow-x: hidden;">
+        <div id = "confForm">
+            <table id = "confirmTable" >
+                <form>
+                    </for><tr class="cell">
+                    <td class="date">2019-01-05</td>
+                    <td class="cost">&#163;58</td>
+                    <td class="receipt"><a href="receipt.jpg" class="links">View receipt</a></td>
+                    <td class = "confirm"><input type="submit" class="btn confirmBtn" name="Confirm transaction" onclick="setDisable(this)" value="Confirm"></td>
+                </tr>
+                </form>
+            </table>
+        </div>
+        <br>
+    </div>
+</div>
+</body>
+</html>
