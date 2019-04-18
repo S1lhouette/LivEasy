@@ -17,7 +17,7 @@ html{
 }
 
 #logoSmall{
-    height: 90px;
+    height: 1rem;
     position: relative;
     left: 5%;
     float:left;
@@ -25,14 +25,15 @@ html{
 
 #title{
     color:#fff;
-    height: 100px;
-    width: 200px;
+    /*height: 100px;*/
+    /*width: 200px;*/
     position: relative;
     left: 6%;
     margin-top: 10px;
-    font-size: 50px;
+    font-size: 0.5rem;
     font-family: "Arial Black";
 }
+
 #webName{
     text-decoration: none;
 }
@@ -40,7 +41,7 @@ html{
     margin-left: 85%;
     color: white;
     font-family: "Arial Black";
-    font-size: 15px;
+    font-size: 0.1rem;
 }
 
 #body{
@@ -72,7 +73,7 @@ html{
 }
 
 #tableDIV{
-    height: 350px;
+    height: 3.5rem;
     width: 60%;
     margin-top: 2%;
     margin-left: 20%;
@@ -82,7 +83,7 @@ html{
 #myEventsTable{
     color: white;
     font-family: "Arial Bold";
-    font-size: medium;
+    font-size: 0.2rem;
     font-weight: bolder;
     height: 200%;
     width: 100%;
@@ -93,6 +94,9 @@ html{
 }
 
 .deleteBtn{
+    width: 0.7rem;
+    height: 0.2rem;
+    font-size: 0.05rem;
     background-color: black;
     color: white;
     border-radius: 5px;
@@ -108,20 +112,23 @@ html{
     color: white;
     font-family: "Arial Bold";
     font-style: italic;
-    font-size: xx-large;
+    font-size: 0.4rem;
     font-weight: bolder;
 }
 
 .tableTitle{
 
     color: white;
-    font-size: x-large;
+    font-size: 0.2rem;
     font-family: "Arial Bold";
     font-weight: bolder;
 
 }
 
 .actBtn{
+    width: 0.7rem;
+    height: 0.2rem;
+    font-size: 0.05rem;
     background-color: black;
     color: white;
     border-radius: 5px;

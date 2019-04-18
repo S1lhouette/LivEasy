@@ -59,7 +59,7 @@ html{
 #right{
   float:left;
   position: relative;
-  left:8rem;
+  left:4rem;
   height:25rem;
   width: 40rem;
   margin: 0;
@@ -115,7 +115,7 @@ table{
     position: absolute;
     height:5rem;
     top:25rem;
-    left:35rem;
+    left:25rem;
 }
 .facility{
     width: 25%;

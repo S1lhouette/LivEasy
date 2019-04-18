@@ -41,10 +41,30 @@ function myCheck() {
 }
 
 function confirmLogout() {
+<<<<<<< HEAD
     var r = confirm("Do you really want to log out LivEasy?")
+=======
+    var r = confirm("Do you log out LivEasy?")
+>>>>>>> master
     if(r==true){
         return true;
     }else{
         return false;
     }
 }
+<<<<<<< HEAD
+=======
+
+window.onload=function() {
+    function fixRem() {
+        var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
+        var windowHeight = document.documentElement.clientHeight || window.innerHeight || document.body.clientHeight;
+        // windowWidth = windowWidth > 750 ? 750 : windowWidth;
+        var rootSize = 28 * (windowWidth / 375);
+        var htmlNode = document.getElementsByTagName("html")[0];
+        htmlNode.style.fontSize = rootSize + 'px';
+    }
+    fixRem();
+    window.addEventListener('resize', fixRem, false);
+}
+>>>>>>> master

@@ -15,9 +15,14 @@ html{
     width: 100%;
     font-size: 0px;
 }
+<<<<<<< HEAD
 
 #logoSmall{
     height: 90px;
+=======
+#logoSmall{
+    height: 1rem;
+>>>>>>> master
     position: relative;
     left: 5%;
     float:left;
@@ -25,12 +30,21 @@ html{
 
 #title{
     color:#fff;
+<<<<<<< HEAD
     height: 100px;
     width: 200px;
     position: relative;
     left: 6%;
     margin-top: 10px;
     font-size: 50px;
+=======
+    /*height: 100px;*/
+    /*width: 200px;*/
+    position: relative;
+    left: 6%;
+    margin-top: 10px;
+    font-size: 0.5rem;
+>>>>>>> master
     font-family: "Arial Black";
 }
 
@@ -49,19 +63,31 @@ html{
     text-decoration: none;
 }
 #logout{
+<<<<<<< HEAD
   background-color: rgba(152,152,152,0);
   border-style: none;
   margin-left: 85%;
   color: white;
   font-family: "Arial Black";
   font-size: 15px;
+=======
+    background-color: rgba(152,152,152,0);
+    border: none;
+    margin-left: 85%;
+    color: white;
+    font-family: "Arial Black";
+    font-size: 0.1rem;
+>>>>>>> master
 }
 
 #body{
     margin-top: 3%;
     height:75%;
     width: 100%;
+<<<<<<< HEAD
     font-size: 0;
+=======
+>>>>>>> master
 }
 
 .navigation{
@@ -69,11 +95,20 @@ html{
     background-color: #fecb2f;
     color: white;
     font-family: "Arial Black";
+<<<<<<< HEAD
     font-size: medium;
     height: 40px;
     width: 12%;
     left: 40%;
     top: 15%;
+=======
+    font-size: 0.15rem;
+    height: 0.4rem;
+    width: 12%;
+    left: 40%;
+    margin-top: 2%;
+    /*top: 15%;*/
+>>>>>>> master
     border-radius: 5px;
     border-top-style: none;
     border-right-style: none;
@@ -93,13 +128,23 @@ html{
 #tinyTitle{
     color: white;
     font-family: "Arial Bold";
+<<<<<<< HEAD
     font-size: large;
     font-weight: bold;
+=======
+    font-size: 0.4rem;
+    font-weight: bold;
+    font-style: italic;
+>>>>>>> master
     margin-top: 3%;
     margin-left: 5%;
 }
 
 #topupTable{
+<<<<<<< HEAD
+=======
+    font-size: 0;
+>>>>>>> master
     width: 80%;
     height: 60%;
     margin-left: 10%;
@@ -112,7 +157,11 @@ html{
 .userName{
     color: white;
     font-family: "Arial Bold";
+<<<<<<< HEAD
     font-size: large;
+=======
+    font-size: 0.2rem;
+>>>>>>> master
     font-weight: bolder;
 }
 
@@ -122,12 +171,20 @@ html{
 
 #submitBtn{
     width: 5%;
+<<<<<<< HEAD
     height: 30px;
+=======
+    height: 0.2rem;
+>>>>>>> master
     background-color: black;
     color: white;
     border-radius: 15px;
     border-style: none;
+<<<<<<< HEAD
     margin-top: 2%;
+=======
+    margin-top: 1%;
+>>>>>>> master
     margin-left: 75%;
 }
 #submitBtn:hover {
@@ -140,7 +197,15 @@ html{
     height:5%;
     width: 50%;
     color: red;
+<<<<<<< HEAD
     font-size: large;
     font-weight: bolder;
     font-family: "Arial Bold";
 }
+=======
+    font-size: 0.2rem;
+    font-weight: bolder;
+    font-family: "Arial Bold";
+}
+
+>>>>>>> master
