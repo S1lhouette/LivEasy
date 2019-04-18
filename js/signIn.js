@@ -23,7 +23,6 @@ function checkPsw() {
     }
     else {
       document.getElementById("pswHint").innerHTML="<font color='red'>Inconsistent Password</font>";
-      cnt++;
     }
   }
 
@@ -36,7 +35,6 @@ function checkPsw() {
   		}
       else{
         document.getElementById("emailHint").innerHTML = "";
-        cnt++;
       }
   	}
 
@@ -49,7 +47,6 @@ function checkPsw() {
   		}
       else{
         document.getElementById("flatHint").innerHTML = "";
-        cnt++;
       }
   	}
 
@@ -62,7 +59,6 @@ function checkPsw() {
   		}
       else {
         document.getElementById("roomHint").innerHTML = "";
-        cnt++;
       }
   	}
 
@@ -74,7 +70,6 @@ function checkPsw() {
         }
         else{
               document.getElementById("firstNameHint").innerHTML = "";
-              cnt++;
         }
     }
 

@@ -55,12 +55,12 @@ include('connect.php');
 <form id="form" action="login.php" method="post">
   <table id="table">
     <tr>
-    <td><p id="email">Email</p></td>
-    <td><input id="emailInput" type="text" name="email"  ></td>
+    <td class="labelTD"><font id="email">Email</font></td>
+    <td class="inputTD"><input id="emailInput" type="text" name="email"  ></td>
     </tr>
     <tr>
-    <td><p id="password">Password</p></td>
-    <td><input id="passwordInput" type="password" name="password" ></td>
+    <td class="labelTD"><font id="password">Password</font></td>
+    <td class="inputTD"><input id="passwordInput" type="password" name="password" ></td>
     </tr>
   </table>
     <input type="submit" id="loginBtn" onclick="checkNull()" value="Log in" name="submit"></input>

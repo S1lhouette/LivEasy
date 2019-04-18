@@ -16,17 +16,12 @@ html{
     font-size: 0px;
 }
 <<<<<<< HEAD
-<<<<<<< HEAD
+#logoSmall{
+    height: 1rem;
+=======
 
 #logoSmall{
     height: 90px;
-=======
-#logoSmall{
-    height: 1rem;
->>>>>>> master
-=======
-#logoSmall{
-    height: 1rem;
 >>>>>>> master
     position: relative;
     left: 5%;
@@ -36,25 +31,19 @@ html{
 #title{
     color:#fff;
 <<<<<<< HEAD
-<<<<<<< HEAD
-    height: 100px;
-    width: 200px;
-    position: relative;
-    left: 6%;
-    margin-top: 10px;
-    font-size: 50px;
-=======
-=======
->>>>>>> master
     /*height: 100px;*/
     /*width: 200px;*/
     position: relative;
     left: 6%;
     margin-top: 10px;
     font-size: 0.5rem;
-<<<<<<< HEAD
->>>>>>> master
 =======
+    height: 100px;
+    width: 200px;
+    position: relative;
+    left: 6%;
+    margin-top: 10px;
+    font-size: 50px;
 >>>>>>> master
     font-family: "Arial Black";
 }
@@ -75,25 +64,19 @@ html{
 }
 #logout{
 <<<<<<< HEAD
-<<<<<<< HEAD
-  background-color: rgba(152,152,152,0);
-  border-style: none;
-  margin-left: 85%;
-  color: white;
-  font-family: "Arial Black";
-  font-size: 15px;
-=======
-=======
->>>>>>> master
     background-color: rgba(152,152,152,0);
     border: none;
     margin-left: 85%;
     color: white;
     font-family: "Arial Black";
     font-size: 0.1rem;
-<<<<<<< HEAD
->>>>>>> master
 =======
+  background-color: rgba(152,152,152,0);
+  border-style: none;
+  margin-left: 85%;
+  color: white;
+  font-family: "Arial Black";
+  font-size: 15px;
 >>>>>>> master
 }
 
@@ -102,11 +85,8 @@ html{
     height:75%;
     width: 100%;
 <<<<<<< HEAD
-<<<<<<< HEAD
+=======
     font-size: 0;
-=======
->>>>>>> master
-=======
 >>>>>>> master
 }
 
@@ -116,24 +96,18 @@ html{
     color: white;
     font-family: "Arial Black";
 <<<<<<< HEAD
-<<<<<<< HEAD
-    font-size: medium;
-    height: 40px;
-    width: 12%;
-    left: 40%;
-    top: 15%;
-=======
-=======
->>>>>>> master
     font-size: 0.15rem;
     height: 0.4rem;
     width: 12%;
     left: 40%;
     margin-top: 2%;
     /*top: 15%;*/
-<<<<<<< HEAD
->>>>>>> master
 =======
+    font-size: medium;
+    height: 40px;
+    width: 12%;
+    left: 40%;
+    top: 15%;
 >>>>>>> master
     border-radius: 5px;
     border-top-style: none;
@@ -155,18 +129,12 @@ html{
     color: white;
     font-family: "Arial Bold";
 <<<<<<< HEAD
-<<<<<<< HEAD
+    font-size: 0.4rem;
+    font-weight: bold;
+    font-style: italic;
+=======
     font-size: large;
     font-weight: bold;
-=======
-    font-size: 0.4rem;
-    font-weight: bold;
-    font-style: italic;
->>>>>>> master
-=======
-    font-size: 0.4rem;
-    font-weight: bold;
-    font-style: italic;
 >>>>>>> master
     margin-top: 3%;
     margin-left: 5%;
@@ -174,12 +142,8 @@ html{
 
 #topupTable{
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
     font-size: 0;
->>>>>>> master
 =======
-    font-size: 0;
 >>>>>>> master
     width: 80%;
     height: 60%;
@@ -194,13 +158,9 @@ html{
     color: white;
     font-family: "Arial Bold";
 <<<<<<< HEAD
-<<<<<<< HEAD
+    font-size: 0.2rem;
+=======
     font-size: large;
-=======
-    font-size: 0.2rem;
->>>>>>> master
-=======
-    font-size: 0.2rem;
 >>>>>>> master
     font-weight: bolder;
 }
@@ -212,26 +172,18 @@ html{
 #submitBtn{
     width: 5%;
 <<<<<<< HEAD
-<<<<<<< HEAD
+    height: 0.2rem;
+=======
     height: 30px;
-=======
-    height: 0.2rem;
->>>>>>> master
-=======
-    height: 0.2rem;
 >>>>>>> master
     background-color: black;
     color: white;
     border-radius: 15px;
     border-style: none;
 <<<<<<< HEAD
-<<<<<<< HEAD
+    margin-top: 1%;
+=======
     margin-top: 2%;
-=======
-    margin-top: 1%;
->>>>>>> master
-=======
-    margin-top: 1%;
 >>>>>>> master
     margin-left: 75%;
 }
@@ -246,20 +198,14 @@ html{
     width: 50%;
     color: red;
 <<<<<<< HEAD
-<<<<<<< HEAD
-    font-size: large;
-    font-weight: bolder;
-    font-family: "Arial Bold";
-}
-=======
-=======
->>>>>>> master
     font-size: 0.2rem;
     font-weight: bolder;
     font-family: "Arial Bold";
 }
 
-<<<<<<< HEAD
->>>>>>> master
 =======
+    font-size: large;
+    font-weight: bolder;
+    font-family: "Arial Bold";
+}
 >>>>>>> master
