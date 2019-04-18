@@ -47,3 +47,35 @@ function changeToAllEvents() {
     c2.className = "";
     btn.setAttribute("onClick","changeToMyEvents()");
 }
+
+function confirmLogout() {
+    var r = confirm("Do you log out LivEasy?")
+    if(r==true){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+window.onload=function() {
+    function fixRem() {
+        var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
+        var windowHeight = document.documentElement.clientHeight || window.innerHeight || document.body.clientHeight;
+        // windowWidth = windowWidth > 750 ? 750 : windowWidth;
+        var rootSize = 28 * (windowWidth / 375);
+        var htmlNode = document.getElementsByTagName("html")[0];
+        htmlNode.style.fontSize = rootSize + 'px';
+    }
+    fixRem();
+    window.addEventListener('resize', fixRem, false);
+
+}
+
+function fixRem() {
+    var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
+    var windowHeight = document.documentElement.clientHeight || window.innerHeight || document.body.clientHeight;
+    // windowWidth = windowWidth > 750 ? 750 : windowWidth;
+    var rootSize = 28 * (windowWidth / 375);
+    var htmlNode = document.getElementsByTagName("html")[0];
+    htmlNode.style.fontSize = rootSize + 'px';
+}
