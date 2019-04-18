@@ -42,7 +42,7 @@ if(isset($_POST['delete'])){
          <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
      </div>
  </head>
- <body id="background" onload="load()">
+ <body id="background">
  <div id="left">
      <button class="verticalBtn selected" id="allMsg" onclick="changeTab1()">All Messages</button>
      <br>
@@ -59,7 +59,7 @@ if(isset($_POST['delete'])){
                   echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
                   echo "<table border='0' id='msgTable'>";
                   if($row['anonymous']==1){
-                    echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'></td></tr>";
+                    echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>Anonymous</td></tr>";
                   }else if($row['anonymous']==0){
                     echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>".$row['name']."</td></tr>";
                   }
@@ -113,7 +113,7 @@ if(isset($_POST['delete'])){
          <a href="recommend.html" class="links">Find a flat to play?</a>
          <br>
          <br>
-         <a href="editAccount.html" class="links">Edit account</a>
+         <a href="editAccount.php" class="links">Edit account</a>
      </p>
 
  </div>
