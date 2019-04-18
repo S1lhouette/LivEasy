@@ -6,7 +6,7 @@ session_start();
 if(isset($_POST['addMsgBtn'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-    $stmt=$pdo->query("insert into messagetable values(default, 1, '".$_POST['content']."', default, 'public')");
+    $stmt=$pdo->query("insert into messagetable values(default, 1, '".$_POST['content']."', default, 'public', 0)");
 
     $pdo=NULL;
   } catch (PDOException $e) {
