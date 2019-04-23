@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 include('connect.php');
-
+include('validaccessland.php');
 if(isset($_POST['delete'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
