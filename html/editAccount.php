@@ -10,7 +10,7 @@ if(isset($_POST['Save'])){
     $stmt=$pdo->query("update usertable set name='".$name."', password='".$_POST['password']."', university='".$_POST['university']."', major='".$_POST['major']."' where userID=".$_SESSION['userID']);
 
     $pdo=NULL;
-
+header ("location:login.php");
 
   } catch (PDOException $e) {
     exit("PDO Error: ".$e->getMessage()."<br>");
