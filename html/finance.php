@@ -157,14 +157,6 @@ if(isset($_POST['confirmTransaction'])){
         }
 
         ?>
-				<form name= "confirmRow" onsubmit="return confirmConfirmBtn()">
-					<tr class="cell">
-					<td class="date">2019-01-05</td>
-					<td class="cost">&#163;58</td>
-					<td class="receipt"><a href="receipt.jpg" class="links">View receipt</a></td>
-					<td class = "confirm"><input type="submit" class="btn confirmBtn" name="Confirm transaction" value="Confirm"></td>
-				</tr>
-				</form>
 			</table>
 			</div>
 			<br>
