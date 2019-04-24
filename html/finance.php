@@ -12,6 +12,7 @@ if(isset($_POST['confirmTransaction'])){
     $stmt=$pdo->query("select * from transactiontable where transactionID=".$transactionID);
     $row=$stmt->fetch();
     $cost=$row['amount']/$row['consumerNum'];
+    $payerID=$row['payerID'];
     $consumerList=$row['consumerID'];
     $consumerIDArray=explode(',',$consumerList);
     $index=0;
@@ -35,6 +36,13 @@ if(isset($_POST['confirmTransaction'])){
     $row=$stmt->fetch();
     $newBalance=$row['balance']-$cost;
     $stmt=$pdo->query("update usertable set balance=".$newBalance." where userID=".$_SESSION['userID']);
+
+    $stmt=$pdo->query("select * from usertable where userID=".$payerID);
+    $row=$stmt->fetch();
+    $newBalance=$row['balance']+$cost;
+    $stmt=$pdo->query("update usertable set balance=".$newBalance." where userID=".$payerID);
+
+
 
     $pdo=NULL;
   } catch (PDOException $e) {
@@ -88,7 +96,7 @@ if(isset($_POST['confirmTransaction'])){
                 if(substr($confirmStr,$targetIndex,1)=="1"){
                   echo "<tr class='cell'>";
                   echo "<td class='date'>".$row['transactionDate']."</td>";
-                  echo "<td>".$row['amount']."</td>";
+                  echo "<td>&#163;".$row['amount']."</td>";
                   echo "<td>".$row['consumerNum']."</td>";
                   echo "<td class='payer'>".$row['name']."</td>";
                   $amount=$row['amount']/$row['consumerNum'];
@@ -157,7 +165,7 @@ if(isset($_POST['confirmTransaction'])){
                   echo "<td class='date'>".$row['transactionDate']."</td>";
                   $amount=$row['amount']/$row['consumerNum'];
                   echo "<td class='cost'>&#163;".$amount."</td>";
-                  echo "<td>".$row['payer']."</td>";
+                  echo "<td>payer:".$row['name']."</td>";
                   echo "<td>".$row['consumerNum']." consumers</td>";
                   echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
                   echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
