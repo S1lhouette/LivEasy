@@ -9,7 +9,7 @@ include('connect.php');
         $user = $_POST["email"];
         $psw = $_POST["password"];
       if(($user == "")||($psw == "")){
-      }else{
+        }else{
         $pdo=new PDO($dsn,$db_username,$db_password,$opt);
         $stmt=$pdo->query("select * from usertable where email=\"{$_POST['email']}\" and password=\"{$_POST['password']}\"");
         $row=$stmt->fetch(PDO::FETCH_BOTH);
@@ -17,7 +17,15 @@ include('connect.php');
         if($userId==1){
           $_SESSION ['user']= $user;
           $_SESSION['userID']=$userId;
-          header();
+          $_SESSION['userFullname']=$row['name'];
+          $_SESSION['gender']=$row['gender'];
+          $_SESSION['university']=$row['university'];
+          $_SESSION['major']=$row['major'];
+          $_SESSION['flatNum']=$row['flatNum'];
+          $_SESSION['roomNum']=$row['roomNum'];
+          $_SESSION['balance']=$row['balance'];
+          $_SESSION['activated']=$row['activated'];
+          header ("location:landlordIndex.php");
         }else{
           if(!empty($row[0])){//loging successfully
             //echo $username,' 欢迎你！进入 <a href="my.php">用户中心</a><br />';

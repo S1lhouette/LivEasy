@@ -17,18 +17,28 @@ if(isset($_POST['submit'])){
   $label="";
   try {
     $flag="true";
+    $hasLeader="false";
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
     $stmt=$pdo->query("select * from usertable");
     while($row=$stmt->fetch()){
       if($row['email']==$_POST['email']||($row['flatNum']==$_POST['flatNum']&&$row['roomNum']==$_POST['roomNum'])){
         $flag="false";
       }
+      if($row['flatNum']==$_POST['flatNum']&&$row['isLeader']==1){
+        $hasLeader="true";
+      }
     }
 
     if($flag=="true"){
+      if($hasLeader=="true"){
+        $newIsLeader=0;
+      }else{
+        $newIsLeader=1;
+      }
+
       $name=$_POST['firstName']." ".$_POST['lastName'];
       $stmt=$pdo->query("insert into usertable values(default,\"{$_POST['password']}\",\"{$name}\",\"{$_POST['gender']}\",
-      \"{$_POST['university']}\",\"{$_POST['major']}\",{$_POST['flatNum']},\"{$_POST['roomNum']}\",0,\"{$_POST['email']}\",0)");
+      \"{$_POST['university']}\",\"{$_POST['major']}\",{$_POST['flatNum']},\"{$_POST['roomNum']}\",0,\"{$_POST['email']}\",0, ".$newIsLeader.")");
 
       echo "<script>alert('The application has been sent to the landlord. Please wait for his activating of your account.')</script>";
       header("location:login.php");

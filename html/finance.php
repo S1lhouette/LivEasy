@@ -128,6 +128,7 @@ if(isset($_POST['confirmTransaction'])){
         $stmt=$pdo->query("select * from usertable where userID=".$_SESSION['userID']);
         $row=$stmt->fetch();
         echo "Balance: ".$row['balance']."&#163";
+        $isLeader=$row['isLeader'];
         $pdo=NULL;
       } catch (PDOException $e) {
         exit("PDO Error: ".$e->getMessage()."<br>");
@@ -137,7 +138,12 @@ if(isset($_POST['confirmTransaction'])){
 		</div>
 
 		<div class = "text">
-			<a href = "addNewTrans.php" class = "links"><br><br>Add a new transaction</a><br>
+			<a href = "addNewTrans.php" class = "links"><br/><br/>Add a new transaction</a><br/>
+      <?php
+      if($isLeader==1){
+        echo "<a href = 'topup.php' class = 'links'><br/><br/>Top up for roommates</a><br/>";
+      }
+      ?>
 		</div>
 
     </div>

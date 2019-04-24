@@ -5,7 +5,20 @@ include('validaccessland.php');
 if(isset($_POST['delete'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-    $stmt=$pdo->query("delete from usertable where userID=".$_POST['index']);
+    $stmt=$pdo->query("select * from usertable where userID=".$_POST['index']);
+    $row=$stmt->fetch();
+    if($row['isLeader']==0){
+      $stmt2=$pdo->query("delete from usertable where userID=".$_POST['index']);
+    }else{
+      $stmt2=$pdo->query("select * from usertable where flatNum=".$row['flatNum']);
+      $row2=$stmt2->fetch();
+      if($row2['isLeader']==0){
+        $stmt3=$pdo->query("update usertable set isLeader=1 where userID=".$row2['userID']);
+      }
+      $stmt4=$pdo->query("delete from usertable where userID=".$_POST['index']);
+    }
+
+
 
     $pdo=NULL;
   } catch (PDOException $e) {
@@ -42,7 +55,7 @@ if(isset($_POST['activate'])){
 </head>
 <body id="background">
 <div id="titleForThisPage">
-    Users Information
+    User Information
 </div>
     <div id="tableDIV" style="overflow: scroll;overflow-x: hidden">
         <div>
@@ -56,7 +69,7 @@ if(isset($_POST['activate'])){
               <?php
               try {
                 $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-                $stmt=$pdo->query("select * from usertable group by flatNum");
+                $stmt=$pdo->query("select * from usertable order by flatNum");
                 while($row=$stmt->fetch()){
                   if($row['userID']!=1){
                     echo "<form action='userInfoTable.php' method='post'>";
@@ -66,7 +79,7 @@ if(isset($_POST['activate'])){
                     echo "<td>".$row['roomNum']."</td>";
                     echo "<td><input type='hidden' name='index' value='".$row['userID']."'/></td>";
                     if($row['activated']==0){
-                      echo "<td class='btnArea'><input type='submit' name='activate' value='Activate' class='actBtn'/><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td>";
+                      echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/><input type='submit' name='activate' value='Activate' class='actBtn'/></td>";
                     }else{
                       echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td>";
                     }
