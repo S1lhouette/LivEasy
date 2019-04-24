@@ -108,9 +108,11 @@ function checkCheckbox(){
     &&check4.checked == false &&check5.checked == false &&check6.checked == false){
           checkBox= false;
           return;
+  }else{
+    checkBox = true;
+    return;
   }
-  checkBox = true;
-  return;
+
 }
 
 function canSubmit(){

@@ -40,15 +40,44 @@ if(isset($_POST['submitBtn'])){
     $newConsumerID=$newConsumerID.",".$_POST['userID6'];
   }
 
+  $file_extension = strtolower(substr(strrchr($_FILES["uploadRcpt"]["name"],'.'),1));
+  echo $_FILES["uploadRcpt"]["type"];
+  if ((($_FILES["uploadRcpt"]["type"] == "image/png")|| ($_FILES["uploadRcpt"]["type"] == "image/jpeg")|| ($_FILES["uploadRcpt"]["type"] == "image/pjpeg"))&& ($_FILES["uploadRcpt"]["size"] < 200000)){
+    if ($_FILES["uploadRcpt"]["error"] > 0){
+      echo "Return Code: " . $_FILES["uploadRcpt"]["error"] . "<br />";
+    }else{
+      echo "Upload: " . $_FILES["uploadRcpt"]["name"] . "<br />";
+      echo "Type: " . $_FILES["uploadRcpt"]["type"] . "<br />";
+      echo "Size: " . ($_FILES["uploadRcpt"]["size"] / 1024) . " Kb<br />";
+      echo "Temp file: " . $_FILES["uploadRcpt"]["tmp_name"] . "<br />";
+
+      if (file_exists("../upload/" . $_FILES["uploadRcpt"]["name"])){
+        echo $_FILES["uploadRcpt"]["name"] . " already exists. ";
+      }else{
+        move_uploaded_file($_FILES["uploadRcpt"]["tmp_name"],"../upload/" . $_FILES["uploadRcpt"]["name"]);
+        $fileUrl="upload/" . $_FILES["uploadRcpt"]["name"];
+        echo "Stored in: " . "upload/" . $_FILES["uploadRcpt"]["name"];
+      }
+    }
+  }else{
+    echo "Invalid file";
+  }
+
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-    $stmt=$pdo->query("insert into transactiontable values(default, ".$newConsumerNum.", '".$newConsumerID."', ".$_SESSION['userID'].", ".$_POST['amount'].", 'test.jpg', '".$_POST['transactionDate']."', '".$_POST['transactionType']."', '".$newConfirmState."', '0')");
+    $stmt=$pdo->query("insert into transactiontable values(default, ".$newConsumerNum.", '".$newConsumerID."', ".$_SESSION['userID'].", ".$_POST['amount'].", '".$fileUrl."', '".$_POST['transactionDate']."', '".$_POST['transactionType']."', '".$newConfirmState."', '0')");
     $pdo=NULL;
 
     header("location:finance.php");
   } catch (PDOException $e) {
     exit("PDO Error: ".$e->getMessage()."<br>");
   }
+
+
+
+
+
+
 
 
 }
@@ -74,11 +103,11 @@ if(isset($_POST['submitBtn'])){
 <body id="background">
   	<div class="subtitles"> Add a new transaction <br> </div>
     <div id="left">
-			<form name="moneyForm" id="moneyForm"  onsubmit="return canSubmit()" method="post" action="addNewTrans.php">
+			<form name="moneyForm" id="moneyForm" onsubmit="return canSubmit()" enctype="multipart/form-data"  method="post" action="addNewTrans.php">
     		<div id="input">
   				<input type="text" id="moneyInput" placeholder="Enter the amount of money" onkeyup="checkNum(this)" name='amount'/>
   				<input type="submit" class="btn" id="submitBtn" name="submitBtn" value="Submit"/>
-          <input type="date" value="<?php echo date("Y-m-d");?>" min="2015-09-16" max="2025-09-26" name="transactionDate"/>
+          <input type="date" value="<?php echo date("Y-m-d");?>" min="2019-01-01" max="2028-12-31" name="transactionDate"/>
           <select name= "transactionType">
             <option value="TestType">TestType</option>
           </select>
@@ -104,7 +133,7 @@ if(isset($_POST['submitBtn'])){
           $userArr=array();
           while($row=$stmt->fetch()){
             if($row['userID']!=$_SESSION['userID']){
-              echo "<tr><td><input type='checkbox' id='userCheckbox".$index."' name='userCheckbox".$index."'></td><td><img class='userIcon' src='../images/user.png' alt=''></td><td><label class='username' name='username1'>".$row['name']."</label></td><td><input type='hidden' name='userID".$index."' value='".$row['userID']."'/></td></tr>";
+              echo "<tr><td><input type='checkbox' id='userCheckbox".$index."' onchange='checkCheckbox()' name='userCheckbox".$index."'></td><td><img class='userIcon' src='../images/user.png' alt=''></td><td><label class='username' name='username1'>".$row['name']."</label></td><td><input type='hidden' name='userID".$index."' value='".$row['userID']."'/></td></tr>";
               array_push($userArr,'1234');
               $index++;
             }
