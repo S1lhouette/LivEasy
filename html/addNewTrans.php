@@ -93,11 +93,11 @@ if(isset($_POST['submitBtn'])){
         <input type="submit" id="logout" value="Log out" onclick="return confirmLogout()">
         <link  rel="stylesheet" type="text/css" href="../css/addNewTrans.css">
         <script type="text/javascript" src="../js/addNewTrans.js"></script>
-        <a href="tenantIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
-        <a href="tenantIndex.html" id="webName"><text id="title"> LivEasy </text></a>
-        <a href="maintenance.htm"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
-        <a href="timetable.html"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
-        <a href = "finance.html"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
+        <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+        <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
+        <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
+        <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
+        <a href = "finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
     </div>
 </head>
 <body id="background">

@@ -49,8 +49,8 @@ if(isset($_POST['activate'])){
         <text id="logout"> Log out</text>
         <link  rel="stylesheet" type="text/css" href="../css/userInfoTable.css">
         <script type="text/javascript" src="../js/userInfoTable.js"></script>
-        <a href="landlordIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
-        <a href="landlordIndex.html" id="webName"><text id="title"> LivEasy </text></a>
+        <a href="landlordIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+        <a href="landlordIndex.php" id="webName"><text id="title"> LivEasy </text></a>
     </div>
 </head>
 <body id="background">

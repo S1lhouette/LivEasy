@@ -33,10 +33,10 @@ header ("location:login.php");
 <body id="background">
     <div id = "head">
       <text id="logout"> Log out</text>
-        <a href="tenantIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
-        <a href="tenantIndex.html" id="webName"><text id="title"> LivEasy </text></a>
-        <a href="maintenance.htm"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
-        <a href="timetable.html"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
+        <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+        <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
+        <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
+        <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
         <a><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
     </div>
 
