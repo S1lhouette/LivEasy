@@ -3,6 +3,10 @@ error_reporting(0);
 session_start();
 include('connect.php');
 
+if(!isset($_SESSION['userID'])){
+    echo "<script type='text/javascript'>alert('Sorry, you should log in first.'); window.location.href = 'login.php';</script>";
+}
+
 if(isset($_POST['Save'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
@@ -10,7 +14,10 @@ if(isset($_POST['Save'])){
     $stmt=$pdo->query("update usertable set name='".$name."', password='".$_POST['password']."', university='".$_POST['university']."', major='".$_POST['major']."' where userID=".$_SESSION['userID']);
 
     $pdo=NULL;
-header ("location:login.php");
+    echo "<script type='text/javascript'>alert('The information of the account has been editted. Please log in again.'); window.location.href = 'login.php';</script>";
+
+
+//header ("location:login.php");
 
   } catch (PDOException $e) {
     exit("PDO Error: ".$e->getMessage()."<br>");

@@ -2,6 +2,11 @@
 error_reporting(0);
 include('connect.php');
 include('validaccessland.php');
+
+if($_SESSION['userID']!=1){
+  echo "<script type='text/javascript'>alert('Sorry, you do not have access to see the information of this page.'); window.location.href = 'login.php';</script>";
+}
+
 if(isset($_POST['delete'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);

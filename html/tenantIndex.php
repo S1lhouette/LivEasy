@@ -3,6 +3,11 @@
 error_reporting(0);
 include("Validaccess.php");
 include('connect.php');
+
+if(!isset($_SESSION['userID'])){
+    echo "<script type='text/javascript'>alert('Sorry, you should log in first.'); window.location.href = 'login.php';</script>";
+}
+
 $useremail=$_SESSION['user'];
 //$userId=$_SESSION['userID'];
 $userFullname=$_SESSION['userFullname'];

@@ -3,6 +3,10 @@ error_reporting(0);
 include("connect.php");
 session_start();
 
+if(!isset($_SESSION['userID'])){
+    echo "<script type='text/javascript'>alert('Sorry, you should log in first.'); window.location.href = 'login.php';</script>";
+}
+
 
 
 if(isset($_POST['confirmTransaction'])){

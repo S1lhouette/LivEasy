@@ -3,6 +3,10 @@ error_reporting(0);
 session_start();
 include('connect.php');
 
+if(!isset($_SESSION['userID'])){
+    echo "<script type='text/javascript'>alert('Sorry, you should log in first.'); window.location.href = 'login.php';</script>";
+}
+
 if(isset($_POST['addBtn'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
@@ -66,7 +70,7 @@ if(isset($_POST['finish'])){
 	  <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
 	  <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
 	  <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
-	  <a><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
+	  <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
   </div>
 </head>
 <body id="background">
