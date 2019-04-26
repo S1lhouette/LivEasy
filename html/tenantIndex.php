@@ -55,9 +55,9 @@ if(isset($_POST['delete'])){
      <div class="show" id="c1" style="overflow:scroll; overflow-x:hidden;">
                <?php
                 $pdo=new PDO($dsn,$db_username,$db_password,$opt);
+                echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
+                echo "<table border='0' id='msgTable'>";//可以的话可以修改一下table的样式，可以直接在下面echo语句中修改html代码
                 foreach ($pdo->query("select * from messagetable natural join usertable where usertable.flatNum=\"{$_SESSION['flatNum']}\" order by messagetable.date desc")as $row) {
-                  echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
-                  echo "<table border='0' id='msgTable'>";
                   if($row['anonymous']==1){
                     echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>Anonymous</td></tr>";
                   }else if($row['anonymous']==0){
@@ -95,6 +95,7 @@ if(isset($_POST['delete'])){
                  foreach ($pdo->query("select * from messagetable where messagetable.userID=\"{$_SESSION['userID']}\" order by messagetable.date desc") as $row) {
                    $msgID=$row['msgID'];
                    echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
+                   //需要修改以下table的格式和delete按钮的样式
                    echo "<table border='0' id='msgTable'>";
                    echo "<tr><td>".$row['content']."</td><td><input type='hidden' name='msgID' value='".$row['msgID']."'/></td><td class='delete'><input type='submit' name='delete' value='Delete' class='btn finishBtn'/></td></tr>";
                    echo "</table></form>";
