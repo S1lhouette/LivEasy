@@ -15,6 +15,7 @@ if(isset($_POST['confirmTransaction'])){
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
     $stmt=$pdo->query("select * from transactiontable where transactionID=".$transactionID);
     $row=$stmt->fetch();
+    $amount=$row['amount'];
     $cost=$row['amount']/$row['consumerNum'];
     $payerID=$row['payerID'];
     $consumerList=$row['consumerID'];
@@ -29,22 +30,28 @@ if(isset($_POST['confirmTransaction'])){
     }
     $newConfirmState=$row['confirmState'];
     $newConfirmState{$targetIndex}='1';
-    if(strstr($newConfirmState,"0")==false){
+    if(strstr($newConfirmState,"0")===false){
       $newConfirmResult=1;
     }else{
       $newConfirmResult=0;
     }
     $stmt=$pdo->query("update transactiontable set confirmState='".$newConfirmState."', confirmResult='".$newConfirmResult."' where transactionID=".$transactionID);
 
-    $stmt=$pdo->query("select * from usertable where userID=".$_SESSION['userID']);
-    $row=$stmt->fetch();
-    $newBalance=$row['balance']-$cost;
-    $stmt=$pdo->query("update usertable set balance=".$newBalance." where userID=".$_SESSION['userID']);
+    if($newConfirmResult==1){
+      $stmt=$pdo->query("select * from usertable where userID=".$payerID);
+      $row=$stmt->fetch();
+      $newBalance=$row['balance']+$amount;
+      $stmt=$pdo->query("update usertable set balance=".$newBalance." where userID=".$payerID);
 
-    $stmt=$pdo->query("select * from usertable where userID=".$payerID);
-    $row=$stmt->fetch();
-    $newBalance=$row['balance']+$cost;
-    $stmt=$pdo->query("update usertable set balance=".$newBalance." where userID=".$payerID);
+      foreach($consumerIDArray as $id){
+        $stmt=$pdo->query("select * from usertable where userID=".$id);
+        $row=$stmt->fetch();
+        $newBalance=$row['balance']-$cost;
+        $stmt=$pdo->query("update usertable set balance=".$newBalance." where userID=".$id);
+      }
+
+    }
+
 
 
 
@@ -91,13 +98,9 @@ if(isset($_POST['confirmTransaction'])){
           while($row=$stmt->fetch()){
             $consumerList=$row['consumerID'];
             $consumerIDArray=explode(',',$consumerList);
-            $index=0;
-            $targetIndex=-1;
             foreach($consumerIDArray as $id){
               if($id==$_SESSION['userID']){
-                $targetIndex=$index;
-                $confirmStr=$row['confirmState'];
-                if(substr($confirmStr,$targetIndex,1)=="1"){
+                if($row['confirmResult']==1){
                   echo "<tr class='cell'>";
                   echo "<td class='date'>".$row['transactionDate']."</td>";
                   echo "<td>&#163;".$row['amount']."</td>";
@@ -161,33 +164,47 @@ if(isset($_POST['confirmTransaction'])){
           $pdo=new PDO($dsn,$db_username,$db_password,$opt);
           $stmt=$pdo->query("select * from transactiontable inner join usertable on transactiontable.payerID=usertable.userID");
           while($row=$stmt->fetch()){
-            $consumerList=$row['consumerID'];
-            $consumerIDArray=explode(',',$consumerList);
-            $index=0;
-            $targetIndex=-1;
-            foreach($consumerIDArray as $id){
-              if($id==$_SESSION['userID']){
-                $targetIndex=$index;
-                $confirmStr=$row['confirmState'];
-                if(substr($confirmStr,$targetIndex,1)=="0"){
-                  echo "<form name='confirmRow' action='finance.php' method='post' onsubmit='return confirmConfirmBtn()'>";
-                  echo "<tr class='cell'>";
-                  echo "<td class='date'>".$row['transactionDate']."</td>";
-                  $amount=$row['amount']/$row['consumerNum'];
-                  echo "<td class='cost'>&#163;".$amount."</td>";
-                  echo "<td>payer:".$row['name']."</td>";
-                  echo "<td>".$row['consumerNum']." consumers</td>";
-                  echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
-                  echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
-                  echo "<td class='confirm'><input type='submit' class='btn confirmBtn' name='confirmTransaction' value='Confirm'></td>";
-                  echo "</tr>";
-                  echo "</form>";
+            if($row['confirmResult']==0){
+              $consumerList=$row['consumerID'];
+              $consumerIDArray=explode(',',$consumerList);
+              $index=0;
+              $targetIndex=-1;
+              foreach($consumerIDArray as $id){
+                if($id==$_SESSION['userID']){
+                  $targetIndex=$index;
+                  $confirmStr=$row['confirmState'];
+                  if(substr($confirmStr,$targetIndex,1)=="0"){
+                    echo "<form name='confirmRow' action='finance.php' method='post' onsubmit='return confirmConfirmBtn()'>";
+                    echo "<tr class='cell'>";
+                    echo "<td class='date'>".$row['transactionDate']."</td>";
+                    $amount=$row['amount']/$row['consumerNum'];
+                    echo "<td class='cost'>&#163;".$amount."</td>";
+                    echo "<td>payer:".$row['name']."</td>";
+                    echo "<td>".$row['consumerNum']." consumers</td>";
+                    echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
+                    echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
+                    echo "<td class='confirm'><input type='submit' class='btn confirmBtn' name='confirmTransaction' value='Confirm'></td>";
+                    echo "</tr>";
+                    echo "</form>";
+                  }else{
+                    echo "<form name='confirmRow' action='finance.php' method='post' onsubmit='return confirmConfirmBtn()'>";
+                    echo "<tr class='cell'>";
+                    echo "<td class='date'>".$row['transactionDate']."</td>";
+                    $amount=$row['amount']/$row['consumerNum'];
+                    echo "<td class='cost'>&#163;".$amount."</td>";
+                    echo "<td>payer:".$row['name']."</td>";
+                    echo "<td>".$row['consumerNum']." consumers</td>";
+                    echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
+                    echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
+                    echo "<td>Waiting for others' confirmation</td>";
+                    echo "</tr>";
+                    echo "</form>";
+                  }
+
                 }
-
+                $index++;
               }
-              $index++;
             }
-
           }
 
           $pdo=NULL;
