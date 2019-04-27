@@ -60,7 +60,7 @@ if(isset($_POST['confirmTransaction'])){
 <html lang="en">
 <head>
     <div id = "head">
-		<input type="submit" id="logout" value="Log out" onclick="return confirmLogout()">
+		<a href="logout.php" id="logout"> Log out</a>
         <link  rel="stylesheet" type="text/css" href="../css/finance.css">
 		<script type="text/javascript" src="../js/finance.js"></script>
         <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
@@ -151,7 +151,6 @@ if(isset($_POST['confirmTransaction'])){
 		</div>
 
     </div>
-
     <div id="right">
         <div class = "subtitles"> Confirm list <br> </div>
 		<div id = "confirmDiv" style="overflow: scroll; overflow-x: hidden;">

@@ -67,7 +67,7 @@ if(isset($_POST['finishBtn'])){
 </head>
 <body id="background">
   <div  id="head">
-    <input type="submit" id="logout" value="Log out" onclick="return confirmLogout()">
+    <a href="logout.php" id="logout"> Log out</a>
     <img id="logoSmall" src="../images/logo.png" alt="logo">
     <text id="title"> LivEasy </text>
   </div>

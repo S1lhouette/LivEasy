@@ -39,7 +39,7 @@ if(isset($_POST['Save'])){
 
 <body id="background">
     <div id = "head">
-      <text id="logout"> Log out</text>
+      <a href="logout.php" id="logout"> Log out</a>
         <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
         <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
         <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>

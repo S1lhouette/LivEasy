@@ -132,6 +132,7 @@ if(isset($_POST['submit'])){
         <option value="Liverpool City College">Liverpool City College</option>
         <option value="The City of Liverpool College">The City of Liverpool College</option>
         <option value="Liverpool School of Tropical Medicine">Liverpool School of Tropical Medicine</option>
+        <option value="Else">Else</option>
       </select>
     </div>
 
@@ -156,6 +157,7 @@ if(isset($_POST['submit'])){
         <option value="Urban Planning">Urban Planning</option>
         <option value="Veterinary Science">Veterinary Science</option>
         <option value="Zoology">Zoology</option>
+        <option value="Else">Else</option>
       </select>
     </div>
       <input type="submit" id="registerBtn" name="submit" value="Register" onsubmit="return albeBtn()"/>

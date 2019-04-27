@@ -37,7 +37,7 @@ if(isset($_POST['delete'])){
  <html lang="en">
  <head>
      <div id = "head">
-         <text id="logout"> Log out</text>
+         <a href="logout.php" id="logout"> Log out</a>
          <link  rel="stylesheet" type="text/css" href="../css/tenantIndex.css">
          <script type="text/javascript" src="../js/tenantIndex.js"></script>
          <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
@@ -114,7 +114,7 @@ if(isset($_POST['delete'])){
      <p id="welcome"><?php echo"<span id='welcome'>"."Welcome home,$userFullname"."</span>"?></p>
      <p class="smallerFont"><br><?php echo"<span id='smallerFont'>"."Email:$useremail"."</span>"?></p>
      <br>
-     <?php $flatNum=$_SESSION['flatNum'];echo"<span id='phpHint'>"."Flat:$flatNum"."</span>"?> <br> <?php echo"<span id='phphint2'>"."Room:$_SESSION['roomNum']"."</span>"</p>
+     <?php $flatNum=$_SESSION['flatNum']; echo "<span id='phpHint'>"."Flat:".$flatNum."</span>"?> <br> <?php echo"<span id='phphint2'>"."Room:".$_SESSION['roomNum']."</span>";?>
      <p class="smallerFont">
          <a href="recommend.html" class="links">Find a flat to play?</a>
          <br>

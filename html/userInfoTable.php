@@ -51,7 +51,7 @@ if(isset($_POST['activate'])){
 <html lang="en">
 <head>
     <div id = "head">
-        <text id="logout"> Log out</text>
+        <a href="logout.php" id="logout"> Log out</a>
         <link  rel="stylesheet" type="text/css" href="../css/userInfoTable.css">
         <script type="text/javascript" src="../js/userInfoTable.js"></script>
         <a href="landlordIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>

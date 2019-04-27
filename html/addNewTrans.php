@@ -94,7 +94,7 @@ if(isset($_POST['submitBtn'])){
 <html lang="en">
 <head>
     <div id = "head">
-        <input type="submit" id="logout" value="Log out" onclick="return confirmLogout()">
+        <a href="logout.php" id="logout"> Log out</a>
         <link  rel="stylesheet" type="text/css" href="../css/addNewTrans.css">
         <script type="text/javascript" src="../js/addNewTrans.js"></script>
         <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
