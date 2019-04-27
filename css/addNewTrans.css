@@ -138,7 +138,8 @@ html{
     border-right-style: none;
     border-left-style: none;
     border-bottom-style: none;
-    margin-top: 5%;
+    /* margin-top: 5%; */
+    margin-left: 20%;
 }
 
 .btn:disabled {
@@ -199,4 +200,11 @@ html{
     font-size: 0;
   height:70%;
   width: auto;
+}
+
+#dataForTrs{
+  margin-top: 1%;
+}
+#typeForTrs{
+    margin-top: 1%;
 }

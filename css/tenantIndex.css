@@ -251,3 +251,8 @@ html{
 .selected:hover{
     background-color: black;
 }
+
+#actHint{
+  font-size: 0.01em;
+  color: white;
+}

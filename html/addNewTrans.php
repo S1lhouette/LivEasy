@@ -110,11 +110,14 @@ if(isset($_POST['submitBtn'])){
 			<form name="moneyForm" id="moneyForm" onsubmit="return canSubmit()" enctype="multipart/form-data"  method="post" action="addNewTrans.php">
     		<div id="input">
   				<input type="text" id="moneyInput" placeholder="Enter the amount of money" onkeyup="checkNum(this)" name='amount'/>
-  				<input type="submit" class="btn" id="submitBtn" name="submitBtn" value="Submit"/>
-          <input type="date" value="<?php echo date("Y-m-d");?>" min="2019-01-01" max="2028-12-31" name="transactionDate"/>
-          <select name= "transactionType">
+  				<!-- <input type="submit" class="btn" id="submitBtn" name="submitBtn" value="Submit"/> -->
+          <br>
+          <input id= "dataForTrs"type="date" value="<?php echo date("Y-m-d");?>" min="2019-01-01" max="2028-12-31" name="transactionDate"/>
+          <br>
+          <select id="typeForTrs"name= "transactionType">
             <option value="TestType">TestType</option>
           </select>
+          <input type="submit" class="btn" id="submitBtn" name="submitBtn" value="Submit"/>
           <br/>
           <span class="hint" id="moneyHint"></span>
 		    </div>

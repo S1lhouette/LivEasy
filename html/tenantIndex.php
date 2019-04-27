@@ -111,10 +111,10 @@ if(isset($_POST['delete'])){
  </div>
 
  <div id="right">
-     <p id="welcome"><?php echo"<span id='phpHint'>"."Welcome home,$userFullname"."</span>"?></p>
-     <p class="smallerFont"><br><?php echo"<span id='phpHint'>"."Email:$useremail"."</span>"?></p>
+     <p id="welcome"><?php echo"<span id='welcome'>"."Welcome home,$userFullname"."</span>"?></p>
+     <p class="smallerFont"><br><?php echo"<span id='smallerFont'>"."Email:$useremail"."</span>"?></p>
      <br>
-     <?php $flatNum=$_SESSION['flatNum'];echo"<span id='phpHint'>"."Flat:$flatNum"."</span>"?> <br> Room:A</p>
+     <?php $flatNum=$_SESSION['flatNum'];echo"<span class='smallerFont'>"."Flat:$flatNum"."</span>"?> <br> Room:A</p>
      <p class="smallerFont">
          <a href="recommend.html" class="links">Find a flat to play?</a>
          <br>

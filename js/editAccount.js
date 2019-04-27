@@ -1,5 +1,21 @@
+function checkPsw() {
+    var inputPsw = document.getElementById("psw1").value;
+    var reg1 = /^(?=.*[A-Za-z])[A-Za-z\d!@#$]{8,16}$/;
+    var reg2 = /^(?=.*\d)[A-Za-z\d!@#$]{8,16}$/;
+    var flag = reg1.test(inputPsw)||reg2.test(inputPsw);
+    if(flag == false){
+      // Password must contain numbers, letters, special symbols and the length between 8-16
+        document.getElementById("firstPswHint").innerHTML = "<font color='red'>Invalid Password</font>";
+        document.getElementById("registerBtn").disabled = true;
 
-    function verifyPsw() {
+    }else{
+        document.getElementById("firstPswHint").innerHTML = "";
+        document.getElementById("registerBtn").disabled = false;
+
+    }
+  }
+
+  function verifyPsw() {
     var x = document.getElementById('psw1').value;
     var y = document.getElementById('psw2').value;
     if(x==y) {
