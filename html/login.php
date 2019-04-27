@@ -28,19 +28,23 @@ include('connect.php');
           header ("location:landlordIndex.php");
         }else{
           if(!empty($row[0])){//loging successfully
-            //echo $username,' 欢迎你！进入 <a href="my.php">用户中心</a><br />';
-            $_SESSION ['user']= $user;
-            $_SESSION['userID']=$userId;
-            $_SESSION['userFullname']=$row['name'];
-            $_SESSION['gender']=$row['gender'];
-            $_SESSION['university']=$row['university'];
-            $_SESSION['major']=$row['major'];
-            $_SESSION['flatNum']=$row['flatNum'];
-            $_SESSION['roomNum']=$row['roomNum'];
-            $_SESSION['balance']=$row['balance'];
-            $_SESSION['activated']=$row['activated'];
-            header ("location:tenantIndex.php");
-     //echo '点击此处 <a href="login.php?action=logout">注销</a> 登录！<br />';
+            if($row['activated']==0){
+              echo "<script type='text/javascript'>alert('Sorry, your account has not been activated yet. Please wait for the activation of the landlord.'); window.location.href = 'login.php';</script>";
+            }else{
+              $_SESSION ['user']= $user;
+              $_SESSION['userID']=$userId;
+              $_SESSION['userFullname']=$row['name'];
+              $_SESSION['gender']=$row['gender'];
+              $_SESSION['university']=$row['university'];
+              $_SESSION['major']=$row['major'];
+              $_SESSION['flatNum']=$row['flatNum'];
+              $_SESSION['roomNum']=$row['roomNum'];
+              $_SESSION['balance']=$row['balance'];
+              $_SESSION['activated']=$row['activated'];
+              header ("location:tenantIndex.php");
+       //echo '点击此处 <a href="login.php?action=logout">注销</a> 登录！<br />';
+            }
+
           }else{
             $error = " Email or Password is Wrong . Try Again ";
             //echo "<Label>alert(' Username or Password is invalid . Try Again');</Label>";

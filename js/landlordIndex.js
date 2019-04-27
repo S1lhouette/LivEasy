@@ -1,4 +1,20 @@
+    function confirmDelete() {
+      var r = confirm("Are you sure to delete the message?")
+        if(r==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
+    function confirmFinish() {
+      var r = confirm("Are you sure that the repairment has been finished?")
+        if(r==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     function deleteMsg(target){
       if (confirm("Do you really want to delete this message?")) {
@@ -47,5 +63,3 @@
         }
 
     }
-
-

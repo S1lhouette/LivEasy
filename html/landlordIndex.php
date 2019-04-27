@@ -79,6 +79,12 @@ if(isset($_POST['finishBtn'])){
           <div id="billboard" class="show" style="overflow-y:scroll">
           <div>
             <table id="msgTable" >
+              <th>
+                <td>Content</td>
+                <td>Date</td>
+                <td></td>
+                <td></td>
+              </th>
                 <?php
                 try {
                   $index=1;
@@ -86,14 +92,14 @@ if(isset($_POST['finishBtn'])){
                   $stmt=$pdo->query("select * from messagetable where userID=1 group by date desc");
                   while($row=$stmt->fetch()){
                     //var_dump($row);
-                    echo "<form action='landlordIndex.php' method='post' name='showMsgForm'>";
+                    echo "<form action='landlordIndex.php' method='post' name='showMsgForm' onsubmit='return confirmDelete()'>";
                     echo "<tr>";
                     echo "<td class='index'>".$index.".</td>";
                     echo "<td class='msg'>".$row['content']."</td>";
                     $time=strtotime($row['date']);
                     echo "<td class='date'>".date('m',$time)."-".date('d',$time)."</td>";
                     echo "<td><input type='hidden' name='msgID' value='".$row['msgID']."'/></td>";
-                    echo "<td class='deleteBtn'><input type='submit' class='btn' name='deleteBtn' value='Delete' onclick='sub(document.showMsgForm)'/></td>";
+                    echo "<td class='deleteBtn'><input type='submit' class='btn' name='deleteBtn' value='Delete'/></td>";
                     echo "</tr>";
                     echo "</form>";
                     $index++;
@@ -131,7 +137,7 @@ if(isset($_POST['finishBtn'])){
             $stmt=$pdo->query("select * from reporttable inner join usertable on reporttable.userID=usertable.userID group by reportID desc");
             while($row=$stmt->fetch()){
               if($row['confirmState']=='00'||$row['confirmState']=='01'){
-                echo "<form action='landlordIndex.php' method='post' name='showRptForm'>";
+                echo "<form action='landlordIndex.php' method='post' name='showRptForm' onsubmit='return confirmFinish()'>";
                 echo "<tr>";
                 echo "<td class='facility'>".$row['content']."</td>";
                 echo "<td class='notes'>".$row['availableTime']."</td>";
@@ -141,7 +147,7 @@ if(isset($_POST['finishBtn'])){
                 echo "</tr>";
                 echo "</form>";
               }else if($row['confirmState']=='10'){
-                echo "<form action='landlordIndex.php' method='post' name='showRptForm'>";
+                echo "<form action='landlordIndex.php' method='post' name='showRptForm' onsubmit='return confirmFinish()'>";
                 echo "<tr>";
                 echo "<td class='facility'>".$row['content']."</td>";
                 echo "<td class='notes'>".$row['availableTime']."</td>";

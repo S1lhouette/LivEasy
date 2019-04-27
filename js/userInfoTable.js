@@ -1,6 +1,6 @@
 function confirmDelete() {
-    var window = confirm("Do you want to delete this event?");
-    if (window == true){
+    var r = confirm("Are you sure to delete this user, including all his information and record?");
+    if (r == true){
         return true;
     } else{
         return false;

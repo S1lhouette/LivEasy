@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 include('connect.php');
-include('validaccessland.php');
+
 
 if($_SESSION['userID']!=1){
   echo "<script type='text/javascript'>alert('Sorry, you do not have access to see the information of this page.'); window.location.href = 'login.php';</script>";
@@ -77,16 +77,16 @@ if(isset($_POST['activate'])){
                 $stmt=$pdo->query("select * from usertable order by flatNum");
                 while($row=$stmt->fetch()){
                   if($row['userID']!=1){
-                    echo "<form action='userInfoTable.php' method='post'>";
+                    echo "<form action='userInfoTable.php' method='post' name='userInfoTable' onsubmit='return confirmDelete()'>";
                     echo "<tr>";
                     echo "<td>".$row['name']."</td>";
                     echo "<td>".$row['flatNum']."</td>";
                     echo "<td>".$row['roomNum']."</td>";
                     echo "<td><input type='hidden' name='index' value='".$row['userID']."'/></td>";
                     if($row['activated']==0){
-                      echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/><input type='submit' name='activate' value='Activate' class='actBtn'/></td>";
+                      echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn'/><input type='submit' name='activate' value='Activate' class='actBtn'/></td>";
                     }else{
-                      echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td>";
+                      echo "<td class='btnArea'><input type='submit' name='delete' value='Delete' class='deleteBtn'/></td>";
                     }
                     echo "</tr>";
                     echo "</form>";
