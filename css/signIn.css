@@ -31,8 +31,11 @@ html{
     margin-top: 10px;
     font-size: 0.5rem;
     font-family: "Arial Black";
+    /* text-decoration: none; */
 }
-
+#webname{
+  text-decoration: none;
+}
 .text{
     margin-top: 2%;
     position: relative;

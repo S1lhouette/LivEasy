@@ -151,6 +151,7 @@ if(isset($_POST['confirmTransaction'])){
 		</div>
 
     </div>
+
     <div id="right">
         <div class = "subtitles"> Confirm list <br> </div>
 		<div id = "confirmDiv" style="overflow: scroll; overflow-x: hidden;">

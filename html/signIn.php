@@ -74,8 +74,8 @@ if(isset($_POST['submit'])){
 <body id="background">
   <script type="text/javascript" src="../js/signIn.js"></script>
   <div  id="head">
-    <img id="logoSmall" src="../images/logo.png" alt="logo">
-    <text id="title"> LivEasy </text>
+      <a href="./login.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+      <a href="./login.php" id = "webname"><text id="title"> LivEasy </text></a>
   </div>
 <form action="signIn.php" name="signInForm" method="post" onsubmit="return myCheck()">
   <div id="left">
@@ -159,7 +159,7 @@ if(isset($_POST['submit'])){
       </select>
     </div>
       <input type="submit" id="registerBtn" name="submit" value="Register" onsubmit="return albeBtn()"/>
-      <a href="./login.php"><input type="button" id="logInBtn" name="Log in" value="Log in"></input>Log in</a>
+      <!-- <a href="./login.php"><input type="button" id="logInBtn" name="Log in" value="Log in"></input>Log in</a> -->
       <!--需要修改此按键的样式 -->
       <div id="hintDiv">
       <!-- <span id='phpHint'></span> -->

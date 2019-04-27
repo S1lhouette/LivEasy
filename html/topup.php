@@ -117,7 +117,7 @@ if(isset($_POST['topup'])){
       echo "<td><input type='hidden' name='userID3' value='".$row3['userID']."'></td>";
     }
 
-    echo "</td>";
+    echo "</tr>";
 
     echo "<tr>";
 
@@ -142,7 +142,7 @@ if(isset($_POST['topup'])){
       echo "<td><input type='hidden' name='userID6' value='".$row6['userID']."'></td>";
     }
 
-    echo "</td>";
+    echo "</tr>";
 
     $pdo=NULL;
 

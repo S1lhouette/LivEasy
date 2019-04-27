@@ -50,21 +50,23 @@ if(isset($_POST['Save'])){
      <div id="body">
       <div id="subTitile"> My Account </div>
       <form name="editForm" onsubmit="return myCheck()" action="editAccount.php" method="post">
-          <div class="text">First Name<br>
-              <input class="textInput" id="firstName" type="text" name="firstName" onkeyup="checkNull('firstName')">
-              <span class="hint" id="firstNameHint"></span>
-          </div>
-          <div class="text">Last Name<br>
-            <input class="textInput" id="lastName" type="text" name="lastName" onkeyup="checkNull('lastName')">
-            <span class="hint" id="lastNameHint"></span>
+        <div class="text">First Name<br/>
+          <input class="textInput" id="firstName" type="text" name="firstName" placeholder="please enter your firstname" onkeyup="checkNull('firstName')"/>
+          <span class="hint" id="firstNameHint"></span>
+        </div>
+
+        <div class="text">Last Name<br/>
+          <input class="textInput" id="lastName" type="text" name="lastName" placeholder="please enter your lastname" onkeyup="checkNull('lastName')"/>
+          <span class="hint" id="lastNameHint"></span>
+        </div>
+
+          <div class="text" >Password<br/>
+                <input class="textInput" id="psw1" type="password" name="password" placeholder="alphanum and special symbol, length 8-16" onkeyup="checkPsw()"/>
+              <span class="hint" id="firstPswHint"></span>
           </div>
 
-          <div class="text">Password<br>
-              <input class="textInput"  id="psw1" type="password" name="password" >
-          </div>
-
-          <div class="text" >Confirm Password<br>
-              <input class="textInput " id="psw2" type="password" name="confirmPassword" onkeyup="verifyPsw()">
+          <div class="text" >Confirm Password<br/>
+              <input class="textInput" id="psw2" type="password" name="confirmPassword" placeholder="please enter your password again" onkeyup="verifyPsw()"/>
               <span class="hint" id="pswHint"></span>
           </div>
 
