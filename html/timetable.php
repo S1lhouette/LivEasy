@@ -66,24 +66,23 @@ if(isset($_POST['delete'])){
            <form action="timetable.php" method='post' id='form1'><input type="hidden" id='today' name='date'></input></form>
            <?php echo $date; //需要改变此处的外观，包括字体大小等?>
              <div id="theDayEvents" style="overflow: scroll;overflow-x: hidden">
-               <div id="Allevent">
+                   <div id='c1' class='show'>
                    <?php
                    $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-                   echo "<form id='c1' class='show' action='timetable.php' method='post' name='timtableForm'>";
                    echo "<table border='0' id='eventsTable'>";
                      foreach ($pdo->query("select * from scheduletable natural join usertable where usertable.flatNum=\"{$_SESSION['flatNum']}\" and scheduletable.eventDate=\"{$date}\"order by scheduletable.starttime asc")as $row) {
                        echo "<tr><td>".$row['content']."</td><td>".$row['startTime']."</td><td>-".$row['endTime']."</td><td>".$row['name']."</td></tr>";
                        //上面这行 中的html代码需要修改，使得表看起来更美观
                      }
-                  echo "</table></form>";
+                  echo "</table>";
                    $pdo=NULL;
                    ?>
                  </div>
-                 <div id="Myevent">
+                  <div id='c2' >
                    <?php
                     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-                    foreach ($pdo->query("select * from scheduletable where scheduletable.userID=\"{$userId}\" order by scheduletable.starttime asc") as $row) {
-                      echo "<form id='c2' action='timetable.php' method='post' name='timtableForm'>";
+                    foreach ($pdo->query("select * from scheduletable where scheduletable.userID=\"{$userId}\" and scheduletable.eventDate=\"{$date}\" order by scheduletable.starttime asc") as $row) {
+                      echo "<form action='timetable.php' method='post' name='timtableForm'>";
                       echo "<table border='0' id='eventsTable'>";
                       echo "<tr><td>".$row['content']."</td><td><input type='hidden' name='bookID' value='".$row['bookID']."'/></td><td class='delete'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td></tr>";
                       //上面这行 中的html代码需要修改，使得表看起来更美观
