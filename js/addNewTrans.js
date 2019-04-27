@@ -117,7 +117,7 @@ function checkCheckbox(){
 
 function canSubmit(){
   if(checkBox&&checkFile&&checkMoney){
-    alert("Submit successfully!");
+    alert("Transaction has been added successfully!");
     return true;
   }
   else{

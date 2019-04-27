@@ -92,7 +92,7 @@ if(isset($_POST['finish'])){
           $stmt=$pdo->query($msg);
           while($row=$stmt->fetch()){
             if($row['confirmResult']=='0'||$row['confirmState']!='11'){
-              echo "<form action='maintenance.php' method='post' name='maintenanceForm'>";
+              echo "<form action='maintenance.php' method='post' name='maintenanceForm' onsubmit='return confirmFinishBtn()'>";
               echo "<tr class='cell'>";
               echo "<td class='facilityName'>".$row['content']."</td>";
               echo "<td class='note'>".$row['availableTime']."</td>";

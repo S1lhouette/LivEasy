@@ -170,7 +170,7 @@ if(isset($_POST['confirmTransaction'])){
                 $targetIndex=$index;
                 $confirmStr=$row['confirmState'];
                 if(substr($confirmStr,$targetIndex,1)=="0"){
-                  echo "<form name='confirmRow' action='finance.php' method='post'>";
+                  echo "<form name='confirmRow' action='finance.php' method='post' onsubmit='return confirmConfirmBtn()'>";
                   echo "<tr class='cell'>";
                   echo "<td class='date'>".$row['transactionDate']."</td>";
                   $amount=$row['amount']/$row['consumerNum'];

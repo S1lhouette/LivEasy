@@ -24,6 +24,15 @@ function setDisable(obj){
     obj.disabled = true;
 }
 
+function confirmFinishBtn() {
+    var r = confirm("Are you sure the repairment has been finished?");
+    if(r == true){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 window.onload=function() {
     function fixRem() {
         var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
