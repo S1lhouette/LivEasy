@@ -49,7 +49,6 @@ if(isset($_POST['delete'])){
          <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
          <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
          <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
-         
      </div>
  </head>
  <body id="background" onload="load(); fixRem(); window.addEventListener('resize', fixRem, false);">
