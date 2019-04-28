@@ -1,6 +1,4 @@
 var selectedDate = "";
-//selectedDay 已删除，此处若还有和原来的selectedday有关的 代码请 修改
-//并且关于用户点击变色的效果，可以试试是否可以根据当前php后端得到的值显示
 var today;
 var todayString;
 var form = document.getElementById("formday");
@@ -9,6 +7,22 @@ function load() {
 document.getElementById("selectedDay").innerText = todayString;
 document.getElementById("today").value=todayString;
 document.getElementById("today").innerText=todayString;
+var table = document.getElementById("calendarTable");
+var tds = table.getElementsByTagName('td');
+for(var i = 0; i < tds.length; i++) {
+  // alert(tds[i].getAttribute('data'));
+  var cellDay = tds[i].getAttribute('data');
+  var phpGetDay = document.getElementById("dayforjs").value;
+  var cellDayStr = cellDay.substr(0,4) + "-"+cellDay.substr(4,2)+"-"+cellDay.substr(6,2);
+  if( phpGetDay == cellDayStr){
+    //alert(phpGetDay);
+      tds[i].className = "clicked";
+      var cellDay123 = cellDay.substr(0,4) + "."+cellDay.substr(4,2)+"."+cellDay.substr(6,2);
+      document.getElementById("selectedDay").innerText=cellDay123;
+  }
+
+
+}
 }
 
 

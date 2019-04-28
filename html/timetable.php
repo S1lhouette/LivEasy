@@ -5,6 +5,7 @@ include("connect.php");
 $userId=$_SESSION['userID'];
 $userFullname=$_SESSION["userFullname"];
 $date=date("Y-m-d");
+
 if(isset($_POST['date'])){
   $date=str_replace(".","-",$_POST['date']);
 }
@@ -54,6 +55,7 @@ if(isset($_POST['delete'])){
  <body id="background" onload="load(); fixRem(); window.addEventListener('resize', fixRem, false);">
      <div id="left">
              <div class='calendar' id='calendar'></div>
+             <input type="hidden" id="dayforjs" name="dayforjs" value='<?php echo $date;?>' onchange=""> </input>
              <script type='text/javascript' src="../js/calendar.js"></script>
              <!--由于效果改变了，
              所以需要重写js中日历
@@ -64,8 +66,7 @@ if(isset($_POST['delete'])){
      <div id="selectedDay"></div><!--需要修改html或js代码，让此处只显示“My events”或
               All events” -->
          <div id="showEvent">
-           <form action="timetable.php" method='post' id='form1'><input type="hidden" id='today' name='date'></input></form>
-           <?php echo $date; //需要改变此处的外观，包括字体大小等?>
+           <form action="timetable.php" method='post' id='form1' target="rfFrame"><input type="hidden" id='today' name='date'></input></form>
              <div id="theDayEvents" style="overflow: scroll;overflow-x: hidden">
                    <div id='c1' class='show'>
                    <?php
@@ -92,7 +93,6 @@ if(isset($_POST['delete'])){
                     $pdo=NULL;
                     ?>
                   </div>
-
                  </div>
          </div>
          <div id="inputArea">
