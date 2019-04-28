@@ -46,7 +46,7 @@ if(isset($_POST['submitBtn'])){
 
   $file_extension = strtolower(substr(strrchr($_FILES["uploadRcpt"]["name"],'.'),1));
   echo $_FILES["uploadRcpt"]["type"];
-  if ((($_FILES["uploadRcpt"]["type"] == "image/png")|| ($_FILES["uploadRcpt"]["type"] == "image/jpeg")|| ($_FILES["uploadRcpt"]["type"] == "image/pjpeg"))&& ($_FILES["uploadRcpt"]["size"] < 200000)){
+  if (($_FILES["uploadRcpt"]["type"] == "image/png")|| ($_FILES["uploadRcpt"]["type"] == "image/jpeg")|| ($_FILES["uploadRcpt"]["type"] == "image/pjpeg")){
     if ($_FILES["uploadRcpt"]["error"] > 0){
       echo "Return Code: " . $_FILES["uploadRcpt"]["error"] . "<br />";
     }else{

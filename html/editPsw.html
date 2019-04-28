@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id = "head">
+        <text id="logout"> Log out</text>
+        <link  rel="stylesheet" type="text/css" href="../css/editPsw.css">
+        <script type="text/javascript" src="../js/editPsw.js"></script>
+        <a href="landlordIndex.html"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
+        <a href="landlordIndex.html" id="webName"><text id="title"> LivEasy </text></a>
+    </div>
+</head>
+<body id="background">
+<div id="titleForThisPage">
+    Change Password
+</div>
+<div id="changePsw">
+    <form name="pswForm" onsubmit="return myCheck()">
+        <table id="dropListTbl">
+            <tr>
+                <td>
+                    Flat
+                    <select class="dropList" id="flatList" name="flatList">
+                        <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                    </select>
+                </td>
+                <td>
+                    Room
+                    <select class="dropList" id="roomList" name="flatList">
+                        <option selected="selected" disabled="disabled"  style='display: none' value=''></option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+    <br>
+    <div id="pswDiv">
+        <table>
+            <tr>
+                <td class="nameTd">New Password</td> <td class="inputTd"><input type="password" id="psw1" class="inputText" placeholder="alphanum and special symbol, length 8-16" onkeyup="checkPsw()"></td><td id="hint1"></td>
+            </tr>
+            <tr>
+                <td class="nameTd">Confirm Password</td> <td class="inputTd"><input type="password" id="psw2" class="inputText" onkeyup="verifyPsw()"></td><td id="hint"></td>
+            </tr>
+        </table>
+    </div>
+    <input type="submit" value="Submit" id="submitBtn">
+    </form>
+</div>
+
+</body>
+</html>

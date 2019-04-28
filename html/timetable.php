@@ -39,7 +39,7 @@ if(isset($_POST['delete'])){
 
 
  <!DOCTYPE html>
- <html lang="en" >
+ <html lang="en">
  <head>
      <div id = "head">
          <text id="logout"> Log out</text>
@@ -53,7 +53,7 @@ if(isset($_POST['delete'])){
          <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
      </div>
  </head>
- <body id="background" onload=" fixRem(); window.addEventListener('resize', fixRem, false);load();">
+ <body id="background" onload="load(); fixRem(); window.addEventListener('resize', fixRem, false);">
      <div id="left">
              <div class='calendar' id='calendar'></div>
              <input type="hidden" id="dayforjs" name="dayforjs" value='<?php echo $date;?>' onchange=""> </input>
@@ -74,7 +74,7 @@ if(isset($_POST['delete'])){
                    $pdo=new PDO($dsn,$db_username,$db_password,$opt);
                    echo "<table border='0' id='eventsTable'>";
                      foreach ($pdo->query("select * from scheduletable natural join usertable where usertable.flatNum=\"{$_SESSION['flatNum']}\" and scheduletable.eventDate=\"{$date}\"order by scheduletable.starttime asc")as $row) {
-                       echo "<tr><td>".$row['content']."</td><td>".$row['startTime']."</td><td>-".$row['endTime']."</td><td>".$row['name']."</td></tr>";
+                       echo "<tr><td class='event'>".$row['content']."</td><td class='start'>".$row['startTime']."</td><td class='end'>- ".$row['endTime']."</td><td class='name'>".$row['name']."</td></tr>";
                        //上面这行 中的html代码需要修改，使得表看起来更美观
                      }
                   echo "</table>";
@@ -86,8 +86,8 @@ if(isset($_POST['delete'])){
                     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
                     foreach ($pdo->query("select * from scheduletable where scheduletable.userID=\"{$userId}\" and scheduletable.eventDate=\"{$date}\" order by scheduletable.starttime asc") as $row) {
                       echo "<form action='timetable.php' method='post' name='timtableForm'>";
-                      echo "<table border='0' id='eventsTable'>";
-                      echo "<tr><td>".$row['content']."</td><td><input type='hidden' name='bookID' value='".$row['bookID']."'/></td><td class='delete'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td></tr>";
+                      echo "<table border='0' id='myEventsTable'>";
+                      echo "<tr><td class='bookID'><input type='hidden' name='bookID' value='".$row['bookID']."'/></td><td class='event'>".$row['content']."<td class='start'>".$row['startTime']."</td><td class='end'>- ".$row['endTime']."</td><td class='date'>2019.04.29</td><td class='delete'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td></tr>";
                       //上面这行 中的html代码需要修改，使得表看起来更美观
                       echo "</table></form>";
                     }

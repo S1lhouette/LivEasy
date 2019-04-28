@@ -273,10 +273,64 @@ html{
     background-color: rgba(255,255,255,0.4);
 }
 
-.eventsTable{
+#eventsTable{
+    text-align: center;
     height: 100%;
     width: 100%;
 }
+
+#eventsTable .event{
+    width:35%;
+}
+
+#eventsTable .start{
+    width:10%;
+}
+
+#eventsTable .end{
+    width:12%;
+}
+
+#eventsTable .name{
+    width:30%;
+}
+
+#myEventsTable{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+#myEventsTable .event{
+    width:35%;
+}
+
+#myEventsTable .bookID{
+  font-size: 0;
+    width:0%;
+    padding:0rem;
+}
+
+#myEventsTable .date{
+    width:15%;
+    padding:0;
+}
+
+#myEventsTable .delete{
+    width:15%;
+    padding:0;
+}
+
+#myEventsTable .start{
+    width:10%;
+    padding:0;
+}
+
+#myEventsTable .end{
+    width:12%;
+    padding:0;
+}
+
 .user{
     padding-left: 20%;
 }

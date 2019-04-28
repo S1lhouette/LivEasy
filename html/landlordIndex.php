@@ -124,6 +124,7 @@ if(isset($_POST['finishBtn'])){
 
       <img id="add" class="float" src="../images/plus.png" alt="" onclick="addMsg()">
         <a style="text-decoration:none" href="userInfoTable.php"><p id="userInfoBtn">View all tenants' information</p></a>
+        <a style="text-decoration:none" href="editPsw.php"><p id="userInfoBtn">Change password for tenant</p></a>
     </div>
 
     <div id="right">
