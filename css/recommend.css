@@ -59,7 +59,7 @@ html{
     font-size: 0.15rem;
     height: 0.4rem;
     width: 12%;
-    left: 40%;
+    left: 28%;
     margin-top: 2%;
     /*top: 15%;*/
     border-radius: 5px;
@@ -72,6 +72,25 @@ html{
 
 .navigation:hover{
     background-color: #ffbe1e;
+}
+
+.currentNav{
+    position: relative;
+    background-color: #ffb738;
+    color: white;
+    font-family: "Arial Black";
+    font-size: 0.15rem;
+    height: 0.4rem;
+    width: 12%;
+    left: 28%;
+    margin-top: 2%;
+    /*top: 15%;*/
+    border-radius: 5px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 

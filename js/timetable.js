@@ -1,3 +1,5 @@
+
+
 //由于 selectedday现在改成只显示myevents 和allevents，所以这里涉及到selectedday的代码需要修改
  //现在的bug是若当天没有任何信息，则点击myevents后无法切换回allevents
  var currentDay;

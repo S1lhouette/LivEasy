@@ -42,6 +42,7 @@ if(isset($_POST['delete'])){
          <script type="text/javascript" src="../js/tenantIndex.js"></script>
          <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
          <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
+         <a href="tenantIndex.php"><button class="currentNav" id="myBillboard" name="myBillboard">My Billboard</button></a>
          <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
          <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
          <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
@@ -102,7 +103,7 @@ if(isset($_POST['delete'])){
                    echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
                    //需要修改以下table的格式和delete按钮的样式
                    echo "<table border='0' id='msgTable'>";
-                   echo "<tr><td>".$row['content']."</td><td><input type='hidden' name='msgID' value='".$row['msgID']."'/></td><td class='delete'><input type='submit' name='delete' value='Delete' class='btn finishBtn'/></td></tr>";
+                   echo "<tr><td>".$row['content']."</td><td><input type='hidden' name='msgID' value='".$row['msgID']."'/></td><td class='delete'><input type='submit' name='delete' value='Delete' class='deleteBtn'/></td></tr>";
                    echo "</table></form>";
                  }
                  $pdo=NULL;
@@ -111,10 +112,10 @@ if(isset($_POST['delete'])){
  </div>
 
  <div id="right">
-     <p id="welcome"><?php echo"<span id='welcome'>"."Welcome home,$userFullname"."</span>"?></p>
+     <p id="welcome"><?php echo"<span id='welcome'>"."Welcome home,<br/>$userFullname"."</span>"?></p>
      <p class="smallerFont"><br><?php echo"<span id='smallerFont'>"."Email:$useremail"."</span>"?></p>
      <br>
-     <?php $flatNum=$_SESSION['flatNum']; echo "<span id='phpHint'>"."Flat:".$flatNum."</span>"?> <br> <?php echo"<span id='phphint2'>"."Room:".$_SESSION['roomNum']."</span>";?>
+     <?php $flatNum=$_SESSION['flatNum']; echo "<span class='smallerFont' id='phpHint'>"."Flat:".$flatNum."</span>"?> <br> <?php echo"<span class='smallerFont' id='phphint2'>"."Room:".$_SESSION['roomNum']."</span>";?>
      <p class="smallerFont">
          <a href="recommend.html" class="links">Find a flat to play?</a>
          <br>

@@ -85,15 +85,17 @@ if(isset($_POST['deleteTransaction'])){
 		<script type="text/javascript" src="../js/finance.js"></script>
         <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
         <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
+        <a href="tenantIndex.php"><button class="navigation" id="myBillboard" name="myBillboard">My Billboard</button></a>
         <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
         <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
-        <a href = "finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
+        <a href="finance.php"><button class="currentNav" id="myAccounting" name="myAccounting">My Accounting</button></a>
     </div>
 </head>
 <body id="background">
     <div id="left">
 		<div class = "subtitles"> Accounting <br> </div>
 		<div id = "transactionDiv" style="overflow: scroll; overflow-x: hidden; border-style: none">
+      <div>
 			<table id = "accountingTable">
 				<thead>
 					<tr>
@@ -138,6 +140,7 @@ if(isset($_POST['deleteTransaction'])){
 
 
 			</table>
+    </div>
 			<br>
 		</div>
 

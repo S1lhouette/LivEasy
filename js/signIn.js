@@ -71,10 +71,10 @@ function checkPsw() {
         var content = document.getElementById(target).value;
         var hint = target+"Hint";
         if (content.trim() === '' || content === undefined || content == null){
-              document.getElementById("firstNameHint").innerHTML = "<font color='red' >Can not be blank</font>";
+              document.getElementById(hint).innerHTML = "<font color='red' >Can not be blank</font>";
         }
         else{
-              document.getElementById("firstNameHint").innerHTML = "";
+              document.getElementById(hint).innerHTML = "";
               cnt++;
         }
     }

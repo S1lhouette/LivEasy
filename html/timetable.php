@@ -39,7 +39,7 @@ if(isset($_POST['delete'])){
 
 
  <!DOCTYPE html>
- <html lang="en">
+ <html lang="en" >
  <head>
      <div id = "head">
          <text id="logout"> Log out</text>
@@ -47,12 +47,13 @@ if(isset($_POST['delete'])){
          <script type="text/javascript" src="../js/timetable.js"></script>
          <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
          <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
+         <a href="tenantIndex.php"><button class="navigation" id="myBillboard" name="myBillboard">My Billboard</button></a>
          <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
+         <a href="timetable.php"><button class="currentNav" id="mySchedule" name="mySchedule">My Schedule</button></a>
          <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
-         <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
      </div>
  </head>
- <body id="background" onload="load(); fixRem(); window.addEventListener('resize', fixRem, false);">
+ <body id="background" onload=" fixRem(); window.addEventListener('resize', fixRem, false);load();">
      <div id="left">
              <div class='calendar' id='calendar'></div>
              <input type="hidden" id="dayforjs" name="dayforjs" value='<?php echo $date;?>' onchange=""> </input>
