@@ -16,6 +16,7 @@
 if(isset($_POST['submit'])){
   $label="";
   try {
+    $flatCapacity=0;
     $flag="true";
     $hasLeader="false";
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
@@ -27,9 +28,12 @@ if(isset($_POST['submit'])){
       if($row['flatNum']==$_POST['flatNum']&&$row['isLeader']==1){
         $hasLeader="true";
       }
+      if($row['flatNum']==$_POST['flatNum']){
+        $flatCapacity++;
+      }
     }
 
-    if($flag=="true"){
+    if($flag=="true"&&$flatCapacity<=5){
       if($hasLeader=="true"){
         $newIsLeader=0;
       }else{
@@ -42,8 +46,10 @@ if(isset($_POST['submit'])){
 
       echo "<script>alert('The application has been sent to the landlord. Please wait for his activating of your account.')</script>";
       header("location:login.php");
-    }else{
+    }else if($flat=="false"){
       $label="This email has been used or the owner of the room has registered.";
+    }else{
+      $label="This flat is full. Please check your flat number with the landlord.";
     }
 
     $pdo=NULL;

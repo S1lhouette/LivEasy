@@ -115,7 +115,10 @@ if(isset($_POST['submitBtn'])){
           <input id= "dataForTrs"type="date" value="<?php echo date("Y-m-d");?>" min="2019-01-01" max="2028-12-31" name="transactionDate"/>
           <br>
           <select id="typeForTrs"name= "transactionType">
-            <option value="TestType">TestType</option>
+            <option value="Food and Drink">Food and Drink</option>
+            <option value="Public entertainment">Entertainment</option>
+            <option value="Daily necessities">Daily necessities</option>
+            <option value="Else">Else</option>
           </select>
           <input type="submit" class="btn" id="submitBtn" name="submitBtn" value="Submit"/>
           <br/>
