@@ -102,6 +102,7 @@ html{
     border-radius: 5px;
     border: none;
     margin-left: 2%;
+    margin-right: 15%;
 
 }
 
@@ -139,4 +140,3 @@ html{
     opacity: 0.2;
     cursor: not-allowed;
 }
-

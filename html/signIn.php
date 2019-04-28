@@ -1,17 +1,6 @@
 <?php
-  error_reporting(0);
-
-  $db_hostname = "localhost";
-  $db_database = "comp208";
-  $db_username = "root";
-  $db_password = "";
-  $db_charset = "utf8mb4";
-  $dsn = "mysql:host=$db_hostname;dbname=$db_database;charset=$db_charset";
-  $opt = array(
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false
-  );
+error_reporting(0);
+include("connect.php");
 
 if(isset($_POST['submit'])){
   $label="";
@@ -41,7 +30,8 @@ if(isset($_POST['submit'])){
       }
 
       $name=$_POST['firstName']." ".$_POST['lastName'];
-      $stmt=$pdo->query("insert into usertable values(default,\"{$_POST['password']}\",\"{$name}\",\"{$_POST['gender']}\",
+      $hash=password_hash($_POST['password'],PASSWORD_DEFAULT);
+      $stmt=$pdo->query("insert into usertable values(default,\"{$hash}\",\"{$name}\",\"{$_POST['gender']}\",
       \"{$_POST['university']}\",\"{$_POST['major']}\",{$_POST['flatNum']},\"{$_POST['roomNum']}\",0,\"{$_POST['email']}\",0, ".$newIsLeader.")");
 
       echo "<script>alert('The application has been sent to the landlord. Please wait for his activating of your account.')</script>";

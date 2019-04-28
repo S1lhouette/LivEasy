@@ -8,31 +8,32 @@ include('connect.php');
         $error="";
         $user = $_POST["email"];
         $psw = $_POST["password"];
-      if(($user == "")||($psw == "")){
+        if(($user == "")||($psw == "")){
+
         }else{
-        $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-        $stmt=$pdo->query("select * from usertable where email=\"{$_POST['email']}\" and password=\"{$_POST['password']}\"");
-        $row=$stmt->fetch(PDO::FETCH_BOTH);
-        $userId=$row["userID"];
-        if($userId==1){
-          $_SESSION ['user']= $user;
-          $_SESSION['userID']=$userId;
-          $_SESSION['userFullname']=$row['name'];
-          $_SESSION['gender']=$row['gender'];
-          $_SESSION['university']=$row['university'];
-          $_SESSION['major']=$row['major'];
-          $_SESSION['flatNum']=$row['flatNum'];
-          $_SESSION['roomNum']=$row['roomNum'];
-          $_SESSION['balance']=$row['balance'];
-          $_SESSION['activated']=$row['activated'];
-          header ("location:landlordIndex.php");
-        }else{
-          if(!empty($row[0])){//loging successfully
+
+          $pdo=new PDO($dsn,$db_username,$db_password,$opt);
+          $hash=password_hash($_POST['password'],PASSWORD_DEFAULT);
+          $stmt=$pdo->query("select * from usertable where email=\"{$_POST['email']}\"");
+          $row=$stmt->fetch(PDO::FETCH_BOTH);
+          if(password_verify($_POST['password'],$row['password'])){//loging successfully
             if($row['activated']==0){
               echo "<script type='text/javascript'>alert('Sorry, your account has not been activated yet. Please wait for the activation of the landlord.'); window.location.href = 'login.php';</script>";
+            }else if($row['userID']==1){
+              $_SESSION ['user']= $user;
+              $_SESSION['userID']=$row['userID'];
+              $_SESSION['userFullname']=$row['name'];
+              $_SESSION['gender']=$row['gender'];
+              $_SESSION['university']=$row['university'];
+              $_SESSION['major']=$row['major'];
+              $_SESSION['flatNum']=$row['flatNum'];
+              $_SESSION['roomNum']=$row['roomNum'];
+              $_SESSION['balance']=$row['balance'];
+              $_SESSION['activated']=$row['activated'];
+              header ("location:landlordIndex.php");
             }else{
               $_SESSION ['user']= $user;
-              $_SESSION['userID']=$userId;
+              $_SESSION['userID']=$row['userID'];
               $_SESSION['userFullname']=$row['name'];
               $_SESSION['gender']=$row['gender'];
               $_SESSION['university']=$row['university'];
@@ -51,7 +52,7 @@ include('connect.php');
             //$pdo=NULL;
           }
         }
-      }
+
     //  }
     }
 ?>
