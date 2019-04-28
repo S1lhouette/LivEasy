@@ -87,7 +87,7 @@ if(isset($_POST['delete'])){
                     foreach ($pdo->query("select * from scheduletable where scheduletable.userID=\"{$userId}\" and scheduletable.eventDate=\"{$date}\" order by scheduletable.starttime asc") as $row) {
                       echo "<form action='timetable.php' method='post' name='timtableForm'>";
                       echo "<table border='0' id='myEventsTable'>";
-                      echo "<tr><td class='bookID'><input type='hidden' name='bookID' value='".$row['bookID']."'/></td><td class='event'>".$row['content']."<td class='start'>".$row['startTime']."</td><td class='end'>- ".$row['endTime']."</td><td class='date'>2019.04.29</td><td class='delete'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td></tr>";
+                      echo "<tr><td class='bookID'><input type='hidden' name='bookID' value='".$row['bookID']."'/></td><td class='event'>".$row['content']."<td class='start'>".$row['startTime']."</td><td class='end'>- ".$row['endTime']."</td><td class='date'>".$row['eventDate']."</td><td class='delete'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td></tr>";
                       //上面这行 中的html代码需要修改，使得表看起来更美观
                       echo "</table></form>";
                     }
