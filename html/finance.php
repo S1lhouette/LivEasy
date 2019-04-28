@@ -61,6 +61,19 @@ if(isset($_POST['confirmTransaction'])){
   }
 }
 
+if(isset($_POST['deleteTransaction'])){
+  try {
+    $pdo=new PDO($dsn,$db_username,$db_password,$opt);
+    $stmt=$pdo->query("delete from transactiontable where transactionID=".$_POST['transactionID']);
+
+
+
+    $pdo=NULL;
+  } catch (PDOException $e) {
+    exit("PDO Error: ".$e->getMessage()."<br>".$transactionID);
+  }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -186,6 +199,20 @@ if(isset($_POST['confirmTransaction'])){
                     echo "<td class='confirm'><input type='submit' class='btn confirmBtn' name='confirmTransaction' value='Confirm'></td>";
                     echo "</tr>";
                     echo "</form>";
+                  }else if($row['payerID']==$_SESSION['userID']){
+                    echo "<form name='confirmRow' action='finance.php' method='post' onsubmit='return confirmDeleteBtn()'>";
+                    echo "<tr class='cell'>";
+                    echo "<td class='date'>".$row['transactionDate']."</td>";
+                    $amount=$row['amount']/$row['consumerNum'];
+                    echo "<td class='cost'>&#163;".$amount."</td>";
+                    echo "<td>payer:".$row['name']."</td>";
+                    echo "<td>".$row['consumerNum']." consumers</td>";
+                    echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
+                    echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
+                    echo "<td class='confirm'><input type='submit' class='btn confirmBtn' name='deleteTransaction' value='Recall Transaction'></td>";
+                    echo "<td>Waiting for others' confirmation</td>";
+                    echo "</tr>";
+                    echo "</form>";
                   }else{
                     echo "<form name='confirmRow' action='finance.php' method='post' onsubmit='return confirmConfirmBtn()'>";
                     echo "<tr class='cell'>";
@@ -196,6 +223,7 @@ if(isset($_POST['confirmTransaction'])){
                     echo "<td>".$row['consumerNum']." consumers</td>";
                     echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
                     echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
+                    echo "<td></td>";
                     echo "<td>Waiting for others' confirmation</td>";
                     echo "</tr>";
                     echo "</form>";

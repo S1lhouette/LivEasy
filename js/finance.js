@@ -57,6 +57,16 @@ function confirmConfirmBtn() {
     }
 }
 
+function confirmDeleteBtn() {
+    var r = confirm("Are you sure to recall this transaction? (All the information of the transaction will be deleted and the consumers' balance will not reduce.)");
+    if(r == true){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
 window.onload=function() {
     function fixRem() {
         var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
