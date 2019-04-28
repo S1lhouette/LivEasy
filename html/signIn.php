@@ -167,8 +167,7 @@ if(isset($_POST['submit'])){
       </select>
     </div>
       <input type="submit" id="registerBtn" name="submit" value="Register" onsubmit="return albeBtn()"/>
-      <!-- <a href="./login.php"><input type="button" id="logInBtn" name="Log in" value="Log in"></input>Log in</a> -->
-      <!--需要修改此按键的样式 -->
+      <a href="./login.php" ><text id="logInLink">Already have an account? Go to log in</text></a>
       <div id="hintDiv">
       <!-- <span id='phpHint'></span> -->
       <?php

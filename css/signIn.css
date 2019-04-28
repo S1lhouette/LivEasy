@@ -102,15 +102,23 @@ html{
     margin-top: 20%;
     margin-left: 5%;
     margin-bottom: 3%;
+    margin-right: 3%;
 }
 
 #phpHint{
   font-family: "Arial Rounded MT Bold";
-  font-size: medium;
+  font-size: 0.2rem;
   color:red;
   position: relative;
   width: 50%;
   height:10%;
   top:10%;
   margin-left: 5%;
+}
+
+#logInLink{
+  font-family: "Arial Rounded MT Bold";
+  font-size: 0.1rem;
+  color:white;
+  text-decoration: none;
 }

@@ -116,8 +116,8 @@ if(isset($_POST['deleteTransaction'])){
                 if($row['confirmResult']==1){
                   echo "<tr class='cell'>";
                   echo "<td class='date'>".$row['transactionDate']."</td>";
-                  echo "<td>&#163;".$row['amount']."</td>";
-                  echo "<td>".$row['consumerNum']."</td>";
+                  echo "<td class='totAmount'>&#163;".$row['amount']."</td>";
+                  echo "<td class='consumerNum'>".$row['consumerNum']."</td>";
                   echo "<td class='payer'>".$row['name']."</td>";
                   $amount=$row['amount']/$row['consumerNum'];
                   echo "<td class='cost'>&#163;".$amount."</td>";
@@ -158,10 +158,12 @@ if(isset($_POST['deleteTransaction'])){
 		</div>
 
 		<div class = "text">
-			<a href = "addNewTrans.php" class = "links"><br/><br/>Add a new transaction</a><br/>
+			<a href = "addNewTrans.php" class = "links">Add a new transaction</a><br/>
+    </div>
+    <div class='text'>
       <?php
       if($isLeader==1){
-        echo "<a href = 'topup.php' class = 'links'><br/><br/>Top up for roommates</a><br/>";
+        echo "<a href = 'topup.php' class = 'links'>Top up for roommates</a><br/>";
       }
       ?>
 		</div>
@@ -192,10 +194,10 @@ if(isset($_POST['deleteTransaction'])){
                     echo "<td class='date'>".$row['transactionDate']."</td>";
                     $amount=$row['amount']/$row['consumerNum'];
                     echo "<td class='cost'>&#163;".$amount."</td>";
-                    echo "<td>payer:".$row['name']."</td>";
-                    echo "<td>".$row['consumerNum']." consumers</td>";
+                    echo "<td class='payer'>payer:".$row['name']."</td>";
+                    echo "<td class='consumerNum'>".$row['consumerNum']." consumers</td>";
                     echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
-                    echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
+                    echo "<td class='transID'><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
                     echo "<td class='confirm'><input type='submit' class='btn confirmBtn' name='confirmTransaction' value='Confirm'></td>";
                     echo "</tr>";
                     echo "</form>";
@@ -205,11 +207,11 @@ if(isset($_POST['deleteTransaction'])){
                     echo "<td class='date'>".$row['transactionDate']."</td>";
                     $amount=$row['amount']/$row['consumerNum'];
                     echo "<td class='cost'>&#163;".$amount."</td>";
-                    echo "<td>payer:".$row['name']."</td>";
-                    echo "<td>".$row['consumerNum']." consumers</td>";
+                    echo "<td class='payer'>payer:".$row['name']."</td>";
+                    echo "<td class='consumerNum'>".$row['consumerNum']." consumers</td>";
                     echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
-                    echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
-                    echo "<td class='confirm'><input type='submit' class='btn confirmBtn' name='deleteTransaction' value='Recall Transaction'></td>";
+                    echo "<td class='transID'><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
+                    echo "<td class='confirm'><input type='submit' class='btn confirmBtn' name='deleteTransaction' value='Cancel'></td>";
                     echo "<td>Waiting for others' confirmation</td>";
                     echo "</tr>";
                     echo "</form>";
@@ -219,11 +221,11 @@ if(isset($_POST['deleteTransaction'])){
                     echo "<td class='date'>".$row['transactionDate']."</td>";
                     $amount=$row['amount']/$row['consumerNum'];
                     echo "<td class='cost'>&#163;".$amount."</td>";
-                    echo "<td>payer:".$row['name']."</td>";
-                    echo "<td>".$row['consumerNum']." consumers</td>";
+                    echo "<td class='payer'>payer:".$row['name']."</td>";
+                    echo "<td class='consumerNum'>".$row['consumerNum']." consumers</td>";
                     echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
-                    echo "<td><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
-                    echo "<td></td>";
+                    echo "<td class='transID'><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
+                    echo "<td class='confirm'></td>";
                     echo "<td>Waiting for others' confirmation</td>";
                     echo "</tr>";
                     echo "</form>";

@@ -88,7 +88,7 @@ html{
 
 #left{
     float: left;
-    width: 49%;
+    width: 35%;
     margin-top: 2%;
     margin-left: 5%;
 }
@@ -96,7 +96,7 @@ html{
 #transactionDiv{
     font-size: 0;
     background-color: rgba(211,211,211,0.5);
-    width: 70%;
+    width: 100%;
     height: 3rem;
 }
 
@@ -121,14 +121,17 @@ html{
 .text {
 	display: relative;
 	color: #fff;
-    position: relative;
-    font-size: 0.2rem;
-    font-weight: bolder;
-    font-family: "Arial Black";
+  position: relative;
+  font-size: 0.2rem;
+  font-weight: bolder;
+  font-family: "Arial Black";
+  width:100%;
+  height:auto;
 }
 
 #bal{
     margin-top: 3%;
+    margin-bottom: 5%;
 }
 
 .links {
@@ -139,9 +142,12 @@ html{
 #right{
     margin-top: 5%;
     float: left;
-    width: 40%;
+    width:45%;
+    margin-right: 3%;
+    margin-left: 5%;
     height: 4rem;
 }
+
 #confirmDiv{
     font-size: 0;
     margin-top: 0;
@@ -159,23 +165,50 @@ html{
 	border-radius: 25px;
 }
 
+#confrimTable .cell{
+  width: 100%;
+  padding:0;
+}
 
-.confirm{
-    padding-left: 30%;
+#confirmTable .date{
+  width:20%;
+}
+
+#confirmTable .cost{
+  width:10%;
+}
+
+#confirmTable .payer{
+  width:15%;
+}
+
+#confirmTable .consumerNum{
+  width:15%;
+}
+
+#confirmTable .receipt{
+  width:15%;
+}
+
+#confirmTable .transID{
+  width:0%;
+}
+
+#confrimTable .confirm{
+    width: 25%;
 }
 
 .btn {
     background-color:  #fecb2f;
     color: white;
     font-family: "Arial Rounded MT Bold";
-    font-size: 0.05rem;
-    height: 12%;
+    font-size: 0.15rem;
     border-radius: 10px;
     border-top-style: none;
     border-right-style: none;
     border-left-style: none;
     border-bottom-style: none;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 
@@ -193,3 +226,27 @@ html{
     cursor: not-allowed;
 }
 
+#accountingTable .date{
+  width: 20%;
+  padding: 0;
+}
+
+#accountingTable .totAmount{
+  width: 20%;
+  padding: 0;
+}
+
+#accountingTable .consumerNum{
+ width: 20%;
+ padding: 0;
+}
+
+#accountingTable .payer{
+  width: 20%;
+  padding: 0;
+}
+
+#accountingTable .cost{
+ width: 20%;
+ padding: 0;
+}
