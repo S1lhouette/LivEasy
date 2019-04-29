@@ -165,6 +165,6 @@ html{
     font-family: "Arial Bold";
 }
 
-#topupTable tr{
-  margin:5%;
+#topupTable .row{
+  height:0.8rem;
 }

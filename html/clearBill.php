@@ -74,7 +74,7 @@ if(isset($_POST['topup'])){
     $row6=$stmt->fetch();
     //var_dump($row1);
 
-    echo "<tr>";
+    echo "<tr class='row'>";
 
     if(isset($row1['userID'])){
       echo "<td><img src='../images/user.png'/></td>";
@@ -96,7 +96,7 @@ if(isset($_POST['topup'])){
 
     echo "</tr>";
 
-    echo "<tr>";
+    echo "<tr class='row'>";
 
     if(isset($row4['userID'])){
       echo "<td><img src='../images/user.png'/></td>";

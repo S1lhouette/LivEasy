@@ -215,7 +215,7 @@ if(isset($_POST['deleteTransaction'])){
                     echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
                     echo "<td class='transID'><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
                     echo "<td class='confirm'><input type='submit' class='btn confirmBtn' name='deleteTransaction' value='Cancel'></td>";
-                    echo "<td>Waiting for others' confirmation</td>";
+                    echo "<td class='waiting'>Waiting for others' confirmation</td>";
                     echo "</tr>";
                     echo "</form>";
                   }else{
@@ -229,7 +229,7 @@ if(isset($_POST['deleteTransaction'])){
                     echo "<td class='receipt'><a href='../".$row['picUrl']."' target='_blank' class='links'>View receipt</a></td>";
                     echo "<td class='transID'><input type='hidden' value='".$row['transactionID']."' name='transactionID'/></td>";
                     echo "<td class='confirm'></td>";
-                    echo "<td>Waiting for others' confirmation</td>";
+                    echo "<td class='waiting'>Waiting for others' confirmation</td>";
                     echo "</tr>";
                     echo "</form>";
                   }
