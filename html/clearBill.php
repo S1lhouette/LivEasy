@@ -11,47 +11,25 @@ if(isset($_POST['topup'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
 
-    if($_POST['amount1']>0){
-      $stmt=$pdo->query("select * from usertable where userID=".$_POST['userID1']);
-      $row=$stmt->fetch();
-      $newBalance=$row['balance']+$_POST['amount1'];
-      $stmt2=$pdo->query("update usertable set balance=".$newBalance." where userID=".$_POST['userID1']);
+    if($_POST['userID1']>1){
+      $stmt=$pdo->query("update usertable set balance=0 where userID=".$_POST['userID1']);
+    }
+    if($_POST['userID2']>1){
+      $stmt=$pdo->query("update usertable set balance=0 where userID=".$_POST['userID2']);
+    }
+    if($_POST['userID3']>1){
+      $stmt=$pdo->query("update usertable set balance=0 where userID=".$_POST['userID3']);
+    }
+    if($_POST['userID4']>1){
+      $stmt=$pdo->query("update usertable set balance=0 where userID=".$_POST['userID4']);
+    }
+    if($_POST['userID5']>1){
+      $stmt=$pdo->query("update usertable set balance=0 where userID=".$_POST['userID5']);
+    }
+    if($_POST['userID6']>1){
+      $stmt=$pdo->query("update usertable set balance=0 where userID=".$_POST['userID6']);
     }
 
-    if($_POST['amount2']>0){
-      $stmt=$pdo->query("select * from usertable where userID=".$_POST['userID2']);
-      $row=$stmt->fetch();
-      $newBalance=$row['balance']+$_POST['amount2'];
-      $stmt2=$pdo->query("update usertable set balance=".$newBalance." where userID=".$_POST['userID2']);
-    }
-
-    if($_POST['amount3']>0){
-      $stmt=$pdo->query("select * from usertable where userID=".$_POST['userID3']);
-      $row=$stmt->fetch();
-      $newBalance=$row['balance']+$_POST['amount3'];
-      $stmt2=$pdo->query("update usertable set balance=".$newBalance." where userID=".$_POST['userID3']);
-    }
-
-    if($_POST['amount4']>0){
-      $stmt=$pdo->query("select * from usertable where userID=".$_POST['userID4']);
-      $row=$stmt->fetch();
-      $newBalance=$row['balance']+$_POST['amount4'];
-      $stmt2=$pdo->query("update usertable set balance=".$newBalance." where userID=".$_POST['userID4']);
-    }
-
-    if($_POST['amount5']>0){
-      $stmt=$pdo->query("select * from usertable where userID=".$_POST['userID5']);
-      $row=$stmt->fetch();
-      $newBalance=$row['balance']+$_POST['amount5'];
-      $stmt2=$pdo->query("update usertable set balance=".$newBalance." where userID=".$_POST['userID5']);
-    }
-
-    if($_POST['amount6']>0){
-      $stmt=$pdo->query("select * from usertable where userID=".$_POST['userID6']);
-      $row=$stmt->fetch();
-      $newBalance=$row['balance']+$_POST['amount6'];
-      $stmt2=$pdo->query("update usertable set balance=".$newBalance." where userID=".$_POST['userID6']);
-    }
 
 
     $pdo=NULL;
@@ -81,7 +59,7 @@ if(isset($_POST['topup'])){
 </head>
 <body id="background">
 <div id="tinyTitle">Top-up for roommates</div>
-<form id="topupForm" onsubmit="return myCheck()" action="topup.php" method="post" name="topupForm">
+<form id="topupForm" onsubmit="return myCheck()" action="clearBill.php" method="post" name="topupForm">
 <table id="topupTable">
   <?php
   try {
@@ -94,27 +72,25 @@ if(isset($_POST['topup'])){
     $row4=$stmt->fetch();
     $row5=$stmt->fetch();
     $row6=$stmt->fetch();
+    //var_dump($row1);
 
     echo "<tr>";
 
     if(isset($row1['userID'])){
       echo "<td><img src='../images/user.png'/></td>";
-      echo "<td><div class='userName'>".$row1['name']."<div/></td>";
-      echo "<td><input type='text' class='topupInput' id='input1' onkeyup='checkNumber(this)' name='amount1'/></td>";
+      echo "<td><div class='userName'>".$row1['name']."'s balance: ".$row1['balance']."<div/></td>";
       echo "<td><input type='hidden' name='userID1' value='".$row1['userID']."'></td>";
     }
 
     if(isset($row2['userID'])){
       echo "<td><img src='../images/user.png'/></td>";
-      echo "<td><div class='userName'>".$row2['name']."<div/></td>";
-      echo "<td><input type='text' class='topupInput' id='input2' onkeyup='checkNumber(this)' name='amount2'/></td>";
+      echo "<td><div class='userName'>".$row2['name']."'s balance: ".$row2['balance']."<div/></td>";
       echo "<td><input type='hidden' name='userID2' value='".$row2['userID']."'></td>";
     }
 
     if(isset($row3['userID'])){
       echo "<td><img src='../images/user.png'/></td>";
-      echo "<td><div class='userName'>".$row3['name']."<div/></td>";
-      echo "<td><input type='text' class='topupInput' id='input3' onkeyup='checkNumber(this)' name='amount3'/></td>";
+      echo "<td><div class='userName'>".$row3['name']."'s balance: ".$row3['balance']."<div/></td>";
       echo "<td><input type='hidden' name='userID3' value='".$row3['userID']."'></td>";
     }
 
@@ -124,22 +100,19 @@ if(isset($_POST['topup'])){
 
     if(isset($row4['userID'])){
       echo "<td><img src='../images/user.png'/></td>";
-      echo "<td><div class='userName'>".$row4['name']."<div/></td>";
-      echo "<td><input type='text' class='topupInput' id='input4' onkeyup='checkNumber(this)' name='amount4'/></td>";
+      echo "<td><div class='userName'>".$row4['name']."'s balance: ".$row4['balance']."<div/></td>";
       echo "<td><input type='hidden' name='userID4' value='".$row4['userID']."'></td>";
     }
 
     if(isset($row5['userID'])){
       echo "<td><img src='../images/user.png'/></td>";
-      echo "<td><div class='userName'>".$row5['name']."<div/></td>";
-      echo "<td><input type='text' class='topupInput' id='input5' onkeyup='checkNumber(this)' name='amount5'/></td>";
+      echo "<td><div class='userName'>".$row5['name']."'s balance: ".$row5['balance']."<div/></td>";
       echo "<td><input type='hidden' name='userID5' value='".$row5['userID']."'></td>";
     }
 
     if(isset($row6['userID'])){
       echo "<td><img src='../images/user.png'/></td>";
-      echo "<td><div class='userName'>".$row6['name']."<div/></td>";
-      echo "<td><input type='text' class='topupInput' id='input6' onkeyup='checkNumber(this)' name='amount6'/></td>";
+      echo "<td><div class='userName'>".$row6['name']."'s balance: ".$row6['balance']."<div/></td>";
       echo "<td><input type='hidden' name='userID6' value='".$row6['userID']."'></td>";
     }
 
@@ -160,7 +133,7 @@ if(isset($_POST['topup'])){
 
 </table>
     <div id="hint"></div>
-<input type="submit" id="submitBtn" value="Top-up" name="topup">
+<input type="submit" id="submitBtn" value="Clear Debt" name="topup">
 </form>
 </body>
 </html>

@@ -16,28 +16,12 @@ function checkNumber(input) {
 }
 
 function myCheck() {
-    var input1 = document.getElementById("input1").value;
-    var input2 = document.getElementById("input2").value;
-    var input3 = document.getElementById("input3").value;
-    var input4 = document.getElementById("input4").value;
-    var input5 = document.getElementById("input5").value;
-    var input6 = document.getElementById("input6").value;
-    var numberInput1 = input1.replace(/(^\s*)|(\s*$)/g, '');
-    var numberInput2 = input2.replace(/(^\s*)|(\s*$)/g, '');
-    var numberInput3 = input3.replace(/(^\s*)|(\s*$)/g, '');
-    var numberInput4 = input4.replace(/(^\s*)|(\s*$)/g, '');
-    var numberInput5 = input5.replace(/(^\s*)|(\s*$)/g, '');
-    var numberInput6 = input6.replace(/(^\s*)|(\s*$)/g, '');
-    if((numberInput1 === '' || numberInput1 === undefined || numberInput1 == null)
-    && (numberInput2 === '' || numberInput2 === undefined || numberInput2 == null)
-    &&(numberInput3 === '' || numberInput3 === undefined || numberInput3 == null)
-        &&(numberInput4 === '' || numberInput4 === undefined || numberInput4 == null)
-        &&(numberInput5 === '' || numberInput5 === undefined || numberInput5 == null)
-        &&(numberInput6 === '' || numberInput6 === undefined || numberInput6 == null)) {
-        alert("Recharge one account at least");
+    var r=confirm("Are you sure to clear all the debts? (This means all the debts have been cleared in reality. All the balance of the users will become 0.)");
+    if(r==true){
+        return true;
+    }else{
         return false;
     }
-    return true;
 }
 
 function confirmLogout() {

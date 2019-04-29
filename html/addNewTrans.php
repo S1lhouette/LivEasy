@@ -11,7 +11,7 @@ if(!isset($_SESSION['userID'])){
 if(isset($_POST['submitBtn'])){
   $newConsumerNum=1;
   $newConsumerID=$_SESSION['userID'];
-  $newConfirmState='0';
+  $newConfirmState='1';
 
   if($_POST['userCheckbox1']=='on'){
     $newConsumerNum++;

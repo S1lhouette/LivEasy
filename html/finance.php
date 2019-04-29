@@ -166,7 +166,7 @@ if(isset($_POST['deleteTransaction'])){
     <div class='text'>
       <?php
       if($isLeader==1){
-        echo "<a href = 'topup.php' class = 'links'>Top up for roommates</a><br/>";
+        echo "<a href = 'clearBill.php' class = 'links'>View the debts among roommates</a><br/>";
       }
       ?>
 		</div>
