@@ -3,7 +3,7 @@
 error_reporting(0);
 include("Validaccess.php");
 include('connect.php');
-
+$flatnumber=$_SESSION['flatNum'];
 if(!isset($_SESSION['userID'])){
     echo "<script type='text/javascript'>alert('Sorry, you should log in first.'); window.location.href = 'login.php';</script>";
 }
@@ -68,6 +68,8 @@ if(isset($_POST['delete'])){
                     echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>Anonymous</td></tr>";
                   }else if($row['anonymous']==0){
                     echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>".$row['name']."</td></tr>";
+                  }else if($row['flatNum']==$flatnumber){
+                    echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'></td></tr>";
                   }
                 }
                 $pdo=NULL;
@@ -117,7 +119,7 @@ if(isset($_POST['delete'])){
      <br>
      <?php $flatNum=$_SESSION['flatNum']; echo "<span class='smallerFont' id='phpHint'>"."Flat:".$flatNum."</span>"?> <br> <?php echo"<span class='smallerFont' id='phphint2'>"."Room:".$_SESSION['roomNum']."</span>";?>
      <p class="smallerFont">
-         <a href="recommend.html" class="links">Find a flat to play?</a>
+         <a href="recommend.php" class="links">Find a flat to play?</a>
          <br>
          <br>
          <a href="editAccount.php" class="links">Edit account</a>
