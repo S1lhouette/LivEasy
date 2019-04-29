@@ -164,3 +164,7 @@ html{
     font-weight: bolder;
     font-family: "Arial Bold";
 }
+
+#topupTable tr{
+  margin:5%;
+}

@@ -58,7 +58,7 @@ if(isset($_POST['topup'])){
     </div>
 </head>
 <body id="background">
-<div id="tinyTitle">Top-up for roommates</div>
+<div id="tinyTitle">All Debts</div>
 <form id="topupForm" onsubmit="return myCheck()" action="clearBill.php" method="post" name="topupForm">
 <table id="topupTable">
   <?php
