@@ -15,17 +15,19 @@ if(isset($_POST['submit'])){
   //  echo $_POST['newDate'];
     $date=str_replace(".","-",$_POST['newDate']);
   }
-  try{
-    $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-    $stringarray=explode("-",$_POST['time']);
-    $first=0;
-    $second=1;
-    $starttime=$stringarray[$first];
-    $endtime=end($stringarray);
-    $stmt=$pdo->query("insert into scheduletable values(default,\"{$userId}\",\"{$date}\",\"{$starttime}\",\"{$endtime}\",\"{$_POST['event']}\")");
-    $pdo=NULL;
-  }catch (PDOException $e) {
-    exit("PDO Error: ".$e->getMessage()."<br>");
+  if((strlen($_POST['time'])>0) and (strlen($_POST['event'])>0)){
+    try{
+      $pdo=new PDO($dsn,$db_username,$db_password,$opt);
+      $stringarray=explode("-",$_POST['time']);
+      $first=0;
+      $second=1;
+      $starttime=$stringarray[$first];
+      $endtime=end($stringarray);
+      $stmt=$pdo->query("insert into scheduletable values(default,\"{$userId}\",\"{$date}\",\"{$starttime}\",\"{$endtime}\",\"{$_POST['event']}\")");
+      $pdo=NULL;
+    }catch (PDOException $e) {
+      exit("PDO Error: ".$e->getMessage()."<br>");
+    }
   }
 }
 
@@ -47,10 +49,9 @@ if(isset($_POST['delete'])){
          <script type="text/javascript" src="../js/timetable.js"></script>
          <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
          <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
-         <a href="tenantIndex.php"><button class="navigation" id="myBillboard" name="myBillboard">My Billboard</button></a>
          <a href="maintenance.php"><button class="navigation" id="myMaintenance" name="myMaintenance">My Maintenance</button></a>
-         <a href="timetable.php"><button class="currentNav" id="mySchedule" name="mySchedule">My Schedule</button></a>
          <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
+         <a href="timetable.php"><button class="navigation" id="mySchedule" name="mySchedule">My Schedule</button></a>
      </div>
  </head>
  <body id="background" onload="load(); fixRem(); window.addEventListener('resize', fixRem, false);">
@@ -74,7 +75,7 @@ if(isset($_POST['delete'])){
                    $pdo=new PDO($dsn,$db_username,$db_password,$opt);
                    echo "<table border='0' id='eventsTable'>";
                      foreach ($pdo->query("select * from scheduletable natural join usertable where usertable.flatNum=\"{$_SESSION['flatNum']}\" and scheduletable.eventDate=\"{$date}\"order by scheduletable.starttime asc")as $row) {
-                       echo "<tr><td class='event'>".$row['content']."</td><td class='start'>".$row['startTime']."</td><td class='end'>- ".$row['endTime']."</td><td class='name'>".$row['name']."</td></tr>";
+                       echo "<tr><td>".$row['content']."</td><td>".$row['startTime']."</td><td>-".$row['endTime']."</td><td>".$row['name']."</td></tr>";
                        //上面这行 中的html代码需要修改，使得表看起来更美观
                      }
                   echo "</table>";
@@ -84,11 +85,11 @@ if(isset($_POST['delete'])){
                   <div id='c2' >
                    <?php
                     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-                    foreach ($pdo->query("select * from scheduletable where scheduletable.userID=\"{$userId}\" and scheduletable.eventDate=\"{$date}\" order by scheduletable.starttime asc") as $row) {
+                    foreach ($pdo->query("select * from scheduletable where scheduletable.userID=\"{$userId}\" and scheduletable.eventDate>=\"{$date}\" order by scheduletable.starttime asc") as $row) {
                       echo "<form action='timetable.php' method='post' name='timtableForm'>";
-                      echo "<table border='0' id='myEventsTable'>";
+                      echo "<table border='0' id='eventsTable'>";
                       echo "<tr><td class='bookID'><input type='hidden' name='bookID' value='".$row['bookID']."'/></td><td class='event'>".$row['content']."<td class='start'>".$row['startTime']."</td><td class='end'>- ".$row['endTime']."</td><td class='date'>".$row['eventDate']."</td><td class='delete'><input type='submit' name='delete' value='Delete' class='deleteBtn' onclick='confirmDelete()'/></td></tr>";
-                      //上面这行 中的html代码需要修改，使得表看起来更美观
+                  //上面这行 中的html代码需要修改，使得表看起来更美观
                       echo "</table></form>";
                     }
                     $pdo=NULL;
