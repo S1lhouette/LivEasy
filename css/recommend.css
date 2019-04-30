@@ -1,14 +1,12 @@
 html{
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 #background{
     height: 100%;
     width: 100%;
     background:url('../images/studentBkg.png');
     background-size: cover;
-
-
 }
 
 #head{
@@ -95,13 +93,14 @@ html{
 
 
 #flatDiv{
-    width: 50%;
-    height: 50%;
-    margin-left: 5%;
-    margin-top: 3%;
+  position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 2%;
 }
+
 .inviteBtn{
-    font-size: 0.1rem;
+    font-size: 0.18rem;
     background-color: #fecb2f;
     color: white;
     height: 0.3rem;
@@ -112,7 +111,6 @@ html{
     border-left-style: none;
     border-bottom-style: none;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    margin-left: 5%;
 }
 .inviteBtn:hover {
     background-color: #ffbe1e;
@@ -123,6 +121,10 @@ html{
     font-size: 0.2rem;
     font-weight: bold;
     color: white;
+    height:100%;
+    width:33%;
+    margin-top: 5%;
+    float:left;
 }
 
 .reason{
@@ -130,4 +132,14 @@ html{
     font-size: 0.1rem;
     font-weight: bold;
     color: white;
+}
+
+.chart{
+  width: 100%;
+  height: 50%;
+}
+
+.description{
+  width: 100%;
+  height: 50%;
 }
