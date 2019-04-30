@@ -41,7 +41,7 @@ if(isset($_POST['delete'])){
 
 
  <!DOCTYPE html>
- <html lang="en">
+ <html>
  <head>
      <div id = "head">
          <text id="logout"> Log out</text>

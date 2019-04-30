@@ -34,8 +34,8 @@
 
         canvas.width = 600;
         canvas.height = 600;
-        canvas.style.height = canvas.height/2 + "px";
-        canvas.style.width = canvas.width/2 + "px";
+        canvas.style.height = canvas.height/200 + "rem";
+        canvas.style.width = canvas.width/200 + "rem";
         cHeight = canvas.height - cMargin*2;
         cWidth = canvas.width - cMargin*2;
 

@@ -65,7 +65,7 @@ if(isset($_POST['topup'])){
  ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <div id = "head">
         <a href="logout.php" id="logout"> Log out</a>

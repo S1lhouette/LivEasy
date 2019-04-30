@@ -77,7 +77,7 @@ if(isset($_POST['deleteTransaction'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <div id = "head">
 		<a href="logout.php" id="logout"> Log out</a>

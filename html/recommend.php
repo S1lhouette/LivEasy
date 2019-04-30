@@ -156,7 +156,7 @@ echo"<p class='reason'>Your are same in ".$type."</p>";// 请修改此处的html
 
 
  <!DOCTYPE html>
- <html lang="en">
+ <html>
  <style>
          [v-cloak] {
                      display: none !important;
