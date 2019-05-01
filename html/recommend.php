@@ -144,11 +144,11 @@ if(count($resultlist)>0){
   echo"Flat ".$recoflat;
   echo"<form action='recommend.php' method='post' name='recommendForm'><input type='hidden' name='inviteflat' value='".$recoflat."'/><button class='inviteBtn' name='invite'>Invite</button></form>";
   if(strcmp($type,"major")==0){
-    echo"<p class='reason'>Your are in same major.</p>";
+    echo"<p class='reason'>Major is matched.</p>";
   }elseif (strcmp($type,"university")==0) {
-    echo"<p class='reason'>Your are in same university.</p>";
+    echo"<p class='reason'>University is matched.</p>";
   }elseif(strcmp($type,"genderratio")==0){
-  echo"<p class='reason'>Your have similar gender ratio.</p>";
+  echo"<p class='reason'>Gender ratio is matched.</p>";
   }// 请修改此处的html代码，让invite 按钮在flat右边，切勿删除form，否则后端无法向对方宿舍放松信息
 }else{
   echo"<p>no recommend flat for ".$type." yet</p>";
