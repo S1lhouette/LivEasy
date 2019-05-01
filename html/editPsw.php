@@ -1,6 +1,6 @@
 <?php
 include("connect.php");
-include("Validaccess.php");
+include("validaccessland.php");
 
 if(isset($_POST["submit"])){
   if(strcmp($_POST['newpsw'],$_POST['confpsw'])==0){
@@ -11,6 +11,7 @@ if(isset($_POST["submit"])){
         $stmt=$pdo->query("update usertable set password='".$password."' where usertable.email='".$_POST['inpuemail']."'");
     }else{
     echo "<script>alert('No such student.');</script>";
+    header("location:editPsw.php");
 }
     $pdo=NULL;
   }
