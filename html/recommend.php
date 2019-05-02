@@ -17,6 +17,8 @@ if(isset($_POST['invite'])){
   $pdo=new PDO($dsn,$db_username,$db_password,$opt);
   $invitecontent="*Flat".$flatNum."invites you to be their friends.";
   $stmt=$pdo->query("insert into messagetable values(default,\"{$userId}\",\"{$invitecontent}\",default,'Invitation',0)");
+    echo "<script>alert('An invitation has been sent');</script>";
+    header("recommend.php");
   $pdo=NULL;
 }
 

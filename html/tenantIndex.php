@@ -4,6 +4,7 @@ error_reporting(0);
 include("Validaccess.php");
 include('connect.php');
 $flatnumber=$_SESSION['flatNum'];
+$userId=$_SESSION['userID'];
 if(!isset($_SESSION['userID'])){
     echo "<script type='text/javascript'>alert('Sorry, you should log in first.'); window.location.href = 'login.php';</script>";
 }
@@ -64,13 +65,17 @@ if(isset($_POST['delete'])){
                 echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
                 echo "<table border='0' id='msgTable'>";//可以的话可以修改一下table的样式，可以直接在下面echo语句中修改html代码
                 foreach ($pdo->query("select * from messagetable natural join usertable where usertable.flatNum=\"{$_SESSION['flatNum']}\" or usertable.userID=1 order by messagetable.date desc")as $row) {
-                  if($row['anonymous']==1){
-                    echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>Anonymous</td></tr>";
-                  }else if($row['anonymous']==0){
-                    echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>".$row['name']."</td></tr>";
-                  }else if($row['flatNum']==$flatnumber){
-                    echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'></td></tr>";
-                  }
+                     if(strcmp($row['type'],'Invitation')==0){
+                      echo "<tr><td class='msg'>Your flat invites a flat to be your friends.</td><td class='userName'></td></tr>";
+                    }else{
+                      if($row['anonymous']==1){
+                        echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>Anonymous</td></tr>";
+                      }else if($row['anonymous']==0){
+                        echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>".$row['name']."</td></tr>";
+                      }else if($row['flatNum']==$flatnumber){
+                        echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'></td></tr>";
+                      }
+                    }
                 }
                 $pdo=NULL;
                  echo "</table></form>";
@@ -101,12 +106,14 @@ if(isset($_POST['delete'])){
                 <?php
                  $pdo=new PDO($dsn,$db_username,$db_password,$opt);
                  foreach ($pdo->query("select * from messagetable where messagetable.userID=\"{$_SESSION['userID']}\" order by messagetable.date desc") as $row) {
+                  if(strcmp($row['type'],'Invitation')!=0){
                    $msgID=$row['msgID'];
                    echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
                    //需要修改以下table的格式和delete按钮的样式
                    echo "<table border='0' id='msgTable'>";
                    echo "<tr><td>".$row['content']."</td><td><input type='hidden' name='msgID' value='".$row['msgID']."'/></td><td class='delete'><input type='submit' name='delete' value='Delete' class='deleteBtn'/></td></tr>";
                    echo "</table></form>";
+                 }
                  }
                  $pdo=NULL;
                  ?>
