@@ -55,7 +55,7 @@ if(isset($_POST['delete'])){
          <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
      </div>
  </head>
- <body id="background" onload="load(); fixRem(); window.addEventListener('resize', fixRem, false);">
+ <body id="background" onload="load(); fixRem(); window.addEventListener('resize', fixRem, false);checkBrowser();">
      <div id="left">
              <div class='calendar' id='calendar'></div>
              <input type="hidden" id="dayforjs" name="dayforjs" value='<?php echo $date;?>' onchange=""> </input>
