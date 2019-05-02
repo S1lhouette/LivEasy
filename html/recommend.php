@@ -144,11 +144,11 @@ if(count($resultlist)>0){
   echo"Flat ".$recoflat;
   echo"<form action='recommend.php' method='post' name='recommendForm'><input type='hidden' name='inviteflat' value='".$recoflat."'/><button class='inviteBtn' name='invite'>Invite</button></form>";
   if(strcmp($type,"major")==0){
-    echo"<p class='reason'>Major is matched.</p>";
+    echo"<p class='reason'>Your are in same major.</p>";
   }elseif (strcmp($type,"university")==0) {
-    echo"<p class='reason'>University is matched.</p>";
+    echo"<p class='reason'>Your are in same university.</p>";
   }elseif(strcmp($type,"genderratio")==0){
-  echo"<p class='reason'>Gender ratio is matched.</p>";
+  echo"<p class='reason'>Your have similar gender ratio.</p>";
   }// 请修改此处的html代码，让invite 按钮在flat右边，切勿删除form，否则后端无法向对方宿舍放松信息
 }else{
   echo"<p>no recommend flat for ".$type." yet</p>";
@@ -186,11 +186,18 @@ if(count($resultlist)>0){
        	<canvas id="chart"> 你的浏览器不支持HTML5 canvas </canvas>
    	</div> -->
  <div id="flatDiv">
-
-  <div class="flats">
-       <div class="chart">
-         <canvas id="chart1"> Sorry, your browser does not support HTML5 canvas </canvas>
-       </div>
+   <div id="charts">
+     <div class="chart">
+       <canvas id="chart1"> Sorry, your browser does not support HTML5 canvas </canvas>
+     </div>
+     <div class="chart">
+       <canvas id="chart2"> Sorry, your browser does not support HTML5 canvas </canvas>
+     </div>
+     <div class="chart">
+       <canvas id="chart3"> Sorry, your browser does not support HTML5 canvas </canvas>
+     </div>
+   </div>
+   <div id="flats">
        <div class="description">
           <?php
            getrecommend("major",$flats,$flatNum,$recomajor,$rocuniv,$rectype,$genderratio);
@@ -198,48 +205,41 @@ if(count($resultlist)>0){
           <input type="hidden" id='ctnformj1' value="<?php echo $htmlctnm; ?>" />
           <input type="hidden" id='ctnforuni1' value="<?php echo $htmlctnuni; ?>" />
           <input type="hidden" id='ctnforgen1' value="<?php echo $htmlctngen; ?>" />
-          <script>
-          var gmaj=parseInt(document.getElementById("ctnformj1").value);
-          var guni=parseInt(document.getElementById("ctnforuni1").value);
-          var ggender=parseInt(document.getElementById("ctnforgen1").value);
-          goChart([[gmaj,'#fd5259','Major'], [guni,'#fdeb65', 'University'], [ggender,'#ade9ff','Gender ratio']],"chart1");</script>
       </div>
-  </div>
 
-  <div class="flats">
-       <div class="chart">
-         <canvas id="chart2"> Sorry, your browser does not support HTML5 canvas </canvas>
-       </div>
-       <div class="description">
+      <div class="description">
+      <?php
+       getrecommend("university",$flats,$flatNum,$recomajor,$rocuniv,$rectype,$genderratio);
+        ?>  <input type="hidden" id='ctnformj2' value="<?php echo $htmlctnm; ?>" />
+          <input type="hidden" id='ctnforuni2' value="<?php echo $htmlctnuni; ?>" />
+          <input type="hidden" id='ctnforgen2' value="<?php echo $htmlctngen; ?>" />
+     </div>
+
+     <div class="description">
        <?php
-        getrecommend("university",$flats,$flatNum,$recomajor,$rocuniv,$rectype,$genderratio);
-         ?>  <input type="hidden" id='ctnformj2' value="<?php echo $htmlctnm; ?>" />
-           <input type="hidden" id='ctnforuni2' value="<?php echo $htmlctnuni; ?>" />
-           <input type="hidden" id='ctnforgen2' value="<?php echo $htmlctngen; ?>" />
-           <script>
-           var gmaj=parseInt(document.getElementById("ctnformj2").value);
-           var guni=parseInt(document.getElementById("ctnforuni2").value);
-           var ggender=parseInt(document.getElementById("ctnforgen2").value);
-           goChart([[gmaj,'#fd5259','Major'], [guni,'#fdeb65', 'University'], [ggender,'#ade9ff','Gender ratio']],"chart2");</script>
-      </div>
-  </div>
+        getrecommend("genderratio",$flats,$flatNum,$recomajor,$rocuniv,$rectype,$genderratio);
+         ?>  <input type="hidden" id='ctnformj3' value="<?php echo $htmlctnm; ?>" />
+           <input type="hidden" id='ctnforuni3' value="<?php echo $htmlctnuni; ?>" />
+           <input  type="hidden" id='ctnforgen3' value="<?php echo $htmlctngen; ?>" />
+    </div>
 
   <div class="flats">
-       <div class="chart">
-         <canvas id="chart3"> Sorry, your browser does not support HTML5 canvas </canvas>
-       </div>
-       <div class="description">
-         <?php
-          getrecommend("genderratio",$flats,$flatNum,$recomajor,$rocuniv,$rectype,$genderratio);
-           ?>  <input type="hidden" id='ctnformj3' value="<?php echo $htmlctnm; ?>" />
-             <input type="hidden" id='ctnforuni3' value="<?php echo $htmlctnuni; ?>" />
-             <input  type="hidden" id='ctnforgen3' value="<?php echo $htmlctngen; ?>" />
-             <script>
-             var gmaj=parseInt(document.getElementById("ctnformj3").value);
-             var guni=parseInt(document.getElementById("ctnforuni3").value);
-             var ggender=parseInt(document.getElementById("ctnforgen3").value);
-           goChart([[gmaj,'#fd5259','Major'], [guni,'#fdeb65', 'University'], [ggender,'#ade9ff','Gender ratio']],"chart3");</script>
-      </div>
+    <script>
+       var gmaj1=parseInt(document.getElementById("ctnformj1").value);
+       var guni1=parseInt(document.getElementById("ctnforuni1").value);
+       var ggender1=parseInt(document.getElementById("ctnforgen1").value);
+
+       var gmaj2=parseInt(document.getElementById("ctnformj2").value);
+       var guni2=parseInt(document.getElementById("ctnforuni2").value);
+       var ggender2=parseInt(document.getElementById("ctnforgen2").value);
+
+       var gmaj3=parseInt(document.getElementById("ctnformj3").value);
+       var guni3=parseInt(document.getElementById("ctnforuni3").value);
+       var ggender3=parseInt(document.getElementById("ctnforgen3").value);
+      goChart([[gmaj1,'#fd5259','Major'], [guni1,'#fdeb65', 'University'], [ggender1,'#ade9ff','Gender ratio']],"chart1",
+        [[gmaj2,'#fd5259','Major'], [guni2,'#fdeb65', 'University'], [ggender2,'#ade9ff','Gender ratio']],"chart2",
+        [[gmaj3,'#fd5259','Major'], [guni3,'#fdeb65', 'University'], [ggender3,'#ade9ff','Gender ratio']],"chart3");</script>
+
   </div>
 
 
