@@ -13,14 +13,18 @@ $gender=array();
   $rectype=NULL;
   $genderratio=NULL;
 
-if(isset($_POST['invite'])){
-  $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-  $invitecontent="*Flat".$flatNum."invites you to be their friends.";
-  $stmt=$pdo->query("insert into messagetable values(default,\"{$userId}\",\"{$invitecontent}\",default,'Invitation',0)");
-    echo "<script>alert('An invitation has been sent');</script>";
-    header("recommend.php");
-  $pdo=NULL;
-}
+
+  if(isset($_POST['invite'])){
+    $pdo=new PDO($dsn,$db_username,$db_password,$opt);
+    $invitecontent="*Flat".$flatNum." invites you to be their friends.";
+    $stmt2= $pdo->query("select * from usertable where usertable.flatNum=\"{$_POST['inviteflat']}\" and usertable.isLeader=1");
+      $row2=$stmt2->fetch(PDO::FETCH_BOTH);
+      $leaderID=$row2['userID'];
+    $stmt=$pdo->query("insert into messagetable values(default,\"{$leaderID}\",\"{$invitecontent}\",default,'Invitation',1)");
+      echo "<script>alert('An invitation has been sent.');</script>";
+      header("recommend.php");
+    $pdo=NULL;
+  }
 
 $pdo=new PDO($dsn,$db_username,$db_password,$opt);
 

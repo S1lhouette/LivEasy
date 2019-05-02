@@ -69,10 +69,7 @@ if(isset($_POST['delete'])){
                         echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>Anonymous</td></tr>";
                       }else if($row['anonymous']==0){
                         echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>".$row['name']."</td></tr>";
-                      }else if($row['flatNum']==$flatnumber){
-                        echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'></td></tr>";
                       }
-                    
                 }
                 $pdo=NULL;
                  echo "</table></form>";
