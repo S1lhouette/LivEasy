@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 include('Validaccess.php');
 include('connect.php');
 $flatNum=$_SESSION['flatNum'];
@@ -85,10 +85,12 @@ function getrecommend($type,$flats,$flatNum,$recomajor,$rocuniv,$rectype,$gender
       $trocuniv=array_search(max(array_count_values($thisuniversity)),array_count_values($thisuniversity));
       $trectype=array_search(max(array_count_values($thistype)),array_count_values($thistype));
       $tgenderratio=$male/count($thisgender);
+  //    echo"univ:".$trocuniv." ";
+  //    echo"thisuniv:".$rocuniv." ";
       if(strcmp($type,"genderratio")==0){
-        if(abs($genderratio-$tgenderratio)<=0.2){
-          $ctn=$ctn+1.5;
-          $htmlctngen=$htmlctngen+15;
+        if(abs($genderratio-$tgenderratio)<=0.3){
+          $ctn=$ctn+4.5;
+          $htmlctngen=$htmlctngen+45;
         }
         if(strcmp($recomajor,$trecomajor)==0){
           $ctn=$ctn+1;
@@ -107,8 +109,8 @@ function getrecommend($type,$flats,$flatNum,$recomajor,$rocuniv,$rectype,$gender
             $htmlctngen=$htmlctngen+10;
         }
         if(strcmp($recomajor,$trecomajor)==0){
-          $ctn=$ctn+1.5;
-          $htmlctnm=$htmlctnm+15;
+          $ctn=$ctn+4.5;
+          $htmlctnm=$htmlctnm+35;
         }
         if(strcmp($rectype,$trectype)==0){
           $ctn=$ctn+1;
@@ -118,7 +120,7 @@ function getrecommend($type,$flats,$flatNum,$recomajor,$rocuniv,$rectype,$gender
             $htmlctnuni=$htmlctnuni+10;
         }
       }else if(strcmp($type,"university")==0){
-        if(abs($genderratio-$tgenderratio)<=0.2){
+        if(abs($genderratio-$tgenderratio)<=0.3){
           $ctn=$ctn+1;
             $htmlctngen=$htmlctngen+10;
         }
@@ -130,31 +132,34 @@ function getrecommend($type,$flats,$flatNum,$recomajor,$rocuniv,$rectype,$gender
           $ctn=$ctn+1;
         }
         if(strcmp($rocuniv,$trocuniv)==0){
-          $ctn=$ctn+1.5;
-            $htmlctnuni=$htmlctnuni+15;
+          $ctn=$ctn+4.5;
+            $htmlctnuni=$htmlctnuni+35;
         }
       }
       $resultlist[$sinflat]=$ctn;
+  //    echo $sinflat."ctn:".$ctn." ";
     }
   }
-
+//echo $htmlctngen;
 $pdo=NULL;
 if(count($resultlist)>0){
   arsort($resultlist);
   reset($resultlist);
+  global $recoflat;
   $recoflat=key($resultlist);
   echo"Flat ".$recoflat;
   echo"<form action='recommend.php' method='post' name='recommendForm'><input type='hidden' name='inviteflat' value='".$recoflat."'/><button class='inviteBtn' name='invite'>Invite</button></form>";
   if(strcmp($type,"major")==0){
-    echo"<p class='reason'>You have the same major.</p>";
+    echo"<p class='reason'>Major is matched.</p>";
   }elseif (strcmp($type,"university")==0) {
-    echo"<p class='reason'>You are in same university.</p>";
+    echo"<p class='reason'>University is matched.</p>";
   }elseif(strcmp($type,"genderratio")==0){
-  echo"<p class='reason'>Your gender ratio are matched.</p>";
+  echo"<p class='reason'>Gender ratio is matched.</p>";
   }// 请修改此处的html代码，让invite 按钮在flat右边，切勿删除form，否则后端无法向对方宿舍放松信息
 }else{
   echo"<p>no recommend flat for ".$type." yet</p>";
 }
+
 }
 
 

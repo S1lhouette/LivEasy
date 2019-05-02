@@ -65,9 +65,6 @@ if(isset($_POST['delete'])){
                 echo "<form action='tenantIndex.php' method='post' name='tenantIndexForm'>";
                 echo "<table border='0' id='msgTable'>";//可以的话可以修改一下table的样式，可以直接在下面echo语句中修改html代码
                 foreach ($pdo->query("select * from messagetable natural join usertable where usertable.flatNum=\"{$_SESSION['flatNum']}\" or usertable.userID=1 order by messagetable.date desc")as $row) {
-                     if(strcmp($row['type'],'Invitation')==0){
-                      echo "<tr><td class='msg'>Your flat invites a flat to be your friends.</td><td class='userName'></td></tr>";
-                    }else{
                       if($row['anonymous']==1){
                         echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'>Anonymous</td></tr>";
                       }else if($row['anonymous']==0){
@@ -75,7 +72,7 @@ if(isset($_POST['delete'])){
                       }else if($row['flatNum']==$flatnumber){
                         echo "<tr><td class='msg'>".$row['content']."</td><td class='userName'></td></tr>";
                       }
-                    }
+                    
                 }
                 $pdo=NULL;
                  echo "</table></form>";
