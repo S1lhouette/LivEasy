@@ -23,7 +23,7 @@ if(isset($_POST["submit"])){
  <html lang="en">
  <head>
      <div id = "head">
-         <text id="logout"> Log out</text>
+         <a href="logout.php" id="logout"> Log out</a>
          <link  rel="stylesheet" type="text/css" href="../css/editPsw.css">
          <script type="text/javascript" src="../js/editPsw.js"></script>
          <a href="landlordIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>

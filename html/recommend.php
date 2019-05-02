@@ -144,11 +144,11 @@ if(count($resultlist)>0){
   echo"Flat ".$recoflat;
   echo"<form action='recommend.php' method='post' name='recommendForm'><input type='hidden' name='inviteflat' value='".$recoflat."'/><button class='inviteBtn' name='invite'>Invite</button></form>";
   if(strcmp($type,"major")==0){
-    echo"<p class='reason'>Major is matched.</p>";
+    echo"<p class='reason'>You have the same major.</p>";
   }elseif (strcmp($type,"university")==0) {
-    echo"<p class='reason'>University is matched.</p>";
+    echo"<p class='reason'>You are in same university.</p>";
   }elseif(strcmp($type,"genderratio")==0){
-  echo"<p class='reason'>Gender ratio is matched.</p>";
+  echo"<p class='reason'>Your gender ratio are matched.</p>";
   }// 请修改此处的html代码，让invite 按钮在flat右边，切勿删除form，否则后端无法向对方宿舍放松信息
 }else{
   echo"<p>no recommend flat for ".$type." yet</p>";
@@ -170,7 +170,7 @@ if(count($resultlist)>0){
  </style>
  <head>
      <div id = "head">
-         <text id="logout"> Log out</text>
+          <a href="logout.php" id="logout"> Log out</a>
          <link  rel="stylesheet" type="text/css" href="../css/recommend.css">
          <script type="text/javascript" src="../js/recommend.js"></script>
          <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
