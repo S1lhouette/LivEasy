@@ -7,12 +7,13 @@ function load() {
 document.getElementById("selectedDay").innerText = todayString;
 document.getElementById("today").value=todayString;
 document.getElementById("today").innerText=todayString;
+var phpGetDay = document.getElementById("dayforjs").value;
+var selectedMonth = phpGetDay.substr(6,1);
 var table = document.getElementById("calendarTable");
 var tds = table.getElementsByTagName('td');
 for(var i = 0; i < tds.length; i++) {
   // alert(tds[i].getAttribute('data'));
   var cellDay = tds[i].getAttribute('data');
-  var phpGetDay = document.getElementById("dayforjs").value;
   var cellDayStr = cellDay.substr(0,4) + "-"+cellDay.substr(4,2)+"-"+cellDay.substr(6,2);
   if( phpGetDay == cellDayStr){
     //alert(phpGetDay);

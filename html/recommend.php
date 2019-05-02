@@ -146,11 +146,11 @@ if(count($resultlist)>0){
   echo"Flat ".$recoflat;
   echo"<form action='recommend.php' method='post' name='recommendForm'><input type='hidden' name='inviteflat' value='".$recoflat."'/><button class='inviteBtn' name='invite'>Invite</button></form>";
   if(strcmp($type,"major")==0){
-    echo"<p class='reason'>Major is matched.</p>";
+    echo"<p class='reason'>You have the same major.</p>";
   }elseif (strcmp($type,"university")==0) {
-    echo"<p class='reason'>University is matched.</p>";
+    echo"<p class='reason'>You are in same university.</p>";
   }elseif(strcmp($type,"genderratio")==0){
-  echo"<p class='reason'>Gender ratio is matched.</p>";
+  echo"<p class='reason'>Your gender ratio are matched.</p>";
   }// 请修改此处的html代码，让invite 按钮在flat右边，切勿删除form，否则后端无法向对方宿舍放松信息
 }else{
   echo"<p>no recommend flat for ".$type." yet</p>";
@@ -172,7 +172,7 @@ if(count($resultlist)>0){
  </style>
  <head>
      <div id = "head">
-         <text id="logout"> Log out</text>
+          <a href="logout.php" id="logout"> Log out</a>
          <link  rel="stylesheet" type="text/css" href="../css/recommend.css">
          <script type="text/javascript" src="../js/recommend.js"></script>
          <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
@@ -250,6 +250,43 @@ if(count($resultlist)>0){
  </div>
 
   <script>
+  function IEVersion() {
+  var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+  var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
+  var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器
+  var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+  if(isIE) {
+      var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+      reIE.test(userAgent);
+      var fIEVersion = parseFloat(RegExp["$1"]);
+      if(fIEVersion == 7) {
+          return 7;
+      } else if(fIEVersion == 8) {
+          return 8;
+      } else if(fIEVersion == 9) {
+          return 9;
+      } else if(fIEVersion == 10) {
+          return 10;
+      } else {
+          return 6;//IE版本<=7
+      }
+  } else if(isEdge) {
+      return 'edge';//edge
+  } else if(isIE11) {
+      return 11; //IE11
+  }else{
+      return -1;//不是ie浏览器
+  }
+  }
+
+  function checkBrowser(){
+  var browserName = IEVersion();
+  if(browserName == 7|| browserName == 8||browserName == 9||browserName == 10||browserName == 6||browserName == 11||browserName == 'edge'){
+    var logo = document.getElementById("logoSmall");
+    logo.style.height = "1rem";
+    var logout = document.getElementById("logout");
+    logout.style.fontSize = "0.1rem";}
+  }
   window.onload=function() {
       function fixRem() {
           var windowWidth = document.documentElement.clientWidth || window.innerWidth || document.body.clientWidth;
@@ -261,6 +298,7 @@ if(count($resultlist)>0){
       }
       fixRem();
       window.addEventListener('resize', fixRem, false);
+      checkBrowser();
   }
   </script>
  </body>
