@@ -47,6 +47,7 @@ if(isset($_POST['delete'])){
          <a href="logout.php" id="logout"> Log out</a>
          <link  rel="stylesheet" type="text/css" href="../css/timetable.css">
          <script type="text/javascript" src="../js/timetable.js"></script>
+          <script type='text/javascript' src="../js/calendar.js"></script>
          <a href="tenantIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
          <a href="tenantIndex.php" id="webName"><text id="title"> LivEasy </text></a>
          <a href="tenantIndex.php"><button class="navigation" id="myBillboard" name="myBillboard">My Billboard</button></a>
@@ -55,11 +56,11 @@ if(isset($_POST['delete'])){
          <a href="finance.php"><button class="navigation" id="myAccounting" name="myAccounting">My Accounting</button></a>
      </div>
  </head>
- <body id="background" onload="load(); fixRem(); window.addEventListener('resize', fixRem, false);checkBrowser();">
+ <body id="background" onload="canlendar111();load(); fixRem(); window.addEventListener('resize', fixRem, false);checkBrowser();">
      <div id="left">
              <div class='calendar' id='calendar'></div>
              <input type="hidden" id="dayforjs" name="dayforjs" value='<?php echo $date;?>' onchange=""> </input>
-             <script type='text/javascript' src="../js/calendar.js"></script>
+             <!-- <script type='text/javascript' src="../js/calendar.js"></script> -->
              <!--由于效果改变了，
              所以需要重写js中日历
             的效果，若太复杂把所有效果删掉也可以
