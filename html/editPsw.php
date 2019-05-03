@@ -11,6 +11,7 @@ if(isset($_POST["submit"])){
     $stn=$pdo->query("select* from usertable where usertable.email='".$_POST['inpuemail']."'");
       if($row = $stn->fetch()){
           $stmt=$pdo->query("update usertable set password='".$password."' where usertable.email='".$_POST['inpuemail']."'");
+          $errormsg="The password has been changed successfully.";
       }else{
       $errormsg="The tenant could not be found！";
   }
