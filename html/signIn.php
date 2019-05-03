@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
 
       echo "<script>alert('The application has been sent to the landlord. Please wait for his activating of your account.')</script>";
       header("location:login.php");
-    }else if($flat=="false"){
+    }else if($flag=="false"){
       $label="This email has been used or the owner of the room has registered.";
     }else{
       $label="This flat is full. Please check your flat number with the landlord.";

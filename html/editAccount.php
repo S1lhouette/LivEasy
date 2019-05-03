@@ -11,7 +11,8 @@ if(isset($_POST['Save'])){
   try {
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
     $name=$_POST['firstName']." ".$_POST['lastName'];
-    $stmt=$pdo->query("update usertable set name='".$name."', password='".$_POST['password']."', university='".$_POST['university']."', major='".$_POST['major']."' where userID=".$_SESSION['userID']);
+    $hash=password_hash($_POST['password'],PASSWORD_DEFAULT);
+    $stmt=$pdo->query("update usertable set name='".$name."', password='".$hash."', university='".$_POST['university']."', major='".$_POST['major']."' where userID=".$_SESSION['userID']);
 
     $pdo=NULL;
     echo "<script type='text/javascript'>alert('The information of the account has been editted. Please log in again.'); window.location.href = 'login.php';</script>";
