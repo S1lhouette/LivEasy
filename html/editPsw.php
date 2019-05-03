@@ -2,19 +2,21 @@
 include("connect.php");
 include("validaccessland.php");
 
+$flag=false;
+$errormsg=NULL;
 if(isset($_POST["submit"])){
   if(strcmp($_POST['newpsw'],$_POST['confpsw'])==0){
     $password=password_hash($_POST['newpsw'],PASSWORD_DEFAULT);
     $pdo=new PDO($dsn,$db_username,$db_password,$opt);
-   $stn=$pdo->query("select* from usertable where usertable.email='".$_POST['inpuemail']."'");
-    if($row = $stn->fetch()){
-        $stmt=$pdo->query("update usertable set password='".$password."' where usertable.email='".$_POST['inpuemail']."'");
-    }else{
-    echo "<script>alert('No such student.');</script>";
-    header("location:editPsw.php");
-}
+    $stn=$pdo->query("select* from usertable where usertable.email='".$_POST['inpuemail']."'");
+      if($row = $stn->fetch()){
+          $stmt=$pdo->query("update usertable set password='".$password."' where usertable.email='".$_POST['inpuemail']."'");
+      }else{
+      $errormsg="No such student.";
+  }
     $pdo=NULL;
   }
+//  header("location:editPsw.php");
 }
 
 
@@ -23,7 +25,7 @@ if(isset($_POST["submit"])){
  <html lang="en">
  <head>
      <div id = "head">
-         <a href="logout.php" id="logout"> Log out</a>
+         <text id="logout"> Log out</text>
          <link  rel="stylesheet" type="text/css" href="../css/editPsw.css">
          <script type="text/javascript" src="../js/editPsw.js"></script>
          <a href="landlordIndex.php"><img id="logoSmall" src="../images/logo.png" alt="logo"></a>
@@ -55,10 +57,10 @@ if(isset($_POST["submit"])){
                  <td class="nameTd">Confirm Password</td> <td class="inputTd"><input name="confpsw" type="password" id="psw2" class="inputText" onkeyup="verifyPsw()"></td><td id="hint"></td>
              </tr>
          </table>
-     </div>
      <input type="submit" value="Submit" id="submitBtn"name="submit">
      </form>
+     <text type='hidden' id='errormsg' name='errormsg'><?php echo $errormsg;?></text>
  </div>
-
+ <input type= "hidden">
  </body>
  </html>
