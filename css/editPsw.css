@@ -157,3 +157,10 @@ html{
     margin-left: 0.25rem;
     width: 2rem;
 }
+
+#errormsg{
+  width: 20%;
+  color: red;
+  font-weight: normal;
+  font-size: 0.1rem;
+}

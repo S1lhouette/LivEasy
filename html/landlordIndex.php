@@ -65,7 +65,7 @@ if(isset($_POST['finishBtn'])){
     <script type="text/javascript" src="../js/landlordIndex.js"></script>
 
 </head>
-<body id="background">
+<body id="background" onload="checkBrowser()">
   <div  id="head">
     <a href="logout.php" id="logout"> Log out</a>
     <img id="logoSmall" src="../images/logo.png" alt="logo">
